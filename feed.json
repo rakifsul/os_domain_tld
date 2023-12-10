@@ -1,0 +1,83 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "RAKIFSUL OS",
+    "description": "",
+    "home_page_url": "https://os.rakifsul.my.id",
+    "feed_url": "https://os.rakifsul.my.id/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "RAKIFSUL"
+    },
+    "items": [
+        {
+            "id": "https://os.rakifsul.my.id/cara-build-blender-aplikasi-3d-editor-open-source.html",
+            "url": "https://os.rakifsul.my.id/cara-build-blender-aplikasi-3d-editor-open-source.html",
+            "title": "Cara Build Blender - Aplikasi 3D Editor Open Source",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Build",
+                   "Blog"
+            ],
+            "date_published": "2023-12-11T02:14:54+07:00",
+            "date_modified": "2023-12-11T02:14:54+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/cara-membuat-disclaimer-dengan-disclaimer-generator.html",
+            "url": "https://os.rakifsul.my.id/cara-membuat-disclaimer-dengan-disclaimer-generator.html",
+            "title": "Cara Membuat Disclaimer dengan Disclaimer Generator",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Web",
+                   "Blog"
+            ],
+            "date_published": "2023-12-11T02:13:49+07:00",
+            "date_modified": "2023-12-11T02:13:49+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/cara-menggunakan-macrodroid-di-android.html",
+            "url": "https://os.rakifsul.my.id/cara-menggunakan-macrodroid-di-android.html",
+            "title": "Cara Menggunakan MacroDroid di Android",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Blog",
+                   "Android"
+            ],
+            "date_published": "2023-12-11T02:12:53+07:00",
+            "date_modified": "2023-12-11T02:13:08+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/mengenal-nvm.html",
+            "url": "https://os.rakifsul.my.id/mengenal-nvm.html",
+            "title": "Mengenal NVM",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Linux",
+                   "Blog"
+            ],
+            "date_published": "2023-12-11T02:12:03+07:00",
+            "date_modified": "2023-12-11T02:13:02+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/mengenal-nvm-windows.html",
+            "url": "https://os.rakifsul.my.id/mengenal-nvm-windows.html",
+            "title": "Mengenal NVM Windows",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Windows",
+                   "Blog"
+            ],
+            "date_published": "2023-12-11T02:11:44+07:00",
+            "date_modified": "2023-12-11T02:11:44+07:00"
+        }
+    ]
+}

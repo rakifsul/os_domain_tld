@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://os.rakifsul.my.id/sitemap.xml

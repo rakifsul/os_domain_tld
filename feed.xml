@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>RAKIFSUL OS</title>
+    <link href="https://os.rakifsul.my.id/feed.xml" rel="self" />
+    <link href="https://os.rakifsul.my.id" />
+    <updated>2023-12-11T02:14:54+07:00</updated>
+    <author>
+        <name>RAKIFSUL</name>
+    </author>
+    <id>https://os.rakifsul.my.id</id>
+
+    <entry>
+        <title>Cara Build Blender - Aplikasi 3D Editor Open Source</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/cara-build-blender-aplikasi-3d-editor-open-source.html"/>
+        <id>https://os.rakifsul.my.id/cara-build-blender-aplikasi-3d-editor-open-source.html</id>
+            <category term="Build"/>
+            <category term="Blog"/>
+
+        <updated>2023-12-11T02:14:54+07:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+    <entry>
+        <title>Cara Membuat Disclaimer dengan Disclaimer Generator</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/cara-membuat-disclaimer-dengan-disclaimer-generator.html"/>
+        <id>https://os.rakifsul.my.id/cara-membuat-disclaimer-dengan-disclaimer-generator.html</id>
+            <category term="Web"/>
+            <category term="Blog"/>
+
+        <updated>2023-12-11T02:13:49+07:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+    <entry>
+        <title>Cara Menggunakan MacroDroid di Android</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/cara-menggunakan-macrodroid-di-android.html"/>
+        <id>https://os.rakifsul.my.id/cara-menggunakan-macrodroid-di-android.html</id>
+            <category term="Blog"/>
+            <category term="Android"/>
+
+        <updated>2023-12-11T02:13:08+07:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+    <entry>
+        <title>Mengenal NVM</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/mengenal-nvm.html"/>
+        <id>https://os.rakifsul.my.id/mengenal-nvm.html</id>
+            <category term="Linux"/>
+            <category term="Blog"/>
+
+        <updated>2023-12-11T02:13:02+07:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+    <entry>
+        <title>Mengenal NVM Windows</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/mengenal-nvm-windows.html"/>
+        <id>https://os.rakifsul.my.id/mengenal-nvm-windows.html</id>
+            <category term="Windows"/>
+            <category term="Blog"/>
+
+        <updated>2023-12-11T02:11:44+07:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+</feed>
