@@ -3,25 +3,113 @@
     <title>RAKIFSUL OS</title>
     <link href="https://os.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://os.rakifsul.my.id" />
-    <updated>2023-12-11T02:14:54+07:00</updated>
+    <updated>2023-12-11T04:55:59+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://os.rakifsul.my.id</id>
 
     <entry>
-        <title>Cara Build Blender - Aplikasi 3D Editor Open Source</title>
+        <title>Cara Build Blender 3.6.0 - Aplikasi 3D Editor Open Source</title>
         <author>
             <name>RAKIFSUL</name>
         </author>
-        <link href="https://os.rakifsul.my.id/cara-build-blender-aplikasi-3d-editor-open-source.html"/>
-        <id>https://os.rakifsul.my.id/cara-build-blender-aplikasi-3d-editor-open-source.html</id>
+        <link href="https://os.rakifsul.my.id/cara-build-blender-360-aplikasi-3d-editor-open-source.html"/>
+        <id>https://os.rakifsul.my.id/cara-build-blender-360-aplikasi-3d-editor-open-source.html</id>
             <category term="Build"/>
             <category term="Blog"/>
 
-        <updated>2023-12-11T02:14:54+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-11T04:37:23+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Apa itu Windows 11? Windows 11 adalah versi Windows yang lebih baru daripada Windows 10, Windows 8, Windows 7, Windows Vista, dan Windows XP. Windows adalah sistem operasi yang umumnya digunakan untuk pc dan laptop. Blender adalah aplikasi 3D editing yang bersifat gratis dan open&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Apa itu Windows 11?</h2>
+<p>Windows 11 adalah versi Windows yang lebih baru daripada Windows 10, Windows 8, Windows 7, Windows Vista, dan Windows XP.</p>
+<h2>Apa itu Windows?</h2>
+<p>Windows adalah sistem operasi yang umumnya digunakan untuk pc dan laptop.</p>
+<h2>Apa itu Blender?</h2>
+<p>Blender adalah aplikasi 3D editing yang bersifat gratis dan open source.</p>
+<h2>Apa itu source code?</h2>
+<p>Source code adalah teks yang berisi instruksi untuk melakukan sesuatu dalam sebuah program dengan bahasa pemrograman tertentu.</p>
+<p>Umumnya, source code berupa file teks.</p>
+<h2>Dengan bahasa pemrograman apa source code Blender 3.6.0 ditulis?</h2>
+<p>Berdasarkan ekstensi file source code-nya, sebagian besar dengan bahasa pemrograman C dan C++.</p>
+<h2>Apakah Blender itu gratis?</h2>
+<p>Ya, seperti yang kami tulis sebelumnya. Blender bersifat gratis dan open source.</p>
+<h2>Build, apa itu build?</h2>
+<p>Build, dalam hal ini, artinya adalah membangun suatu aplikasi siap pakai dari source code nya. Bentuk aplikasi siap pakai ini, di Windows, berformat .exe dan mungkin ada juga file .dll-nya.</p>
+<h2>Kenapa kita perlu mem-build Blender 3.6.0 dari source code?</h2>
+<p>Untuk alasan ini:</p>
+<ul>
+<li>Mungkin kita ingin berkontribusi dalam pengembangan Blender 3.6.0</li>
+<li>Mungkin kita ingin menambah fitur Blender 3.6.0</li>
+<li>Mungkin kita ingin membuat Blender 3.6.0 versi kita sendiri</li>
+</ul>
+<h2>Apakah mem-build Blender 3.6.0 itu sulit?</h2>
+<p>Tergantung.</p>
+<p>Jika Anda hanya mengandalkan dokumentasi saja, mungkin sulit.</p>
+<p>Tapi, jika Anda bersedia melakukan riset terhadap caranya di search engine atau di forum-forum, mungkin Anda akan mendapatkan petunjuk yang mempermudahnya.</p>
+<p>Oleh karena itu, tulisan ini merangkum proses tersebut dalam sebuah artikel.</p>
+<h2>OK. Jadi, apa saja persiapan untuk build Blender 3.6.0 dari source code di Windows 11?</h2>
+<p><strong>Pertama, Anda perlu meng-install git.</strong></p>
+<p>Walaupun penggunaan git tidak terlihat secara langsung, tetapi mungkin ini akan berguna. Jadi, lebih aman install saja.</p>
+<p>Enable “add Git to your PATH” saat di-install.</p>
+<p>Untuk men-download git, kunjungi:</p>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer noopener nofollow">https://git-scm.com/downloads</a></p>
+<p><strong>Kedua, Anda perlu meng-install svn client.</strong></p>
+<p>Gunakan SilkSVN, karena ini yang kami pakai.</p>
+<p>SVN Client digunakan untuk men-download dependencies dari source code Blender.</p>
+<p>Untuk men-download SilkSVN, kunjungi:</p>
+<p><a href="https://sliksvn.com/download/" target="_blank" rel="noreferrer noopener nofollow">https://sliksvn.com/download/</a></p>
+<p><strong>Ketiga, Anda perlu meng-install CMake.</strong></p>
+<p>CMake berguna untuk membuat file platform-specific project file yang cross platform.</p>
+<p>Karena kita menggunakan Windows, maka CMake akan membuatkan file project yang compatible dengan Visual Studio Community 2022.</p>
+<p>Sekali lagi, mungkin penggunaannya tidak terlihat secara langsung, tapi ini benar-benar dibutuhkan.</p>
+<p>Enable “Add CMake to the system PATH for all users” saat di-install.</p>
+<p>Untuk mendapatkannya, kunjungi:</p>
+<p><a href="https://cmake.org/download/" target="_blank" rel="noreferrer noopener nofollow">https://cmake.org/download/</a></p>
+<p><strong>Keempat, Anda perlu meng-install Visual Studio Community 2022</strong></p>
+<p>Walaupun ukurannya cukup besar, kita benar-benar memerlukan ini, karena prosess build akan dilakukan dengan ini.</p>
+<p>Enable “Desktop Development with C++” Saat di-install.</p>
+<p>Untuk mendapatkannya, kunjungi:</p>
+<p><a href="https://visualstudio.microsoft.com/free-developer-offers/" target="_blank" rel="noreferrer noopener nofollow">https://visualstudio.microsoft.com/free-developer-offers/</a></p>
+<p><strong>Kelima, Anda harus mendapatkan source code Blender versi 3.6.0.</strong></p>
+<p>Untuk mendapatkannya, kunjungi:</p>
+<p><a href="https://download.blender.org/source/blender-3.6.0.tar.xz" target="_blank" rel="noreferrer noopener nofollow">https://download.blender.org/source/blender-3.6.0.tar.xz</a></p>
+<p><strong>Keenam, Anda harus meng-install 7-Zip.</strong></p>
+<p>7-Zip digunakan untuk mengekstrak file .tar.xz dari source code Blender tadi.</p>
+<p>Untuk mendapatkannya, kunjungi:</p>
+<p><a href="https://www.7-zip.org/" target="_blank" rel="noreferrer noopener nofollow">https://www.7-zip.org/</a></p>
+<h2>OK. Saya sudah meng-install itu semua. Selanjutnya apa?</h2>
+<p><strong>Langkah pertama, buat sebuah folder bernama “Blender-3.6.0-Mod”.</strong></p>
+<p>Sebenarnya, namanya bebas. Ini hanya untuk kesesuaian dalam tutorial ini agar lebih mudah.</p>
+<p>Masukkan file source code Blender ke dalam folder ini, kemudian ekstrak dengan 7-Zip.</p>
+<p>Ekstrak pertama akan menghasilkan .tar, ekstrak lagi hingga hasilnya folder.</p>
+<p>folder ini bernama “blender-3.6.0”.</p>
+<p><strong>Langkah kedua, buat folder bernama “lib” di dalam folder “Blender-3.6.0-Mod”.</strong></p>
+<p>Jadi, posisi folder “lib” ini sejajar dengan folder “blender-3.6.0”.</p>
+<p>Selanjutnya, masuk ke dalam folder “lib” dan jalankan perintah ini dengan PowerShell atau CMD:</p>
+<pre>svn checkout https://svn.blender.org/svnroot/bf-blender/tags/blender-3.6-release/lib/win64_vc15/</pre>
+<p>Ini akan men-download dependency Blender 3.6.0 dan ukurannya cukup besar. Jadi akan agak lama.</p>
+<p><strong>Langkah ketiga, masuklah ke dalam folder “blender-3.6.0” dengan CMD.</strong></p>
+<p>WAJIB dengan CMD, tidak bisa dengan PowerShell, karena kita akan menjalankan perintah batch di sini.</p>
+<p><strong>Langkah keempat, jalankan perintah ini dengan CMD tadi:</strong></p>
+<pre>make</pre>
+<p>Proses build akan dimulai. Ini akan lama. Silakan tunggu.</p>
+<p>Setelah selesai, Anda bisa mendapatkan executables dan binary dari Blender di folder “build_windows_x64_vc17_Release/bin/Release”.</p>
+<p><strong>Langkah kelima, tidak wajib, Anda bisa membuat file installer untuk Blender.</strong></p>
+<p>Caranya, Anda bisa menggunakan NSIS, tapi kami tidak membahasnya di sini.</p>
+<p>Untuk mendapatkan NSIS, kunjungi:</p>
+<p><a href="https://nsis.sourceforge.io/Download" target="_blank" rel="noreferrer noopener nofollow">https://nsis.sourceforge.io/Download</a></p>
+<p>Silakan pelajari sendiri.</p>
+<h2>OK. Sekarang saya paham. Terima kasih ya…</h2>
+<p>Sama-sama.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
         <title>Cara Membuat Disclaimer dengan Disclaimer Generator</title>
@@ -33,9 +121,40 @@
             <category term="Web"/>
             <category term="Blog"/>
 
-        <updated>2023-12-11T02:13:49+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-11T04:38:19+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Apa itu disclaimer? Disclaimer adalah pernyataan bahwa kita tidak bertanggung jawab secara legal atas sesuatu. Disclaimer generator adalah aplikasi yang dapat membuatkan disclaimer berdasarkan input yang kita berikan. Karena mudah, cepat, dan hanya membutuhkan sedikit usaha. Caranya cukup mudah. Pertama, pastikan komputer Anda terkoneksi ke&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Apa itu disclaimer?</h2>
+<p>Disclaimer adalah pernyataan bahwa kita tidak bertanggung jawab secara legal atas sesuatu.</p>
+<h2>Apa itu disclaimer generator?</h2>
+<p>Disclaimer generator adalah aplikasi yang dapat membuatkan disclaimer berdasarkan input yang kita berikan.</p>
+<h2>Kenapa kita menggunakan disclaimer generator?</h2>
+<p>Karena mudah, cepat, dan hanya membutuhkan sedikit usaha.</p>
+<h2>Lalu, bagaimana cara menggunakan disclaimer generator untuk membuat disclaimer?</h2>
+<p>Caranya cukup mudah.</p>
+<p>Pertama, pastikan komputer Anda terkoneksi ke internet.</p>
+<p>Kedua, kunjungi halaman web ini:</p>
+<p><a href="https://www.privacypolicyonline.com/disclaimer-generator/" target="_blank" rel="noreferrer noopener nofollow">https://www.privacypolicyonline.com/disclaimer-generator/</a></p>
+<p>Di sana ada beberapa input yang perlu dimasukkan:</p>
+<ul>
+<li>Nama website</li>
+<li>URL website</li>
+<li>Country</li>
+<li>State</li>
+<li>Email address</li>
+</ul>
+<p>Masukkan semua input tadi dengan benar, kemudian klik “Create Disclaimer”.</p>
+<p>Selanjutnya Anda akan diarahkan ke halaman disclaimer.</p>
+<p>Di sana, Anda tinggal copy saja disclaimer-nya ke halaman web Anda.</p>
+<h2>OK. Sekarang saya mengerti. Terima kasih…</h2>
+<p>Sama-sama.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
         <title>Cara Menggunakan MacroDroid di Android</title>
@@ -47,36 +166,211 @@
             <category term="Blog"/>
             <category term="Android"/>
 
-        <updated>2023-12-11T02:13:08+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-11T04:48:24+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Android adalah sistem operasi yang cukup umum digunakan di perangkat mobile. Sistem operasi tersebut memiliki banyak fitur bawaan dan juga aplikasi. Tiap aplikasi pun bisa memiliki fitur-fitur yang berbeda. Ada fitur yang hanya bisa digunakan secara manual, seperti browsing, note taking, dan lain-lain. Ada juga&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Android adalah sistem operasi yang cukup umum digunakan di perangkat mobile.</p>
+<p>Sistem operasi tersebut memiliki banyak fitur bawaan dan juga aplikasi.</p>
+<p>Tiap aplikasi pun bisa memiliki fitur-fitur yang berbeda.</p>
+<p>Ada fitur yang hanya bisa digunakan secara manual, seperti browsing, note taking, dan lain-lain.</p>
+<p>Ada juga fitur yang bisa digunakan secara otomatis, seperti alarm, reminder, dan timer.</p>
+<p>Lalu, apakah kita bisa mengotomatisasi fitur-fitur manual di Android?</p>
+<p>Jawabannya bisa.</p>
+<p>Caranya adalah dengan menggunakan aplikasi bernama MacroDroid.</p>
+<p>Dengan aplikasi tersebut, kita bisa mendaftarkan trigger, action, dan constraint.</p>
+<p>Trigger adalah pemicu yang menyebabkan action dikerjakan.</p>
+<p>Adapun constraint adalah kondisi yang membatasi action untuk dikerjakan.</p>
+<p>Berikut ini, kami akan memberi contoh sederhana penggunaan MacroDroid untuk menjalankan aplikasi Chrome saat hari dan waktu yang ditentukan.</p>
+<p>Pertama, install MacroDroid, cari di Play Store.</p>
+<p>Setelah diinstall, jalankan.</p>
+<p>Selanjutnya, akan muncul tampilan ini.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-183952.png" alt="" width="541" height="935" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-183952-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-183952-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-183952-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-183952-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-183952-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-183952-2xl.png 1600w"></figure>
+<p>Klik pada tombol Add Macro.</p>
+<p>Selanjutnya, akan muncul tampilan ini.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184000.png" alt="" width="541" height="935" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184000-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184000-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184000-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184000-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184000-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184000-2xl.png 1600w"></figure>
+<p>Tambahkan Trigger, pilih Date/Time &gt; Day/Time Trigger.</p>
+<p>Kemudian isi dengan nama hari dan waktu di masa depan.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184020.png" alt="" width="541" height="935" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184020-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184020-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184020-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184020-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184020-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184020-2xl.png 1600w"></figure>
+<p>Sekarang, setting trigger selesai.</p>
+<p>Kita akan melanjutkannya dengan setting action.</p>
+<p>Tambahkan action.</p>
+<p>Nanti akan muncul tampilan seperti ini.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184100.png" alt="" width="506" height="901" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184100-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184100-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184100-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184100-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184100-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184100-2xl.png 1600w"></figure>
+<p>Pilih Applications.</p>
+<p>Nanti akan muncul tampilan seperti ini.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184111.png" alt="" width="506" height="901" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184111-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184111-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184111-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184111-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184111-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184111-2xl.png 1600w"></figure>
+<p>Pilih Launch Application dan ambil Chrome.</p>
+<p>Tampilannya seperti ini.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184120.png" alt="" width="506" height="901" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184120-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184120-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184120-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184120-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184120-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184120-2xl.png 1600w"></figure>
+<p>Setelah aplikasi dipilih, pilih Force New.</p>
+<p>Untuk constraint sendiri, itu tidak wajib, jadi kosongkan saja. Juga, beri nama pada macro ini. Di sini saya beri nama “Tutorial”.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184148.png" alt="" width="541" height="935" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184148-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184148-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184148-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184148-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184148-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184148-2xl.png 1600w"></figure>
+<p>Klik tanda panah ke kiri di atas layar.</p>
+<p>Nanti, jika Anda buka daftar macro nya, macro Anda akan tampil di sana.</p>
+<figure class="post__image post__image--center"><img loading="lazy"  src="https://os.rakifsul.my.id/media/posts/4/Screenshot-2023-06-10-184159-2.png" alt="" width="506" height="901" sizes="(max-width: 48em) 100vw, 768px" srcset="https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184159-2-xs.png 300w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184159-2-sm.png 480w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184159-2-md.png 768w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184159-2-lg.png 1024w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184159-2-xl.png 1360w ,https://os.rakifsul.my.id/media/posts/4/responsive/Screenshot-2023-06-10-184159-2-2xl.png 1600w"></figure>
+<p>Selanjutnya, tunggu hingga waktu yang didaftarkan terlalui.</p>
+<p>Jika sudah, maka Chrome akan jalan dengan sendirinya.</p>
+<p>Saya rasa cukup sekian.</p>
+<p>Selamat mencoba.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
-        <title>Mengenal NVM</title>
+        <title>Cara Menginstall dan Menggunakan NVM di Ubuntu Server</title>
         <author>
             <name>RAKIFSUL</name>
         </author>
-        <link href="https://os.rakifsul.my.id/mengenal-nvm.html"/>
-        <id>https://os.rakifsul.my.id/mengenal-nvm.html</id>
+        <link href="https://os.rakifsul.my.id/cara-menginstall-dan-menggunakan-nvm-di-ubuntu-server.html"/>
+        <id>https://os.rakifsul.my.id/cara-menginstall-dan-menggunakan-nvm-di-ubuntu-server.html</id>
             <category term="Linux"/>
             <category term="Blog"/>
 
-        <updated>2023-12-11T02:13:02+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-11T04:53:58+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Ubuntu, apakah Ubuntu itu? Ubuntu adalah sistem operasi berbasis Linux yang bersifat gratis dan open source. Ubuntu ada yang untuk desktop dan ada yang untuk server. Ubuntu untuk server disebut Ubuntu Server. Ubuntu desktop sudah disertai GUI untuk menggunakannya, sedangkan Ubuntu Server tidak. Sehingga, dalam&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Ubuntu, apakah Ubuntu itu?</h2>
+<p>Ubuntu adalah sistem operasi berbasis Linux yang bersifat gratis dan open source.</p>
+<p>Ubuntu ada yang untuk desktop dan ada yang untuk server.</p>
+<p>Ubuntu untuk server disebut Ubuntu Server.</p>
+<h2>Apa bedanya Ubuntu Desktop dan Ubuntu Server?</h2>
+<p>Ubuntu desktop sudah disertai GUI untuk menggunakannya, sedangkan Ubuntu Server tidak.</p>
+<p>Sehingga, dalam penggunaan Ubuntu Server, digunakan terminal baik secara lokal maupun remote.</p>
+<h2>NVM, apa itu NVM?</h2>
+<p>NVM merupakan singkatan dari Node.js Version Manager.</p>
+<p>Artinya, kita bisa memanajemen versi Node.js dengan aplikasi tersebut.</p>
+<p>Sebagai contoh, kita bisa install, remove, dan use Node.js dari berbagai versi melalui aplikasi tersebut.</p>
+<h2>Oiya, saya pernah baca juga tentang NVM Windows. Jadi ini versi untuk non Windows-nya ya?</h2>
+<p>Iya betul. NVM Windows untuk Windows dan NVM untuk Linux dan Mac.</p>
+<p>Karena Ubuntu Server merupakan Linux, maka kita bisa menggunakannya di Ubuntu Server.</p>
+<h2>Apakah NVM sulit diinstall?</h2>
+<p>Sama sekali tidak.</p>
+<p>Walaupun proses install via terminal, perintahnya cukup sederhana.</p>
+<h2>Apakah NVM gratis?</h2>
+<p>Ya, NVM gratis dan open source.</p>
+<h2>OK. Kalau begitu tunjukkan saya cara meng-install-nya!</h2>
+<p>Baik.</p>
+<p>Pertama, jalankan Ubuntu Server Anda.</p>
+<p>Selanjutnya, buka terminal.</p>
+<p>Selanjutnya, jika Anda belum install curl, jalankan:</p>
+<pre>sudo apt install curl</pre>
+<p>Jika sudah, jalankan perintah ini:</p>
+<pre>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</pre>
+<p>Tunggu sebentar, kemudian jalankan perintah ini:</p>
+<pre>export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] &amp;&amp; printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"<br>[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; . "$NVM_DIR/nvm.sh" # This loads nvm</pre>
+<p>Sekarang, Anda bisa menggunakannya.</p>
+<p>Untuk mengecek bahwa proses install berhasil, jalankan:</p>
+<pre>nvm -v</pre>
+<h2>OK. Bisakah Anda beritahu saya cara penggunaan sederhananya?</h2>
+<p>Bisa.</p>
+<p>Ini adalah cara meng-install Node.js versi tertentu. Contohnya versi 18:</p>
+<pre>nvm install 18</pre>
+<p>Perintah itu akan meng-install Node.js versi 18 yang terbaru.</p>
+<p>Ini adalah cara untuk me-listing versi-versi Node.js yang sudah ter-install:</p>
+<pre>nvm list</pre>
+<p>Ini adalah cara menggunakan Node.js versi tertentu. Contohnya versi 18:</p>
+<pre>nvm use 18</pre>
+<p>Setelah Anda menjalankan perintah tadi, Anda bisa cek versi Node.js nya dengan:</p>
+<pre>node -v</pre>
+<p>Jika versi Node.js yang muncul di terminal adalah 18, berarti berhasil.</p>
+<p>Ini adalah cara untuk meng-uninstall Node.js versi tertentu.</p>
+<pre>nvm uninstall &lt;versi lengkapnya, misal 18.13.0&gt;</pre>
+<h2>OK. Sekarang saya mengerti. Terima kasih…</h2>
+<p>Sama-sama.</p>
+            ]]>
+        </content>
     </entry>
     <entry>
-        <title>Mengenal NVM Windows</title>
+        <title>Mengenal NVM Windows dan Cara Menggunakannya</title>
         <author>
             <name>RAKIFSUL</name>
         </author>
-        <link href="https://os.rakifsul.my.id/mengenal-nvm-windows.html"/>
-        <id>https://os.rakifsul.my.id/mengenal-nvm-windows.html</id>
+        <link href="https://os.rakifsul.my.id/mengenal-nvm-windows-dan-cara-menggunakannya.html"/>
+        <id>https://os.rakifsul.my.id/mengenal-nvm-windows-dan-cara-menggunakannya.html</id>
             <category term="Windows"/>
             <category term="Blog"/>
 
-        <updated>2023-12-11T02:11:44+07:00</updated>
-            <summary></summary>
-        <content></content>
+        <updated>2023-12-11T04:55:59+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Windows, apakah Windows itu? Windows adalah sistem operasi yang mungkin sedang Anda gunakan jika saat ini Anda tidak sedang menggunakan Linux, Android, iOS, dan Mac OS. NVM adalah singkatan dari Node.js Version Manager. Dengan NVM, pengguna Node.js dapat berganti-ganti versi Node.js dengan mudah. NVM berjalan&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Windows, apakah Windows itu?</h2>
+<p>Windows adalah sistem operasi yang mungkin sedang Anda gunakan jika saat ini Anda tidak sedang menggunakan Linux, Android, iOS, dan Mac OS.</p>
+<h2>NVM, apakah NVM itu?</h2>
+<p>NVM adalah singkatan dari Node.js Version Manager.</p>
+<p>Dengan NVM, pengguna Node.js dapat berganti-ganti versi Node.js dengan mudah.</p>
+<p>NVM berjalan via command line, jadi, pemahaman dan pengalaman menggunakan command line dibutuhkan.</p>
+<p>Dengan NVM, kita bisa menginstall, me-remove, dan menggunakan versi-versi Node.js.</p>
+<h2>Node.js, apakah Node.js itu?</h2>
+<p>Node.js adalah runtime environment yang dapat digunakan untuk membuat website, aplikasi web, dan aplikasi desktop dengan menggunakan bahasa pemrograman JavaScript.</p>
+<p>Node.js saat ini sudah cukup popular dan module-nya sudah cukup banyak.</p>
+<p>Node.js dapat digunakan baik dengan module tambahan maupun tidak.</p>
+<p>Module Node.js disediakan dalam bentuk package dan dapat diperloleh di www.npmjs.com via perintah npm.</p>
+<p>npm itu sendiri berjalan di command line dan sudah disertakan saat kita menginstall Node.js.</p>
+<h2>Version Manager itu apa, dan kenapa Node.js ada Version Manager-nya?</h2>
+<p>Node.js sejak di-release pertama kali sudah ada banyak versinya.</p>
+<p>Tiap-tiap versi mungkin memiliki perilaku yang berbeda.</p>
+<p>Node.js, tanpa version manager bisa saja diinstall, tapi, jika ingin lebih mudah dalam memanajemen versinya, digunakan version manager.</p>
+<p>Di Linux dan Mac, version managernya adalah NVM.</p>
+<p>Sedangkan, di Windows, version managernya adalah NVM Windows.</p>
+<p>Walaupun keduanya memiliki kata “NVM”, namun keduanya merupakan aplikasi yang berbeda.</p>
+<h2>Apakah kita bisa menggunakan NVM di Windows?</h2>
+<p>Sebenarnya, NVM (saja) tidak bisa digunakan di Windows. Hanya bisa di Linux dan Mac.</p>
+<p>Tapi, kini ada solusi manajemen versi Node.js untuk Windows.</p>
+<p>Namanya NVM Windows.</p>
+<p>NVM Windows bekerja seperti halnya NVM di Linux dan Mac.</p>
+<p>Hanya saja, untuk menginstallnya lebih mudah menurut saya.</p>
+<h2>OK. Jadi itu bedanya NVM dengan NVM Windows?</h2>
+<p>Iya. NVM untuk Linux dan Mac, NVM Windows untuk Windows.</p>
+<h2>Apakah proses install NVM Windows itu rumit?</h2>
+<p>Sama sekali tidak.</p>
+<p>Kita hanya perlu download installernya, kemudian menjalankan installernya untuk meng-install-nya.</p>
+<h2>Apakah NVM Windows itu gratis?</h2>
+<p>Ya. NVM Windows itu gratis dan open source.</p>
+<h2>OK. Sekarang saya mulai paham. Lalu, bagaimana cara meng-install NVM Windows?</h2>
+<p>Untuk meng-install NVM Windows, download installer-nya di sini:</p>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></p>
+<p>Pilih yang ekstensinya .exe, kemudian download.</p>
+<p>Selanjutnya, jalankan installer tersebut dengan next dan finish.</p>
+<h2>Saya sudah meng-install-nya. Bagaimana cara meyakinkan saya bahwa NVM Windows telah sukses di-install?</h2>
+<p>Untuk memastikannya, buka PowerShell atau Terminal, kemudian ketikkan:</p>
+<pre><code>nvm -v</code></pre>
+<p>Kemudian enter.</p>
+<p>Jika versi NVM Windows-nya muncul, berarti sudah berhasil.</p>
+<h2>Ternyata sudah berhasil. Sekarang, bagaimana cara penggunaan dasarnya?</h2>
+<p>OK. Sekarang saya akan membahas cara penggunaan NVM Windows.</p>
+<p>Tapi yang dasar saja ya…</p>
+<p>Untuk selengkapnya, Anda bisa kunjungi repository GitHub NVM Windows.</p>
+<p>Ini adalah cara meng-install Node.js versi tertentu. Contohnya versi 18:</p>
+<pre><code>nvm install 18</code></pre>
+<p>Perintah itu akan meng-install Node.js versi 18 yang terbaru.</p>
+<p>Ini adalah cara untuk me-listing versi-versi Node.js yang sudah ter-install:</p>
+<pre><code>nvm list</code></pre>
+<p>Ini adalah cara menggunakan Node.js versi tertentu. Contohnya versi 18:</p>
+<pre><code>nvm use 18</code></pre>
+<p>Setelah Anda menjalankan perintah tadi, Anda bisa cek versi Node.js nya dengan:</p>
+<pre><code>node -v</code></pre>
+<p>Jika versi Node.js yang muncul di terminal adalah 18, berarti berhasil.</p>
+<p>Ini adalah cara untuk meng-uninstall Node.js versi tertentu.</p>
+<pre><code>nvm uninstall &lt;versi lengkapnya, misal 18.13.0&gt;</code></pre>
+<p>Perintah-perintah tadi kemungkinan akan men-trigger UAC di Windows.</p>
+<p>Jika itu terjadi, izinkan saja.</p>
+<h2>OK. Sekarang saya semakin paham. Terima kasih ya…</h2>
+<p>Sama-sama.</p>
+            ]]>
+        </content>
     </entry>
 </feed>
