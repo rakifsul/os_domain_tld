@@ -3,12 +3,33 @@
     <title>RAKIFSUL OS</title>
     <link href="https://os.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://os.rakifsul.my.id" />
-    <updated>2023-12-23T01:17:24+07:00</updated>
+    <updated>2023-12-24T01:14:35+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://os.rakifsul.my.id</id>
 
+    <entry>
+        <title>Studi Kasus Rebranding Aplikasi Chromium</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/studi-kasus-rebranding-aplikasi-chromium.html"/>
+        <id>https://os.rakifsul.my.id/studi-kasus-rebranding-aplikasi-chromium.html</id>
+            <category term="Premium"/>
+
+        <updated>2023-12-24T01:14:35+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Belum ditulis, baru rencana.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Belum ditulis, baru rencana.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Cara Membuat Terms &amp; Conditions dengan Terms &amp; Conditions Generator</title>
         <author>
