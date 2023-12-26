@@ -10,6 +10,96 @@
     },
     "items": [
         {
+            "id": "https://os.rakifsul.my.id/contoh-project-python-3-aplikasi-password-generator.html",
+            "url": "https://os.rakifsul.my.id/contoh-project-python-3-aplikasi-password-generator.html",
+            "title": "Contoh Project Python 3 - Aplikasi Password Generator",
+            "summary": "Pendahuluan Password generator adalah aplikasi yang digunakan untuk membuat password. Password yang dibuat oleh password generator mungkin memiliki kombinasi dari berbagai jenis karakter Misalnya, huruf besar, huruf kecil, angka, dan simbol. Ada juga fitur yang memungkinkan untuk membuat password dengan kombinasi yang unik atau tidak&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>Password generator adalah aplikasi yang digunakan untuk membuat password.</p>\n<p>Password yang dibuat oleh password generator mungkin memiliki kombinasi dari berbagai jenis karakter</p>\n<p>Misalnya, huruf besar, huruf kecil, angka, dan simbol.</p>\n<p>Ada juga fitur yang memungkinkan untuk membuat password dengan kombinasi yang unik atau tidak berulang.</p>\n<p>Pada umumnya, karakter password yang dihasilkan adalah acak.</p>\n<p>Password generator idealnya bisa dijalankan dengan cepat.</p>\n<p>Oleh karena itu, kurang cocok rasanya jika password generator dibuat menggunakan framework yang berat seperti Electron.</p>\n<p>Karena alasan tadi, maka contoh project password generator ini dibuat menggunakan Python 3.</p>\n<h2>Produk Apakah ini?</h2>\n<p>Produk ini adalah contoh project Python 3 untuk aplikasi password generator dengan GUI.</p>\n<h2>Fitur</h2>\n<p>Sebagai contoh project, produk ini memiliki fitur berikut ini:</p>\n<ul>\n<li>Contoh kode membuat password</li>\n<li>Contoh kode untuk menentukan panjang password</li>\n<li>Contoh kode membuat password dengan kombinasi lower case</li>\n<li>Contoh kode membuat password dengan kombinasi upper case</li>\n<li>Contoh kode membuat password dengan kombinasi angka</li>\n<li>Contoh kode membuat password dengan kombinasi simbol</li>\n<li>Contoh kode membuat password dengan karakter unik jika memungkinkan</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast aplikasinya jika bisa dijalankan dengan benar (hanya ilustrasi, hasilnya bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/co4kthTT11Q\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkannya, klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/contoh-project-python3-aplikasi-password-generator\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang</a></p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-27T01:12:17+07:00",
+            "date_modified": "2023-12-27T01:12:17+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/contoh-project-godot-engine-3-simple-turret-aim.html",
+            "url": "https://os.rakifsul.my.id/contoh-project-godot-engine-3-simple-turret-aim.html",
+            "title": "Contoh Project Godot Engine 3 - Simple Turret Aim",
+            "summary": "Pendahuluan Di dalam game yang ada fitur tembak menembaknya, tidak jarang digunakan turret. Turret adalah sejenis meriam yang posisinya biasanya statis, setidaknya itu definisi saya. Pada ujung turret ada sebuah bagian berlubang tempat keluarnya peluru yang disebut muzzle. Jadi, Anda bisa ambil mudahnya bahwa turret&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>Di dalam game yang ada fitur tembak menembaknya, tidak jarang digunakan turret.</p>\n<p>Turret adalah sejenis meriam yang posisinya biasanya statis, setidaknya itu definisi saya.</p>\n<p>Pada ujung turret ada sebuah bagian berlubang tempat keluarnya peluru yang disebut muzzle.</p>\n<p>Jadi, Anda bisa ambil mudahnya bahwa turret bisa diserupai dengan meriam statis.</p>\n<p>Pada game tembak-menembak, turret dirancang untuk menembaki lawan.</p>\n<p>Untuk dapat menembak lawan dengan tepat, maka turret harus membidik.</p>\n<p>Membidik tersebutlah yang dimaksud dengan aim.</p>\n<p>Dengan kata lain, simple turret aim adalah sistem pembidikan turret secara sederhana.</p>\n<p>Lalu, apa yang sederhana?</p>\n<p>Yang sederhana adalah kalkulasinya.</p>\n<p>Pada studi kasus ini, dibahas cara membidik turret agar muzzle-nya mengarah ke titik yang ditunjukkan kursor mouse pada ruang 3D dari world.</p>\n<p>Walaupun muzzle mengarah ke target tersebut, kita tidak bisa memastikan bahwa peluru akan persis berbentur ke sana, karena pelurunya berupa rigidbody yang terpengaruhi gravitasi.</p>\n<p>Karena itu juga sistem ini disebut sederhana.</p>\n<p>Memang ada <a href=\"https://os.rakifsul.my.id/cara-menggunakan-kiwix-dan-mengakses-konten-wikipedia-secara-offline.html\">contoh project saya yang lainnya</a>, yakni predictive turret aim.</p>\n<p>Tapi itu berbeda dengan yang ini, karena yang predictive tadi benar-benar merencanakan jatuhnya peluru mendekati titik yang ditunjuk kursor mouse.</p>\n<p>Kalkulasi dalam simple turret aim ini lebih sederhana daripada yang predictive.</p>\n<h2>Produk Apakah Ini?</h2>\n<p>Ini adalah produk contoh project Godot Engine 3 untuk simple turret aim.</p>\n<h2>Fitur</h2>\n<p>Sebagai contoh project, produk ini memiliki fitur berikut ini:</p>\n<ul>\n<li>Contoh kode untuk membidik ke arah kursor</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast project ini jika bisa dijalankan dengan benar (hanya ilustrasi, hasil bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/cvcWuZjDmgU\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkan contoh project ini, beli dengan klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/contoh-project-godot-engine3-simple-turret-aim\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang</a></p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-27T01:10:55+07:00",
+            "date_modified": "2023-12-27T01:10:55+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/contoh-project-godot-engine-3-predictive-turret-aim.html",
+            "url": "https://os.rakifsul.my.id/contoh-project-godot-engine-3-predictive-turret-aim.html",
+            "title": "Contoh Project Godot Engine 3 - Predictive Turret Aim",
+            "summary": "Pendahuluan Jika Anda telah membaca postingan ini, maka mungkin Anda sudah terbayang apa itu turret dan apa itu aim. Di postingan tersebut, dijelaskan bahwa turret adalah meriam statis. Adapun meriam statis tersebut memiliki ujung berlubang tempat keluarnya peluru yang disebut muzzle. Di studi kasus ini,&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>Jika Anda telah membaca <a href=\"https://os.rakifsul.my.id/cara-transfer-file-via-ftp-dari-android-ke-windows.html\">postingan ini</a>, maka mungkin Anda sudah terbayang apa itu turret dan apa itu aim.</p>\n<p>Di postingan tersebut, dijelaskan bahwa turret adalah meriam statis.</p>\n<p>Adapun meriam statis tersebut memiliki ujung berlubang tempat keluarnya peluru yang disebut muzzle.</p>\n<p>Di studi kasus ini, kita juga menggunakan meriam statis.</p>\n<p>Akan tetapi kalkulasi dan tujuannya berbeda.</p>\n<p>Jika pada studi kasus simple turret aim tidak ada jaminan bahwa peluru akan berbenturan dengan target tepat di titik yang ditunjuk kursor mouse, pada studi kasus ini peluru akan berbenturan mendekati target di titik yang ditunjuk kursor mouse.</p>\n<p>Tunggu! Kenapa saya bilang \"mendekati\"?</p>\n<p>Karena, pada saat saya merancang scene nya, ada jarak antara ujung moncong turret dengan titik spawn dari bullet. Logikanya, pasti ada selisihnya.</p>\n<p>OK, kita lanjut...</p>\n<p>Adapun kalkulasi pada sistem turret ini lebih kompleks.</p>\n<p>Diharapkan setidaknya Anda telah mengenal gerak parabola di ilmu fisika.</p>\n<p>Itu karena kita akan mencari v0 dari gerak parabola tersebut.</p>\n<h2>Produk Apakah Ini?</h2>\n<p>Ini adalah produk contoh project Godot Engine 3 untuk melakukan predictive turret aim.</p>\n<h2>Fitur</h2>\n<p>Sebagai contoh project, produk ini memiliki fitur ini:</p>\n<ul>\n<li>Contoh kode untuk menargetkan projectile untuk mengenai mendekati posisi kursor saat menembak.</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast project ini jika berhasil dijalankan dengan benar (hanya ilustrasi, hasil bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/DdfG_fV8950\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkan contoh project ini, beli dengan klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/contoh-project-godot-engine3-predictive-turret-aim\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang</a></p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-27T01:09:35+07:00",
+            "date_modified": "2023-12-27T01:09:35+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/contoh-project-godot-engine-3-nav-mesh-agent-sederhana.html",
+            "url": "https://os.rakifsul.my.id/contoh-project-godot-engine-3-nav-mesh-agent-sederhana.html",
+            "title": "Contoh Project Godot Engine 3 - Nav Mesh Agent Sederhana",
+            "summary": "Pendahuluan Godot Engine 3 adalah game engine yang cukup lengkap fiturnya. Salah satu kelengkapannya dibuktikan dengan adanya fitur pathfinding. Fitur pathfinding tersebut diwujudkan dengan penggunaan Navigation Mesh atau NavMesh. Sayangnya, fitur tersebut belum dilengkapi dengan agent-nya. Jadi, belum ada NavMeshAgent di Godot Engine versi 3.4,&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>Godot Engine 3 adalah game engine yang cukup lengkap fiturnya.</p>\n<p>Salah satu kelengkapannya dibuktikan dengan adanya fitur pathfinding.</p>\n<p>Fitur pathfinding tersebut diwujudkan dengan penggunaan Navigation Mesh atau  NavMesh.</p>\n<p>Sayangnya, fitur tersebut belum dilengkapi dengan agent-nya.</p>\n<p>Jadi, belum ada NavMeshAgent di Godot Engine versi 3.4, setahu saya, saat tulisan ini dibuat.</p>\n<p>Oleh karena itu, saya mencoba mencari solusinya.</p>\n<p>Caranya dengan membuat script NavMeshAgent buatan saya sendiri.</p>\n<p>Script Godot Engine ini menggunakan fitur pathfinding dari fitur NavMesh yang disediakan oleh Godot Engine.</p>\n<p>Jika sampai di sini Anda belum paham dengan kata-kata saya  tadi, sebenarnya NavMeshAgent yang saya buat ini kurang lebih mirip dengan yang ada di Unity.</p>\n<p>Hanya saja ini buatan sendiri.</p>\n<p>Dalam project ini, saya membuat karakter capsule sederhana yang ditempatkan di atas plane.</p>\n<p>Di plane ada obstacle-nya berupa cube.</p>\n<p>Saat NavMesh sudah di-generate, maka pathfinding bisa dilakukan.</p>\n<p>NavMeshAgent saya kemudian mencari path, kemudian berjalan melaluinya sebisa mungkin sambil menghindari obstacle.</p>\n<p>NavMeshAgent ini bekerja dengan mengubah input posisi target menjadi array posisi path node.</p>\n<p>Adapun posisi target diperoleh dengan mengubah posisi kursor di koordinat layar menjadi posisi di ruang 3D.</p>\n<p>Manfaat dari script ini adalah untuk memberikan gambaran kepada Anda tentang bagaimana memanfaatkan path yang ditemukan dari pathfinding dan menerapkannya pada agent.</p>\n<h2>Produk Apakah Ini?</h2>\n<p>Ini adalah produk contoh project Godot Engine 3 untuk membuat Nav Mesh Agent Sederhana.</p>\n<h2>Fitur</h2>\n<p>Sebagai contoh project, produk ini memiliki fitur berikut ini:</p>\n<ul>\n<li>Contoh kode untuk mencari path ke arah target dan berjalan di sepanjangnya</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast project ini jika bisa dijalankan dengan benar (hanya ilustrasi, hasil bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/Qyq2WNYywQo\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkan contoh project ini, beli dengan klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/contoh-project-godot-engine3-nav-mesh-agent-sederhana\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang</a></p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-27T01:05:34+07:00",
+            "date_modified": "2023-12-27T01:05:34+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/studi-kasus-electron-membuat-aplikasi-video-player.html",
+            "url": "https://os.rakifsul.my.id/studi-kasus-electron-membuat-aplikasi-video-player.html",
+            "title": "Studi Kasus Electron - Membuat Aplikasi Video Player",
+            "summary": "Pendahuluan File video adalah file yang jika dibuka dengan aplikasi video player akan menampilkan suatu kumpulan frame gambar yang bergerak seiring waktu. Contoh yang paling mudah adalah file .mp4. Jika Anda membuka file .mp4 dengan video player yang dapat memainkan file .mp4, maka akan tampil&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>File video adalah file yang jika dibuka dengan aplikasi video player akan menampilkan suatu kumpulan frame gambar yang bergerak seiring waktu.</p>\n<p>Contoh yang paling mudah adalah file .mp4.</p>\n<p>Jika Anda membuka file .mp4 dengan video player yang dapat memainkan file .mp4, maka akan tampil video-nya.</p>\n<p>Video adalah sebuah media yang banyak gunanya.</p>\n<p>Mulai dari hiburan hingga edukasi bisa menggunakan video.</p>\n<p>Untuk memainkan video, dibutuhkan suatu aplikasi.</p>\n<p>Yaitu aplikasi yang dapat menampilkan format file video.</p>\n<p>Saat ini, sudah cukup banyak aplikasi pemutar video yang ada di pasaran.</p>\n<p>Teknologi yang digunakan untuk membuatnya pun cukup beragam.</p>\n<p>Electron adalah salah satunya.</p>\n<p>Anda pasti tahu bahwa web browser saat ini bisa memainkan video.</p>\n<p>Electron pun bisa dianggap sebagai web browser.</p>\n<p>Maka tidak aneh juga jika Electron menyediakan fitur untuk memainkan video.</p>\n<p>Dan, memang faktanya demikian.</p>\n<p>Bahkan, pembuatan aplikasi video player di Electron hanya memerlukan sedikit baris kode.</p>\n<p>Bagaimana kita bisa membuat aplikasi video player dengan Electron? Itulah yang akan dibahas dalam studi kasus kali ini.</p>\n<p>Dalam studi kasus ini, saya juga akan memperkenalkan sebuah library CSS bernama Metro UI.</p>\n<p>Metro memiliki fitur yang cukup lengkap, salah satunya adalah untuk membuat elemen video player yang sudah memiliki controller-nya.</p>\n<h2>Produk Apakah Ini?</h2>\n<p>Ini adalah produk ebook yang disertai source code tentang cara membuat aplikasi video player dengan Electron js.</p>\n<h2>Fitur</h2>\n<ul>\n<li>Ebook sudah termasuk</li>\n<li>Source code sudah termasuk</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast aplikasi yang dibahas jika source code-nya bisa dijalankan dengan benar (hanya ilustrasi, hasilnya bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/Ezvyc1I1Nxc\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkan studi kasus ini, Anda harus membelinya dengan klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/studi-kasus-electron-membuat-aplikasi-video-player\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang!</a></p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-27T01:03:44+07:00",
+            "date_modified": "2023-12-27T01:03:44+07:00"
+        },
+        {
+            "id": "https://os.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html",
+            "url": "https://os.rakifsul.my.id/contoh-kode-aplikasi-image-gallery-dengan-nodejs-dan-ejs.html",
+            "title": "Contoh Kode Aplikasi Image Gallery dengan Node.js dan EJS",
+            "summary": "Pendahuluan Aplikasi image gallery adalah aplikasi yang berfungsi untuk menyimpan dan menampilkan file gambar. Ini adalah produk source code aplikasi image gallery dengan Node.js dan EJS. Sebagai contoh kode, source code aplikasi image gallery ini bisa menjadi contoh untuk: Berikut ini adalah screencast aplikasinya jika&hellip;",
+            "content_html": "<h2>Pendahuluan</h2>\n<p>Aplikasi image gallery adalah aplikasi yang berfungsi untuk menyimpan dan menampilkan file gambar.</p>\n<h2>Produk Apakah Ini?</h2>\n<p>Ini adalah produk source code aplikasi image gallery dengan Node.js dan EJS.</p>\n<h2>Fitur</h2>\n<p>Sebagai contoh kode, source code aplikasi image gallery ini bisa menjadi contoh untuk:</p>\n<ul>\n<li>Cara meng-upload file gambar</li>\n<li>Cara menampilkan file gambar</li>\n<li>Cara men-download file gambar</li>\n<li>Cara membuat entry data file gambar di database</li>\n<li>Cara menghapus entry data file gambar di database</li>\n<li>Cara menghapus file sebenarnya dari filesystem di server</li>\n<li>Cara menerapkan tag pada gambar.</li>\n</ul>\n<h2>Tampilan</h2>\n<p>Berikut ini adalah screencast aplikasinya jika kodenya berhasil dijalankan dengan benar (hanya ilustrasi, hasilnya bisa beda):</p>\n<figure class=\"post__video\"><iframe loading=\"lazy\" width=\"560\" height=\"314\" src=\"https://www.youtube.com/embed/kBKCBJS2_Zs\" allowfullscreen=\"allowfullscreen\" data-mce-fragment=\"1\"></iframe></figure>\n<p>Untuk mendapatkannya, klik tombol di bawah.</p>\n<p class=\"align-center\"><a class=\"btn coba\" style=\"width: 100%;\" href=\"https://karyakarsa.com/rakifsul/contoh-project-nodejs-aplikasi-image-gallery-mongoose\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">beli sekarang</a></p>",
+            "author": {
+                "name": "RAKIFSUL"
+            },
+            "tags": [
+                   "Premium"
+            ],
+            "date_published": "2023-12-27T01:01:22+07:00",
+            "date_modified": "2023-12-27T01:02:10+07:00"
+        },
+        {
             "id": "https://os.rakifsul.my.id/studi-kasus-rebranding-aplikasi-chromium.html",
             "url": "https://os.rakifsul.my.id/studi-kasus-rebranding-aplikasi-chromium.html",
             "title": "Studi Kasus Rebranding Aplikasi Chromium",
