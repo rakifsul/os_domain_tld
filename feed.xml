@@ -3,7 +3,7 @@
     <title>RAKIFSUL OS</title>
     <link href="https://os.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://os.rakifsul.my.id" />
-    <updated>2023-12-27T01:12:17+07:00</updated>
+    <updated>2023-12-27T01:15:31+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
@@ -18,7 +18,7 @@
         <id>https://os.rakifsul.my.id/contoh-project-python-3-aplikasi-password-generator.html</id>
             <category term="Premium"/>
 
-        <updated>2023-12-27T01:12:17+07:00</updated>
+        <updated>2023-12-27T01:15:31+07:00</updated>
             <summary>
                 <![CDATA[
                     Pendahuluan Password generator adalah aplikasi yang digunakan untuk membuat password. Password yang dibuat oleh password generator mungkin memiliki kombinasi dari berbagai jenis karakter Misalnya, huruf besar, huruf kecil, angka, dan simbol. Ada juga fitur yang memungkinkan untuk membuat password dengan kombinasi yang unik atau tidak&hellip;
@@ -65,7 +65,7 @@
         <id>https://os.rakifsul.my.id/contoh-project-godot-engine-3-simple-turret-aim.html</id>
             <category term="Premium"/>
 
-        <updated>2023-12-27T01:10:55+07:00</updated>
+        <updated>2023-12-27T01:15:25+07:00</updated>
             <summary>
                 <![CDATA[
                     Pendahuluan Di dalam game yang ada fitur tembak menembaknya, tidak jarang digunakan turret. Turret adalah sejenis meriam yang posisinya biasanya statis, setidaknya itu definisi saya. Pada ujung turret ada sebuah bagian berlubang tempat keluarnya peluru yang disebut muzzle. Jadi, Anda bisa ambil mudahnya bahwa turret&hellip;
@@ -87,7 +87,7 @@
 <p>Pada studi kasus ini, dibahas cara membidik turret agar muzzle-nya mengarah ke titik yang ditunjukkan kursor mouse pada ruang 3D dari world.</p>
 <p>Walaupun muzzle mengarah ke target tersebut, kita tidak bisa memastikan bahwa peluru akan persis berbentur ke sana, karena pelurunya berupa rigidbody yang terpengaruhi gravitasi.</p>
 <p>Karena itu juga sistem ini disebut sederhana.</p>
-<p>Memang ada <a href="https://os.rakifsul.my.id/cara-menggunakan-kiwix-dan-mengakses-konten-wikipedia-secara-offline.html">contoh project saya yang lainnya</a>, yakni predictive turret aim.</p>
+<p>Memang ada <a href="https://os.rakifsul.my.id/contoh-project-godot-engine-3-predictive-turret-aim.html">contoh project saya yang lainnya</a>, yakni predictive turret aim.</p>
 <p>Tapi itu berbeda dengan yang ini, karena yang predictive tadi benar-benar merencanakan jatuhnya peluru mendekati titik yang ditunjuk kursor mouse.</p>
 <p>Kalkulasi dalam simple turret aim ini lebih sederhana daripada yang predictive.</p>
 <h2>Produk Apakah Ini?</h2>
@@ -114,7 +114,7 @@
         <id>https://os.rakifsul.my.id/contoh-project-godot-engine-3-predictive-turret-aim.html</id>
             <category term="Premium"/>
 
-        <updated>2023-12-27T01:09:35+07:00</updated>
+        <updated>2023-12-27T01:14:54+07:00</updated>
             <summary>
                 <![CDATA[
                     Pendahuluan Jika Anda telah membaca postingan ini, maka mungkin Anda sudah terbayang apa itu turret dan apa itu aim. Di postingan tersebut, dijelaskan bahwa turret adalah meriam statis. Adapun meriam statis tersebut memiliki ujung berlubang tempat keluarnya peluru yang disebut muzzle. Di studi kasus ini,&hellip;
@@ -123,7 +123,7 @@
         <content type="html">
             <![CDATA[
                 <h2>Pendahuluan</h2>
-<p>Jika Anda telah membaca <a href="https://os.rakifsul.my.id/cara-transfer-file-via-ftp-dari-android-ke-windows.html">postingan ini</a>, maka mungkin Anda sudah terbayang apa itu turret dan apa itu aim.</p>
+<p>Jika Anda telah membaca <a href="https://os.rakifsul.my.id/contoh-project-godot-engine-3-simple-turret-aim.html">postingan ini</a>, maka mungkin Anda sudah terbayang apa itu turret dan apa itu aim.</p>
 <p>Di postingan tersebut, dijelaskan bahwa turret adalah meriam statis.</p>
 <p>Adapun meriam statis tersebut memiliki ujung berlubang tempat keluarnya peluru yang disebut muzzle.</p>
 <p>Di studi kasus ini, kita juga menggunakan meriam statis.</p>
