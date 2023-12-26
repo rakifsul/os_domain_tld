@@ -3,12 +3,1207 @@
     <title>RAKIFSUL OS</title>
     <link href="https://os.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://os.rakifsul.my.id" />
-    <updated>2023-12-27T02:10:28+07:00</updated>
+    <updated>2023-12-27T02:27:40+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://os.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar jQuery - Menggunakan jQuery di HTML</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-jquery-menggunakan-jquery-di-html.html"/>
+        <id>https://os.rakifsul.my.id/belajar-jquery-menggunakan-jquery-di-html.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding jQuery"/>
+
+        <updated>2023-12-27T02:27:40+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan jQuery adalah library javascript yang digunakan untuk memanipulasi DOM. Walaupun jQuery sudah cukup tua, tapi, sampai sekarang, ternyata jQuery masih digunakan pada aplikasi-aplikasi web. Terutama yang multi page app. Jadi, jangan heran jika Anda membaca source code sistem informasi yang dibuat dengan Laravel atau&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>jQuery adalah library javascript yang digunakan untuk memanipulasi DOM.</p>
+<p>Walaupun jQuery sudah cukup tua, tapi, sampai sekarang, ternyata jQuery masih digunakan pada aplikasi-aplikasi web.</p>
+<p>Terutama yang multi page app.</p>
+<p>Jadi, jangan heran jika Anda membaca source code sistem informasi yang dibuat dengan Laravel atau CodeIgniter, ternyata masih menggunakan jQuery.</p>
+<p>Di tutorial ini, saya akan membahas beberapa cara untuk menggunakan jQuery di file HTML Anda.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mengenal jQuery.</li>
+<li>Pembaca bisa menggunakan jQuery.</li>
+</ul>
+<h2>Prasyarat</h2>
+<ul>
+<li>Pembaca telah mengenal HTML, CSS, dan JavaScript.</li>
+<li>Pembaca pernah coding sebelumnya.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buat folder bernama "tutorial-0".</p>
+<p>Sebenarnya, nama foldernya bebas, tapi agar tutorial ini lebih mudah dipahami, maka gunakan saja nama tersebut.</p>
+<p>Selanjutnya, buat file bernama "index.html" di dalamnya.</p>
+<p>Isi file tersebut adalah:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    $(document).ready(function() {
+      alert("hello world");
+    })
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Catat bahwa bagian ini:</p>
+<pre class="language-html line-numbers"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Bisa diganti dengan:</p>
+<pre class="language-html line-numbers"><code>&lt;script src="/path/ke/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Artinya bisa download script jQuery-nya dulu, kemudian dimuat secara offline.</p>
+<p>Sampai di sini langkah-langkah selesai.</p>
+<p>Jika Anda membuka "index.html" dengan web browser, maka akan muncul popup berisi "hello world".</p>
+<h2>Pembahasan</h2>
+<p>Langkah pertama penggunaan jQuery adalah membuat file HTML dulu.</p>
+<p>Selanjutnya, ada dua pilihan:</p>
+<ul>
+<li>Men-download script jQuery dulu di website resminya, kemudian menggunakannya secara offline.</li>
+<li>Menggunakan CDN untuk menggunakan jQuery.</li>
+</ul>
+<p>Yang terlihat dari kedua bagian script ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!-- menggunakan jQuery secara offline --&gt;
+&lt;script src="/path/ke/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<pre class="language-html line-numbers"><code>&lt;!-- Menggunakan jQuery dengan CDN --&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Keuntungan menggunakan cara pertama adalah, kita jadi tidak perlu koneksi internet untuk menggunakan jQuery.</p>
+<p>Selanjutnya, pada bagian kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;script&gt;
+    $(document).ready(function() {
+      alert("hello world");
+    })
+  &lt;/script&gt;</code></pre>
+<p>Kita menunggu DOM siap untuk mengeksekusi javascript, kemudian setelah siap, maka munculkan popup bertuliskan "hello world".</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda sudah mengenal jQuery dan dapat menggunakannya dalam file HTML Anda.</p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar React - Membuat Project dengan create-react-app</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-react-membuat-project-dengan-create-react-app.html"/>
+        <id>https://os.rakifsul.my.id/belajar-react-membuat-project-dengan-create-react-app.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding React"/>
+
+        <updated>2023-12-27T02:26:35+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan React atau React js adalah framework aplikasi web yang bisa digunakan untuk membuat single page app. Single page app itu sendiri merupakan aplikasi web yang ketika dinavigasi, tidak terjadi page refresh. Itu karena single page app biasanya menggunakan AJAX untuk mengakses backend yang biasanya&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>React atau React js adalah framework aplikasi web yang bisa digunakan untuk membuat single page app.</p>
+<p>Single page app itu sendiri merupakan aplikasi web yang ketika dinavigasi, tidak terjadi page refresh.</p>
+<p>Itu karena single page app biasanya menggunakan AJAX untuk mengakses backend yang biasanya berupa API.</p>
+<p>Konsekuensinya, aplikasi semacam itu hanya bisa berjalan normal jika javascript di browser diaktifkan.</p>
+<p>Di tutorial ini, saya membahas cara membuat project React dengan create-react-app.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mengenal React dan create-react-app</li>
+<li>Pembaca dapat membuat project React dengan create-react-app.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, pastikan Anda telah meng-install Node.js dan NPM, karena create-react-app membutuhkannya.</p>
+<p>Selanjutnya jalankan:</p>
+<pre>npx create-react-app nama-project</pre>
+<p>Nanti akan muncul prompt, pilih saja yes atau y.</p>
+<p>Tunggu beberapa saat hingga prosesnya selesai.</p>
+<p>Setelah selesai, Anda bisa menjalankan aplikasi React Anda.</p>
+<p>Caranya, masuk ke dalam folder "nama-project":</p>
+<pre>cd nama-project</pre>
+<p>Kemudian:</p>
+<pre>npm start</pre>
+<h2>Pembahasan</h2>
+<p>Tidak ada yang perlu dibahas di sini.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya tujuan tutorial ini sudah tercapai.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js - Menampilkan Machine ID</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-menampilkan-machine-id.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:22:47+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Kali ini, kita akan belajar cara menampilkan machine ID di Node.js Ketika kita membuat sebuah aplikasi, terutama aplikasi desktop, mungkin saja kita ingin membatasi penginstallan aplikasi tersebut pada satu komputer saja. Dengan kata lain kita mungkin menginginkan sebuah sistem lisensi dalam aplikasi kita. Agar&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Kali ini, kita akan belajar cara menampilkan machine ID di Node.js</p>
+<p>Ketika kita membuat sebuah aplikasi, terutama aplikasi desktop, mungkin saja kita ingin membatasi penginstallan aplikasi tersebut pada satu komputer saja.</p>
+<p>Dengan kata lain kita mungkin menginginkan sebuah sistem lisensi dalam aplikasi kita.</p>
+<p>Agar hal tersebut dapat terwujud diperlukan suatu cara untuk mendapatkan identitas unik dari OS di komputer tersebut.</p>
+<p>Node Machine ID ( <a href="https://www.npmjs.com/package/node-machine-id">https://www.npmjs.com/package/node-machine-id</a> ) bisa membantu kita untuk mendapatkan unique id dari OS yang menggunakannya.</p>
+<p>Pada dasarnya Node Machine ID menggunakan registry untuk mendapatkan unique id di Windows.</p>
+<p>Tepatnya di “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography”.</p>
+<h2>Langkah-Langkah</h2>
+<p>Buat folder bernama "tutorial-7", kemudian masuk ke dalamnya.</p>
+<p>Selanjutnya buat file "tampilkan-machine-id-asynchronous.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: tampilkan-machine-id-asynchronous.js
+
+// import modul node-machine-id
+const machineId = require("node-machine-id").machineId;
+
+// ambil machine id nya
+async function dapatkanMachineID(original) {
+    let mcid = await machineId({ original: original });
+    return mcid;
+}
+
+// bungkus dalam sebuah function
+async function run() {
+    let mcid = await dapatkanMachineID(true);
+    console.log(mcid);
+}
+
+// jalankan
+run();</code></pre>
+<p>Selanjutnya buat file "tampilkan-machine-id-synchronous.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: tampilkan-machine-id-synchronous.js
+
+// import modul node-machine-id
+const machineIdSync = require("node-machine-id").machineIdSync;
+
+// ambil machine id nya
+let mcid = machineIdSync({ original: true });
+console.log(mcid);</code></pre>
+<p>Untuk menjalankan kode-kode tadi, buka folder projectnya via terminal, kemudian jalankan perintah:</p>
+<pre>node &lt;nama_script&gt;</pre>
+<h2>Pembahasan</h2>
+<p>Baca komentar di kode-kode barusan dan pahami sendiri.</p>
+<h2>Penutup</h2>
+<p>Sekian dan terima kasih.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js - Membaca dan Menulis File</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-membaca-dan-menulis-file.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-membaca-dan-menulis-file.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:22:53+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Kali ini, kita akan belajar membaca dan menulis file di Node.js. Pada dasarnya, untuk melakukan itu ada beberapa metode: Di bawah ini ada 4 script. readfile.js dan readfilesync.js menunjukkan cara untuk membaca file, writefile.js dan writefilesync.js menunjukkan cara untuk menulis file. Yang memiliki akhiran&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Kali ini, kita akan belajar membaca dan menulis file di Node.js.</p>
+<p>Pada dasarnya, untuk melakukan itu ada beberapa metode:</p>
+<ul>
+<li>Dengan cara asynchronous dan dengan callback.</li>
+<li>Dengan cara asynchronous dan async await.</li>
+<li>Dengan cara menggunakan versi synchronous dari API-nya.</li>
+</ul>
+<p>Di bawah ini ada 4 script. readfile.js dan readfilesync.js menunjukkan cara untuk membaca file, writefile.js dan writefilesync.js menunjukkan cara untuk menulis file.</p>
+<p>Yang memiliki akhiran “sync” menggunakan metode synchronous, sedangkan yang tidak menggunakan metode asynchronous.</p>
+<h2>Langkah-Langkah</h2>
+<p>Buat folder bernama "tutorial-6", kemudian masuk ke dalamnya.</p>
+<p>Selanjutnya buat file "readfile.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: readfile.js
+
+// begin: import modules
+const fs = require('fs');
+const util = require('util');
+// end: import modules
+
+// baca file "hello.txt" secara asynchronous
+function readHello() {
+    fs.readFile('./hello.txt', 'utf8', function (err, data) {
+        // tampilkan isinya
+        console.log(data);
+    });
+}
+
+// baca file "hello.txt" secara asynchronous dengan async await
+async function readHelloAsyncAwait() {
+    // ubah dulu jadi promise
+    const readFileAsyncAwait = util.promisify(fs.readFile);
+
+    // sekarang baru bisa menggunakan async await
+    const hello = await readFileAsyncAwait('./hello.txt', 'utf8');
+
+    // tampilkan isinya
+    console.log(hello);
+}
+
+// jalankan
+readHello();
+readHelloAsyncAwait();</code></pre>
+<p>Selanjutnya buat file "readfilesync.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: readfilesync.js
+
+// import module fs
+const fs = require('fs');
+
+// baca file "hello.txt"
+function readHello() {
+    // baca secara synchronous. sudah tersedia fungsinya secara default
+    const hello = fs.readFileSync('./hello.txt', 'utf8');
+
+    // tampilkan isinya
+    console.log(hello);
+}
+
+readHello();</code></pre>
+<p>Selanjutnya buat file "writefile.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: writefile.js
+
+// begin: import modules
+const fs = require('fs');
+const util = require('util');
+// end: import modules
+
+// tulis file secara asyncrhonous
+function writeHello() {
+    fs.writeFile('./hello-write-file.txt', "hello world writeFile", function () {
+        console.log('file sudah ditulis.');
+    })
+}
+
+// tulis file secara asyncrhonous dengan async await
+async function writeHelloAsyncAwait() {
+    // ubah dulu jadi promise
+    const writeFileAsyncAwait = util.promisify(fs.writeFile);
+
+    // sekarang bisa menggunakan async await
+    await writeFileAsyncAwait('./hello-write-file-async-await.txt', "hello world writeFileAsyncAwait");
+    console.log('file sudah ditulis.');
+}
+
+// jalankan
+// writeHello();
+
+writeHelloAsyncAwait();</code></pre>
+<p>Selanjutnya buat file "writefilesync.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: writefilesync.js
+
+// import module fs
+const fs = require('fs');
+
+// tulis file secara synchronous. fungsinya sudah tersedia secara default
+function writeHello() {
+    fs.writeFileSync('./hello-write-file-sync.txt', "hello world writeFileSync");
+}
+
+// jalankan
+writeHello();</code></pre>
+<p>Selanjutnya, buat file bernama "hello.txt" dan isi dengan:</p>
+<pre>hello world</pre>
+<p>Untuk menjalankan kode-kode tadi, buka folder projectnya via terminal, kemudian jalankan perintah:</p>
+<pre>node &lt;nama_script&gt;</pre>
+<h2>Pembahasan</h2>
+<p>Baca komentar di kode-kode barusan dan pahami sendiri.</p>
+<h2>Penutup</h2>
+<p>Sekian dan terima kasih.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js – Menggunakan Express Router</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-menggunakan-express-router.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-menggunakan-express-router.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:23:15+07:00</updated>
+            <summary>
+                <![CDATA[
+                    CATATAN: Perhatikan bahwa awalan "/" dalam tutorial ini berarti root folder. Ini akan diikuti dengan nama file, baik untuk di root folder maupun sub folder-nya. Menangani request dan memberi response dari user merupakan hal yang sangat sering dilakukan dengan Express. Sebenarnya, tanpa router sekalipun, kita&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <blockquote>
+<p>CATATAN: Perhatikan bahwa awalan "/" dalam tutorial ini berarti root folder. Ini akan diikuti dengan nama file, baik untuk di root folder maupun sub folder-nya.</p>
+</blockquote>
+<h2>Pendahuluan</h2>
+<p>Menangani request dan memberi response dari user merupakan hal yang sangat sering dilakukan dengan Express.</p>
+<p>Sebenarnya, tanpa router sekalipun, kita tetap bisa membuat server dan meng-handle request dengan Express.</p>
+<p>Namun, ketika aplikasi semakin besar dan semakin banyak request handler-nya, tentunya satu file script akan semakin panjang karena request handler tadi.</p>
+<p>Agar routes dalam aplikasi yang menggunakan Express lebih rapi, maka digunakan Router.</p>
+<p>Dengan router, request handler bisa dipisahkan ke file-file script terpisah sehingga lebih rapi.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mengenal router dalam Express.</li>
+<li>Pembaca mampu menggunakan router dengan Express.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-5" dengan cara yang telah dijelaskan <a href="https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "/package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+    "name": "tutorial-5",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
+</code></pre>
+<p>Selanjutnya, isi file "/index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import module express
+const express = require("express");
+
+// inisialisasi express
+const app = express();
+
+// begin: import routers
+const indexRouter = require("./routes/index.js");
+const aboutRouter = require("./routes/about.js");
+// end: import routers
+
+// begin: gunakan sebagai routers. parameter pertama adalah path prefix nya
+app.use("/", indexRouter);
+app.use("/about", aboutRouter);
+// end: gunakan sebagai routers. parameter pertama adalah path prefix nya
+
+// jalankan server di port 3000
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000");
+});
+</code></pre>
+<p>Selanjutnya, buat file "/routes/index.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request "/"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "INDEX"
+    res.send("INDEX");
+});
+
+// export modul ini
+module.exports = router;
+</code></pre>
+<p>Selanjutnya, buat file "/routes/about.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request /about.
+// di parameternya tertulis "/" karena saat
+// di-use di root index.js sudah ada path "/about"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "ABOUT"
+    res.send("ABOUT");
+});
+
+// export module ini
+module.exports = router;
+</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>npm install</pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>Nanti akan muncul output di browser:</p>
+<pre>INDEX</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/about">http://localhost:3000/about</a></p>
+<p>Nanti akan muncul output di browser:</p>
+<pre>ABOUT</pre>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Selanjutnya, kita menjalankan perintah npm install tanpa diikuti nama package.</p>
+<p>Itu maksudnya adalah untuk meng-install seluruh dependencies yang tertulis di "/package.json", dalam hal ini hanya Express.</p>
+<p>Pada "/index.js", kita mulai dari mengimpor modul express:</p>
+<pre class="language-javascript line-numbers"><code>// import modules
+const express = require("express");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul express dan menyimpannya dalam const express.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul pihak ke-3, maka kita perlu meng-install-nya terlebih dahulu dengan npm. Kita telah melakukannya dengan npm install tadi.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Pada baris kode selanjutnya, kita menginisialisasi dan membuat objek express:</p>
+<pre class="language-javascript line-numbers"><code>// inisialisasi express
+const app = express();</code></pre>
+<p>Objek tersebut disimpan pada const app.</p>
+<p>Selanjutnya, kita mengimpor routers yang ada di folder "/routes", yakni "/routes/index.js" dan "/routes/about.js":</p>
+<pre class="language-javascript line-numbers"><code>// begin: import routers
+const indexRouter = require("./routes/index.js");
+const aboutRouter = require("./routes/about.js");
+// end: import routers</code></pre>
+<p>Mengimpor router saja tidak cukup.</p>
+<p>Harus di-use juga.</p>
+<p>Kode ini mendaftarkan kedua routers tadi:</p>
+<pre class="language-javascript line-numbers"><code>// begin: gunakan sebagai routers. parameter pertama adalah path prefix nya
+app.use("/", indexRouter);
+app.use("/about", aboutRouter);
+// end: gunakan sebagai routers. parameter pertama adalah path prefix nya</code></pre>
+<p>Perhatikan bahwa parameter pertama adalah path untuk prefix dari masing-masing request di masing-masing router.</p>
+<p>Karena router index prefix-nya "/" maka tidak perlu ada tambahan path saat mengaksesnya.</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a> akan mengakses "/"-nya index.</p>
+<p>Adapun router about prefix-nya "/about", maka untuk mengakses "/" di about harus ditambahkan "/about".</p>
+<p><a href="http://localhost:3000/about">http://localhost:3000/about</a> akan mengakses "/"-nya about.</p>
+<p>Ini adalah isi dari script "/routes/index.js":</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request "/"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "INDEX"
+    res.send("INDEX");
+});
+
+// export modul ini
+module.exports = router;
+</code></pre>
+<p>Dan ini adalah isi dari script "/routes/about.js":</p>
+<pre class="language-javascript line-numbers"><code>// import express
+const express = require("express");
+
+// buat routernya
+const router = express.Router();
+
+// handle request /about.
+// di parameternya tertulis "/" karena saat
+// di-use di root index.js sudah ada path "/about"
+router.get("/", (req, res) =&gt; {
+    // kirim teks bertuliskan "ABOUT"
+    res.send("ABOUT");
+});
+
+// export module ini
+module.exports = router;
+</code></pre>
+<p>Tidak ada hal yang aneh pada kedua script di atas kecuali:</p>
+<pre class="language-javascript line-numbers"><code>// export module ini
+module.exports = router;
+</code></pre>
+<p>Maksud dari kode tersebut adalah untuk meng-export script sebagai modul, sehingga dapat di-require seperti yang telah kita lakukan di "/index.js".</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Express router.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js – Menggunakan Express Middleware</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-menggunakan-express-middleware.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-menggunakan-express-middleware.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:23:43+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dalam menangani request dan response, Express memberi kita kesempatan untuk melakukan sesuatu di antara keduanya. Caranya adalah dengan menggunakan middleware. Middleware merupakan perantara antara request yang masuk dan response yang keluar. Pada prakteknya, middleware bisa digunakan untuk autentikasi, logging, validasi data, dan lain-lain. Secara&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dalam menangani request dan response, Express memberi kita kesempatan untuk melakukan sesuatu di antara keduanya.</p>
+<p>Caranya adalah dengan menggunakan middleware.</p>
+<p>Middleware merupakan perantara antara request yang masuk dan response yang keluar.</p>
+<p>Pada prakteknya, middleware bisa digunakan untuk autentikasi, logging, validasi data, dan lain-lain.</p>
+<p>Secara umum ada dua jenis middleware di Express.</p>
+<ul>
+<li>Middleware global</li>
+<li>Middleware lokal</li>
+</ul>
+<p>Middleware global berlaku untuk seluruh request handler, sedangkan middleware lokal hanya berlaku pada request handler yang mendaftarkannya.</p>
+<p>Dalam tutorial ini saya akan membahas keduanya.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mengenal middleware dalam Express.</li>
+<li>Pembaca mampu menggunakan middleware dengan Express.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-4" dengan cara yang telah dijelaskan <a href="https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+    "name": "tutorial-4",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import modules
+const express = require("express");
+
+// inisialisasi express
+const app = express();
+
+// middleware ini berjalan secara global
+app.use((req, res, next) =&gt; {
+    console.log("MIDDLEWARE 1");
+    next();
+});
+
+// request get untuk "/" atau dengan kata lain halaman index
+// tanpa middleware lokal
+app.get("/", (req, res) =&gt; {
+    console.log("INDEX");
+    res.send("INDEX");
+});
+
+// request get untuk "/about" atau dengan kata lain halaman about
+// dengan middleware lokal
+// perhatikan bahwa parameter ke-2 diisi function. itu middleware nya
+app.get(
+    "/about",
+    (req, res, next) =&gt; {
+        console.log("MIDDLEWARE 2");
+        next();
+    },
+    (req, res) =&gt; {
+        console.log("ABOUT");
+        res.send("ABOUT");
+    }
+);
+
+// jalankan server di port 3000
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000");
+});
+</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>npm install</pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>Nanti akan muncul output di command line:</p>
+<pre>MIDDLEWARE 1<br>INDEX<br>MIDDLEWARE 1</pre>
+<p>Kenapa ada 2 "MIDDLEWARE 1"? Nanti akan saya bahas di bagian pembahasan.</p>
+<p>Jika Anda mengakses:</p>
+<p><a href="http://localhost:3000/about">http://localhost:3000/about</a></p>
+<p>Nanti akan muncul output di command line:</p>
+<pre>MIDDLEWARE 1<br>MIDDLEWARE 2<br>ABOUT</pre>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Selanjutnya, kita menjalankan perintah npm install tanpa diikuti nama package.</p>
+<p>Itu maksudnya adalah untuk meng-install seluruh dependencies yang tertulis di "package.json", dalam hal ini hanya Express.</p>
+<p>Pada "index.js", kita mulai dari mengimpor modul express:</p>
+<pre class="language-javascript line-numbers"><code>// import modules
+const express = require("express");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul express dan menyimpannya dalam const express.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul pihak ke-3, maka kita perlu meng-install-nya terlebih dahulu dengan npm. Kita telah melakukannya dengan npm install tadi.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Pada baris kode selanjutnya, kita menginisialisasi dan membuat objek express:</p>
+<pre class="language-javascript line-numbers"><code>// inisialisasi express
+const app = express();</code></pre>
+<p>Objek tersebut disimpan pada const app.</p>
+<p>Selanjutnya, kita mendaftarkan middleware global:</p>
+<pre class="language-javascript line-numbers"><code>// middleware ini berjalan secara global
+app.use((req, res, next) =&gt; {
+    console.log("MIDDLEWARE 1");
+    next();
+});</code></pre>
+<p>Dengan adanya middleware global tersebut, setiap kali ada request apapun yang masuk ke server, maka console.log akan memprint "MIDDLEWARE 1".</p>
+<p>Selanjutnya, kode ini mendaftarkan halaman INDEX:</p>
+<pre class="language-javascript line-numbers"><code>// request get untuk "/" atau dengan kata lain halaman index
+// tanpa middleware lokal
+app.get("/", (req, res) =&gt; {
+    console.log("INDEX");
+    res.send("INDEX");
+});</code></pre>
+<p>Dalam contoh sebelumnya, "MIDDLEWARE 1" muncul dua kali saat mengakses INDEX.</p>
+<p>Itu karena, jika kita mengakses server via web browser, maka biasanya web browser juga akan me-request favicon, jadi ada 2 request.</p>
+<p>Adapun URL dari favicon beda dengan INDEX, sehingga teks "INDEX" hanya muncul satu kali.</p>
+<p>Selanjutnya, kita mendaftarkan halaman ABOUT:</p>
+<pre class="language-javascript line-numbers"><code>// request get untuk "/about" atau dengan kata lain halaman about
+// dengan middleware lokal
+// perhatikan bahwa parameter ke-2 diisi function. itu middleware nya
+app.get(
+    "/about",
+    (req, res, next) =&gt; {
+        console.log("MIDDLEWARE 2");
+        next();
+    },
+    (req, res) =&gt; {
+        console.log("ABOUT");
+        res.send("ABOUT");
+    }
+);</code></pre>
+<p>Tampak bahwa ada "MIDDLEWARE 2" yang terpasang pada request handler.</p>
+<p>Dengan demikian, outputnya, jika Anda belum membersihkan cache browser Anda adalah:</p>
+<pre>MIDDLEWARE 1<br>MIDDLEWARE 2<br>ABOUT</pre>
+<p>Kenapa "MIDDLEWARE 1" hanya ada satu?</p>
+<p>Itu karena, favicon sudah di-request sebelumnya, sehingga browser tidak me-request-nya lagi.</p>
+<p>Kecuali mungkin jika Anda telah menghapus cache browser Anda.</p>
+<p>Selanjutnya, kita menjalankan server tersebut dengan cara melakukan listen di port 3000:</p>
+<pre class="language-javascript line-numbers"><code>// jalankan server di port 3000
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Dalam keadaan ini, port 3000 sedang digunakan oleh aplikasi ini.</p>
+<p>Jadi, jika Anda menjalankan aplikasi lain yang harus menggunakan port 3000, maka kemungkinan aplikasi lain tersebut akan tidak berjalan.</p>
+<p>Hal sebaliknya juga berlaku.</p>
+<p>Jika sebelum aplikasi ini dijalankan port 3000 sedang digunakan, maka aplikasi ini juga tidak akan berjalan.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Express middleware.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js – Hello World dengan Express</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-hello-world-dengan-express.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-hello-world-dengan-express.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:24:25+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Membuat aplikasi server dengan Node.js tanpa framework itu memungkinkan. Seperti apa yang dijelaskan pada tutorial sebelumnya. Namun, dengan menggunakan Express, sebenarnya kita telah banyak menghemat waktu penulisan kode. Itu karena dengan menggunakan Express, banyak hal yang kompleks dilakukan di balik layar. Pada tutorial sebelumnya,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Membuat aplikasi server dengan Node.js tanpa framework itu memungkinkan.</p>
+<p>Seperti apa yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-nodejs-hello-world-tanpa-framework.html">tutorial sebelumnya</a>.</p>
+<p>Namun, dengan menggunakan Express, sebenarnya kita telah banyak menghemat waktu penulisan kode.</p>
+<p>Itu karena dengan menggunakan Express, banyak hal yang kompleks dilakukan di balik layar.</p>
+<p>Pada tutorial sebelumnya, aplikasi yang kita buat masih sederhana.</p>
+<p>Jadi, mungkin saja kode yang ditulis hanya sedikit.</p>
+<p>Lalu, bagaimana jika aplikasi yang kita buat cukup besar?</p>
+<p>Tanpa menggunakan framework tentunya akan merepotkan.</p>
+<p>Oleh karena itu, mempelajari framework Node.js seperti Express menurut saya cukup bermanfaat.</p>
+<p>Pada tutorial ini, saya akan membahas cara membuat aplikasi hello world dengan Node.js dan Express.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu membuat aplikasi hello world menggunakan Express.</li>
+<li>Pembaca mengenal Express.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-3" dengan cara yang telah dijelaskan <a href="https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+    "name": "tutorial-3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import module express
+const express = require("express");
+
+// inisialisasi express
+const server = express();
+
+// handle request "/"
+server.get("/", (req, res, next) =&gt; {
+    // response dengan teks "Hello World!", kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});
+
+// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});
+</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>npm install</pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>Nanti akan muncul output:</p>
+<pre>Hello World!</pre>
+<p>Di browser Anda.</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Selanjutnya, kita menjalankan perintah npm install tanpa diikuti nama package.</p>
+<p>Itu maksudnya adalah untuk meng-install seluruh dependencies yang tertulis di "package.json", dalam hal ini hanya Express.</p>
+<p>Pada "index.js", kita mulai dari mengimpor modul express:</p>
+<pre class="language-javascript line-numbers"><code>// import module express
+const express = require("express");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul express dan menyimpannya dalam const express.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul pihak ke-3, maka kita perlu meng-install-nya terlebih dahulu dengan npm. Kita telah melakukannya dengan npm install tadi.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Pada baris kode selanjutnya, kita menginisialisasi dan membuat objek express:</p>
+<pre class="language-javascript line-numbers"><code>// inisialisasi express
+const server = express();</code></pre>
+<p>Objek tersebut disimpan pada const server.</p>
+<p>Selanjutnya, server melakukan filter terhadap request GET ke path "/" atau root:</p>
+<pre class="language-javascript line-numbers"><code>// handle request "/"
+server.get("/", (req, res, next) =&gt; {
+    // response dengan teks "Hello World!", kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});</code></pre>
+<p>Request tadi direspon dengan teks "Hello World!", kemudian diakhiri dengan res.end().</p>
+<p>Yang perlu Anda ingat di kode tadi adalah bahwa kode tadi bersifat pasif.</p>
+<p>Dengan kata lain, kita tidak memerintahkan server untuk membuka browser client dan menampilkan teks "Hello World!", melainkan menunggu ada request dari browser client, dan jika request itu datang, maka tangani dengan callback di parameternya, sehingga teks "Hello World!" akan tampil.</p>
+<p>Selanjutnya, kita menjalankan server tersebut dengan cara melakukan listen di port 3000:</p>
+<pre class="language-javascript line-numbers"><code>// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Dalam keadaan ini, port 3000 sedang digunakan oleh aplikasi ini.</p>
+<p>Jadi, jika Anda menjalankan aplikasi lain yang harus menggunakan port 3000, maka kemungkinan aplikasi lain tersebut akan tidak berjalan.</p>
+<p>Hal sebaliknya juga berlaku.</p>
+<p>Jika sebelum aplikasi ini dijalankan port 3000 sedang digunakan, maka aplikasi ini juga tidak akan berjalan.</p>
+<p>Lalu, kenapa kita mengakses aplikasi ini di:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p>?</p>
+<p>Itu karena, port 3000 adalah port yang kita gunakan untuk server express di aplikasi ini.</p>
+<p>Adapun domain dari komputer lokal kita adalah localhost.</p>
+<p>Selain itu, kita juga menggunakan protokol http dalam aplikasi ini.</p>
+<p>Adapun penambahan "/" di akhir URL berarti browser melakukan request terhadap path "/" di server express.</p>
+<p>Maka, yang perlu diakses browser untuk melihat output aplikasi ini adalah:</p>
+<p><a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Express dan cara menggunakannya.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js – Hello World Tanpa Framework</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-hello-world-tanpa-framework.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-hello-world-tanpa-framework.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:24:46+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Pada umumnya, saat kita akan membuat aplikasi web dengan Node.js, maka setidaknya kita akan menyiapkan package-package 3rd party dari NPM. Misalnya saja, Express. Namun, dengan menggunakan Express, sebenarnya kita telah banyak menyembunyikan cara kerja Node.js di belakang layar. Walaupun sebenarnya aplikasi hello world bisa&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Pada umumnya, saat kita akan membuat aplikasi web dengan Node.js, maka setidaknya kita akan menyiapkan package-package 3rd party dari NPM.</p>
+<p>Misalnya saja, Express.</p>
+<p>Namun, dengan menggunakan Express, sebenarnya kita telah banyak menyembunyikan cara kerja Node.js di belakang layar.</p>
+<p>Walaupun sebenarnya aplikasi hello world bisa dibuat dengan menggunakan Express, ada baiknya juga jika kita tahu caranya tanpa menggunakan framework apapun.</p>
+<p>Pada aplikasi ini, kita akan belajar cara meng-import modul, membuat server http, merespons http request dan mengakhirinya, serta membuat server tadi untuk berjalan di port tertentu.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu membuat aplikasi hello world tanpa menggunakan framework.</li>
+<li>Pembaca mengenal modul http milik Node.js.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-2" dengan cara yang telah dijelaskan <a href="https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "tutorial-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// import module http
+const http = require("http");
+
+// buat server. dan apapun request nya...
+const server = http.createServer((req, res) =&gt; {
+    // response dengan teks hello world. kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});
+
+// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Buka web browser Anda di:</p>
+<p><a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>Nanti akan muncul output:</p>
+<pre>Hello World!</pre>
+<p>Di browser Anda.</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Pada "index.js", kita mulai dari mengimpor modul http:</p>
+<pre class="language-javascript line-numbers"><code>// import module http
+const http = require("http");</code></pre>
+<p>Pada kode di atas, kita mengimpor modul http dan menyimpannya dalam const http.</p>
+<p>Node.js menyediakan function require untuk meng-import modul.</p>
+<p>Jika modul yang di-import adalah modul bawaan, maka kita tidak perlu meng-install-nya terlebih dahulu dengan npm.</p>
+<p>Selain itu, jika modul yang di-import bukan modul buatan sendiri, kita tidak perlu menggunakan path pada require, cukup nama modulnya saja</p>
+<p>Kemudian, kita membuat http server dengan cara ini:</p>
+<pre class="language-javascript line-numbers"><code>// buat server. dan apapun request nya...
+const server = http.createServer((req, res) =&gt; {
+    // response dengan teks hello world. kemudian akhiri
+    res.write("Hello World!");
+    res.end();
+});</code></pre>
+<p>req merupakan parameter untuk request.</p>
+<p>res merupakan parameter untuk response.</p>
+<p>Berhubung response-nya adalah sama untuk request apapun, maka, di sini saya tidak melakukan filtering terhadap request yang bisa dilakukan menggunakan parameter req.</p>
+<p>Selanjutnya, kita menjalankan server tersebut dengan cara melakukan listen di port 3000:</p>
+<pre class="language-javascript line-numbers"><code>// jalankan server di port 3000
+server.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000.");
+});</code></pre>
+<p>Dalam keadaan ini, port 3000 sedang digunakan oleh aplikasi ini.</p>
+<p>Jadi, jika Anda menjalankan aplikasi lain yang harus menggunakan port 3000, maka kemungkinan aplikasi lain tersebut akan tidak berjalan.</p>
+<p>Hal sebaliknya juga berlaku.</p>
+<p>Jika sebelum aplikasi ini dijalankan port 3000 sedang digunakan, maka aplikasi ini juga tidak akan berjalan.</p>
+<p>Lalu, kenapa kita mengakses aplikasi ini di:</p>
+<p><a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>?</p>
+<p>Itu karena, port 3000 adalah port yang kita gunakan untuk server http di aplikasi ini.</p>
+<p>Adapun domain dari komputer lokal kita adalah localhost.</p>
+<p>Selain itu, kita juga menggunakan protokol http dalam aplikasi ini.</p>
+<p>Maka, yang perlu diakses browser untuk melihat output aplikasi ini adalah:</p>
+<p><a href="http://localhost:3000">http://localhost:3000</a></p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal modul http dan cara menggunakannya.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js - Menggunakan Nodemon</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-menggunakan-nodemon.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-menggunakan-nodemon.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:25:05+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dalam membangun aplikasi Node.js, bukan tidak mungkin akan ada perubahan dalam script Node.js yang kita buat. Akan tetapi, perubahan kode tersebut hanya bisa dilihat jika aplikasi Node.js-nya di-restart. Mungkin tidak masalah jika aplikasi yang kita buat berjalan selewat saja, seperti misalnya aplikasi command line.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dalam membangun aplikasi Node.js, bukan tidak mungkin akan ada perubahan dalam script Node.js yang kita buat.</p>
+<p>Akan tetapi, perubahan kode tersebut hanya bisa dilihat jika aplikasi Node.js-nya di-restart.</p>
+<p>Mungkin tidak masalah jika aplikasi yang kita buat berjalan selewat saja, seperti misalnya aplikasi command line.</p>
+<p>Namun, dalam aplikasi web, biasanya akan ada infinite loop untuk melakukan listen port tertentu.</p>
+<p>Artinya, jika aplikasi semacam tadi mengalami perubahan kode, kita harus menghentikan aplikasi tersebut, kemudian menjalankannya lagi.</p>
+<p>Jika itu dilakukan manual dan secara sering, tentunya akan merepotkan.</p>
+<p>Di sinilah nodemon dapat membantu kita.</p>
+<p>nodemon adalah salah satu package NPM yang fungsinya mengawasi script-script dalam project Node.js.</p>
+<p>Setelah nodemon dijalankan, maka jika ada script yang diawasinya berubah, kemudian di-save, maka nodemon akan secara otomatis me-restart aplikasi.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu menggunakan nodemon.</li>
+<li>Pembaca mengenal nodemon.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Node.js bernama "tutorial-1" dengan cara yang telah dijelaskan <a href="https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html">di tutorial terdahulu ini</a>.</p>
+<p>Selanjutnya, ubah file "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "tutorial-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js,html -w ./ index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<p>Selanjutnya, isi file "index.js" dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>const express = require("express");
+const app = express();
+
+app.get("/", (req, res, next) =&gt; {
+    res.sendFile(__dirname + "/views/" + "index.html");
+});
+
+app.listen(3000, () =&gt; {
+    console.log("Server berjalan di port 3000");
+});</code></pre>
+<p>Selanjutnya buat folder "views" yang di dalamnya ada file "index.html".</p>
+<p>Isi file "index.html" adalah seperti ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Belajar Nodemon&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Belajar Nodemon&lt;/h1&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Selanjutnya, install express:</p>
+<pre>npm install express</pre>
+<p>Dan install nodemon sebagai dev dependencies:</p>
+<pre>npm install nodemon --save-dev</pre>
+<p>Nanti, di "package.json" akan ada tambahan entry:</p>
+<pre class="language-json line-numbers"><code>"dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }</code></pre>
+<p>Catat bahwa versinya mungkin berbeda dengan "package.json" milik saya.</p>
+<p>Sekarang, jalankan aplikasi ini:</p>
+<pre>npm run dev</pre>
+<p>Selanjutnya, ubah file "index.js", kemudian save, kemudian perhatikan command line, akan terlihat bahwa aplikasi ini di-restart</p>
+<p>Itu juga akan terjadi jika kita mengubah dan men-save "index.html".</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita membuat project Node.js dan mengisinya dengan beberapa script.</p>
+<p>Karena kita telah menginstall nodemon, maka perintah node diganti dengan nodemon, sesuai dengan yang ada di "package.json":</p>
+<pre class="language-json line-numbers"><code>"dev": "nodemon -e js,html -w ./ index.js"</code></pre>
+<p>Menurut kode itu, saat perintah npm run dev dijalankan, semua file berekstensi ".js" dan ".html" yang ada di folder project dan subfoldernya akan diawasi.</p>
+<p>Jika terjadi perubahan, maka aplikasi akan di-restart.</p>
+<p>Dengan kata lain, parameter "-e" menentukan ekstensi apa yang diawasi dan parameter "-w" menentukan folder mana yang diawasi.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal nodemon dan cara menggunakannya.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Node.js - Membuat Project</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html"/>
+        <id>https://os.rakifsul.my.id/belajar-nodejs-membuat-project.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Node.js"/>
+
+        <updated>2023-12-27T02:25:16+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Node.js adalah sebuah platform runtime environment yang bisa digunakan untuk banyak hal. Salah satu manfaat dari Node.js adalah membuat backend dari aplikasi web. Tapi, sebenarnya tidak hanya itu. Secara keseluruhan, Node.js juga bisa digunakan untuk membuat aplikasi command line, bahkan menjadi bagian dari Electron&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Node.js adalah sebuah platform runtime environment yang bisa digunakan untuk banyak hal.</p>
+<p>Salah satu manfaat dari Node.js adalah membuat backend dari aplikasi web.</p>
+<p>Tapi, sebenarnya tidak hanya itu.</p>
+<p>Secara keseluruhan, Node.js juga bisa digunakan untuk membuat aplikasi command line, bahkan menjadi bagian dari Electron js yang digunakan untuk aplikasi desktop GUI.</p>
+<p>Saat Node.js diinstall, biasanya NPM juga ikut terinstall.</p>
+<p>NPM itu sendiri adalah package manager yang fungsinya untuk memanajemen package-package yang digunakan dalam sebuah project Node.js, bahkan selain Node.js sekalipun.</p>
+<p>Jadi tidak aneh jika React juga bisa menggunakan NPM untuk memanajemen package-package yang digunakan di dalamnya.</p>
+<p>Dalam tutorial ini, kita akan membuat project Node.js dari nol dengan menggunakan npm.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan dari tutorial ini:</p>
+<ul>
+<li>Pembaca mampu membuat project Node.js dari nol.</li>
+<li>Pembaca mengenal Node.js dan NPM.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Berikut ini adalah prasyarat dari tutorial ini:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, pastikan Anda telah meng-install Node.js dan NPM.</p>
+<p>Selanjutnya, buatlah folder bernama "tutorial-0".</p>
+<p>Sebenarnya, nama foldernya bisa apapun, tapi dalam tutorial ini, gunakan saja nama tersebut agar tutorial ini lebih mudah dipahami.</p>
+<p>Sekarang, buka folder "tutorial-0" dengan command line.</p>
+<p>Kemudian, jalankan:</p>
+<pre>npm init -y</pre>
+<p>Nanti, akan muncul file bernama "package.json" yang isinya seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "tutorial-0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<p>Selanjutnya, Anda bisa membuat file baru bernama "index.js" di dalam folder tersebut.</p>
+<p>Alternatifnya, Anda bisa ganti "index.js" dengan "yanglain.js" di file "package.json" dan membuat file "yanglain.js" bukannya "index.js" di dalam folder "tutorial-0".</p>
+<p>Dengan kata lain, bebas-bebas saja...</p>
+<p>Sekarang, buka file "index.js" dengan teks editor, kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// mem-print teks "hello world".
+console.log("hello world");</code></pre>
+<p>Selanjutnya, jalankan:</p>
+<pre>node index.js</pre>
+<p>Nanti akan muncul output:</p>
+<pre>hello world</pre>
+<p>Sampai di sini langkah-langkahnya selesai.</p>
+<h2>Pembahasan</h2>
+<p>Pertama-tama, kita telah selesai membuat project dengan perintah:</p>
+<pre>npm init -y</pre>
+<p>Perintah tersebut akan membuatkan "package.json" dengan isi default.</p>
+<p>Jika tanpa "-y":</p>
+<pre>npm init</pre>
+<p>Nanti Anda akan melihat prompt untuk melakukan perubahan isi dari "package.json".</p>
+<p>Namun, jika Anda ingin mengubah isi dari "package.json", sebenarnya Anda juga bisa menggunakan teks editor setelah "package.json" dibuat.</p>
+<p>Jadi, bebas-bebas sajalah...</p>
+<p>Sekarang, kita bahas isi dari file "index.js".</p>
+<p>Script "index.js" yang berisi:</p>
+<pre class="language-javascript line-numbers"><code>// mem-print teks "hello world".
+console.log("hello world");</code></pre>
+<p>Tidak mem-print:</p>
+<pre>// mem-print teks "hello world".</pre>
+<p>Tapi hanya:</p>
+<pre>hello world</pre>
+<p>Saja. Itu karena karakter "//" gunanya adalah untuk menandai komentar dan setiap komentar tidak dieksekusi.</p>
+<p>Jadi, tanda "//" berfungsi ganda: sebagai komentar dan untuk menonaktifkan kode.</p>
+<p>Setelah project dibuat, Anda bisa dengan aman meng-install package-package dari NPM.</p>
+<p>Karena, daftarnya akan dimasukkan ke file "package.json".</p>
+<p>Tepatnya di property "dependencies" jika menggunakan perintah:</p>
+<pre>npm install &lt;nama-package&gt;</pre>
+<p>Dan di property "devDependencies" jika menggunakan perintah:</p>
+<pre>npm install &lt;nama-package&gt; --save-dev</pre>
+<p>Tapi ingat, perintah tadi harus dijalankan dalam folder project, yakni yang ada file "package.json"-nya.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah mengenal Node.js, NPM, dan cara menggunakannya.</p>
+<p>Membuat project Node.js seharusnya tidak masalah sekarang.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Belajar Python 3 - Penanganan File</title>
         <author>
