@@ -3,12 +3,2291 @@
     <title>RAKIFSUL OS</title>
     <link href="https://os.rakifsul.my.id/feed.xml" rel="self" />
     <link href="https://os.rakifsul.my.id" />
-    <updated>2023-12-27T01:15:31+07:00</updated>
+    <updated>2023-12-27T01:48:11+07:00</updated>
     <author>
         <name>RAKIFSUL</name>
     </author>
     <id>https://os.rakifsul.my.id</id>
 
+    <entry>
+        <title>Belajar Electron - Pembahasan tentang webview Tag</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-webview-tag.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-webview-tag.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:43:34+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dengan maraknya framework untuk me-render DOM melalui JavaScript seperti React, Vue dan sebagainya, maka pembuatan aplikasi scraper menjadi semakin menantang. Dulu, HTML bersifat statis atau setidaknya apa adanya sehingga untuk melakukan ekstraksi data cukup dengan menggunakan library untuk request HTTP biasa. Tapi bayangkan jika&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dengan maraknya framework untuk me-render DOM melalui JavaScript seperti React, Vue dan sebagainya, maka pembuatan aplikasi scraper menjadi semakin menantang.</p>
+<p>Dulu, HTML bersifat statis atau setidaknya apa adanya sehingga untuk melakukan ekstraksi data cukup dengan menggunakan library untuk request HTTP biasa.</p>
+<p>Tapi bayangkan jika dalam sebuah website cuma ada tag div yang diisi struktur HTML via JavaScript. Itu sangat merepotkan.</p>
+<p>Untuk melakukan scraping pada website semacam itu biasanya dibutuhkan web automation seperti Selenium dan Puppeteer.</p>
+<p>Tapi menurut saya itu kurang ideal karena bersifat terpisah dari aplikasi utamanya.</p>
+<p>Untungnya, di Electron ada webview tag.</p>
+<p>Webview tag tersebut berperan sebagaimana web browser yang bisa memproses JavaScript dan mem-parse DOM yang dibuatnya.</p>
+<p>Webview tag ini benar-benar menyerupai web browser pada umumnya, bahkan bisa melakukan inspect element atau membuka devtools.</p>
+<p>Pada Electron versi terbaru, saat ini juga ada alternatif webview tag yang bernama BrowserView.</p>
+<p>Bedanya, BrowserView merupakan bagian dari main process sementara webview tag merupakan bagian dari renderer process.</p>
+<p>Namun, di sini saya tidak membahas BrowserView, melainkan webview tag.</p>
+<p>Mungkin di lain kesempatan saya akan membahasnya.</p>
+<p>Sekarang, mari kita pelajari apa itu webview tag dan bagaimana cara menggunakannya untuk membuat aplikasi web browser sederhana.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami apa itu webview tag.</li>
+<li>Pembaca dapat menggunakan webview tag untuk membuat web browser sederhana.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah sebuah project Electron dengan nama "project-electron-webview".</p>
+<p>Anda bisa membuatnya dengan cara yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial sebelumnya</a>.</p>
+<p>Jika Anda telah mengikuti tutorial tersebut, pasti ada file bernama "index.js" di dalam folder project Anda.</p>
+<p>Bukalah file "index.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const { app, BrowserWindow } = require("electron");
+// end: import modules
+
+// variabel untuk menyimpan objek BrowserWindow
+let win;
+
+// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow berukuran 1024x768
+    // enable fitur webview tag
+    win = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        webPreferences: {
+            webviewTag: true,
+        },
+    });
+
+    // buka file index.html
+    win.loadFile("index.html");
+});</code></pre>
+<p>Selanjutnya, buat file "index.html" dan isi dengan kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;WebView Tag Example&lt;/title&gt;
+
+  &lt;style&gt;
+    #wv-main {
+      position: absolute;
+      width: 50%;
+      top: 0px;
+      bottom: 0px;
+    }
+
+    #control {
+      position: absolute;
+      width: 50%;
+      left: 52%;
+      top: 0px;
+      bottom: 0px;
+      overflow-y: scroll;
+    }
+
+    #control input {
+      left: 50%;
+      width: 95%;
+    }
+
+    #control textarea {
+      left: 50%;
+      width: 95%;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;webview id="wv-main" src="https://github.com"&gt;&lt;/webview&gt;
+  &lt;div id="control"&gt;
+    &lt;h1&gt;Control&lt;/h1&gt;
+    &lt;label for="url"&gt;URL&lt;/label&gt;
+    &lt;br&gt;
+    &lt;input type="text" id="url" value="https://www.google.com" placeholder="Masukkan URL di sini!" /&gt;
+    &lt;br&gt;
+    &lt;button id="load-url"&gt;Load URL&lt;/button&gt;
+    &lt;button id="go-back"&gt;Go Back&lt;/button&gt;
+    &lt;button id="go-forward"&gt;Go Forward&lt;/button&gt;
+    &lt;button id="stop"&gt;Stop&lt;/button&gt;
+    &lt;button id="reload"&gt;Reload&lt;/button&gt;
+    &lt;button id="open-dev-tools"&gt;Open Dev Tools&lt;/button&gt;
+
+    &lt;p&gt;&lt;/p&gt;
+
+    &lt;label for="script"&gt;Script&lt;/label&gt;
+    &lt;br&gt;
+    &lt;textarea id="script" rows="10" cols="50"&gt;window.open("https://www.google.com/search?q=site%3Asfrfrlnc.com","_self");0&lt;/textarea&gt;
+    &lt;br&gt;
+    &lt;button id="inject-script"&gt;Inject&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    // mengambil element untuk nantinya meng-handle event.
+    const wvMain = document.getElementById("wv-main");
+    const btnLoadUrl = document.getElementById("load-url");
+    const btnGoBack = document.getElementById("go-back");
+    const btnGoForward = document.getElementById("go-forward");
+    const btnStop = document.getElementById("stop");
+    const btnReload = document.getElementById("reload");
+    const btnOpenDevTools = document.getElementById("open-dev-tools");
+    const btnInjectScript = document.getElementById("inject-script");
+    const txaScript = document.getElementById("script").value;
+
+    // saat tombol Load URL diklik
+    btnLoadUrl.onclick = function() {
+      const url = document.getElementById("url").value;
+      wvMain.loadURL(url);
+    }
+
+    // saat tombol Go Back diklik
+    btnGoBack.onclick = function() {
+      wvMain.goBack();
+    }
+
+    // saat tombol Go Forward diklik
+    btnGoForward.onclick = function() {
+      wvMain.goForward();
+    }
+
+    // saat tombol Stop diklik
+    btnStop.onclick = function() {
+      wvMain.stop();
+    }
+
+    // saat tombol Reload diklik
+    btnReload.onclick = function() {
+      wvMain.reload();
+    }
+
+    // saat tombol Open Dev Tools (inspect element) diklik
+    btnOpenDevTools.onclick = function() {
+      wvMain.openDevTools();
+    }
+
+    // saat tombol Inject diklik
+    btnInjectScript.onclick = function() {
+      wvMain.executeJavaScript(txaScript);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Sekarang, Electron siap dijalankan:</p>
+<pre>npm run dev</pre>
+<p>Nanti akan muncul BrowserWindow yang terdiri dari 2 bagian.</p>
+<p>Bagian kiri adalah web page dan bagian kanan adalah kontrolnya.</p>
+<h2>Pembahasan</h2>
+<p>Sekarang, saya akan membahas dari "index.js" terlebih dahulu, karena ini yang paling sederhana.</p>
+<p>Pada bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>// begin: import modules
+const { app, BrowserWindow } = require("electron");
+// end: import modules</code></pre>
+<p>Kita mengimpor modul yang diperlukan.</p>
+<p>Hanya perlu app dan BrowserWindow.</p>
+<p>Selanjutnya, kita menyiapkan sebuah variabel bernama win untuk menyimpan objek BrowserWindow:</p>
+<pre class="language-javascript line-numbers"><code>// variabel untuk menyimpan objek BrowserWindow
+let win;</code></pre>
+<p>Saat app ready, buat BrowserWindow:</p>
+<pre class="language-javascript line-numbers"><code>// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow berukuran 1024x768
+    // enable fitur webview tag
+    win = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        webPreferences: {
+            webviewTag: true,
+        },
+    });</code></pre>
+<p>Ukuran BrowserWindow-nya adalah 1024x768 pixel dengan webview tag di-enable.</p>
+<p>Gunakan parameter tersebut agar kita bisa menggunakan webview tag.</p>
+<p>Selanjutnya, buka file "index.html":</p>
+<pre class="language-javascript line-numbers"><code>    // buka file index.html
+    win.loadFile("index.html");</code></pre>
+<p>Sekarang, bagaimana dengan "index.html"?</p>
+<p>File tersebut saya bagi menjadi dua bagian: struktur dan script.</p>
+<p>Untuk strukturnya:</p>
+<pre class="language-html line-numbers"><code>&lt;webview id="wv-main" src="https://github.com"&gt;&lt;/webview&gt;
+  &lt;div id="control"&gt;
+    &lt;h1&gt;Control&lt;/h1&gt;
+    &lt;label for="url"&gt;URL&lt;/label&gt;
+    &lt;br&gt;
+    &lt;input type="text" id="url" value="https://www.google.com" placeholder="Masukkan URL di sini!" /&gt;
+    &lt;br&gt;
+    &lt;button id="load-url"&gt;Load URL&lt;/button&gt;
+    &lt;button id="go-back"&gt;Go Back&lt;/button&gt;
+    &lt;button id="go-forward"&gt;Go Forward&lt;/button&gt;
+    &lt;button id="stop"&gt;Stop&lt;/button&gt;
+    &lt;button id="reload"&gt;Reload&lt;/button&gt;
+    &lt;button id="open-dev-tools"&gt;Open Dev Tools&lt;/button&gt;
+
+    &lt;p&gt;&lt;/p&gt;
+
+    &lt;label for="script"&gt;Script&lt;/label&gt;
+    &lt;br&gt;
+    &lt;textarea id="script" rows="10" cols="50"&gt;window.open("https://www.google.com/search?q=site%3Asfrfrlnc.com","_self");0&lt;/textarea&gt;
+    &lt;br&gt;
+    &lt;button id="inject-script"&gt;Inject&lt;/button&gt;
+  &lt;/div&gt;</code></pre>
+<p>Kita menggunakan webview tag di bagian atas kode, yang nantinya akan ada di sebelah kiri dari BrowserWindow.</p>
+<p>Adapun div di bawahnya adalah kontrol. Nantinya ada di sebelah kanan BrowserWindow.</p>
+<p>Penempatan itu tentunya dilakukan dengan CSS.</p>
+<p>Selain itu, kontrol tersebut terdiri dari beberapa tombol untuk navigasi dan sebuah textarea yang berisi script untuk melakukan injeksi JavaScript ke dalam website target.</p>
+<p>Sekarang bagian script-nya.</p>
+<p>Kodenya adalah sebagai berikut:</p>
+<pre class="language-html line-numbers"><code>  &lt;script&gt;
+    // mengambil element untuk nantinya meng-handle event.
+    const wvMain = document.getElementById("wv-main");
+    const btnLoadUrl = document.getElementById("load-url");
+    const btnGoBack = document.getElementById("go-back");
+    const btnGoForward = document.getElementById("go-forward");
+    const btnStop = document.getElementById("stop");
+    const btnReload = document.getElementById("reload");
+    const btnOpenDevTools = document.getElementById("open-dev-tools");
+    const btnInjectScript = document.getElementById("inject-script");
+    const txaScript = document.getElementById("script").value;
+
+    // saat tombol Load URL diklik
+    btnLoadUrl.onclick = function() {
+      const url = document.getElementById("url").value;
+      wvMain.loadURL(url);
+    }
+
+    // saat tombol Go Back diklik
+    btnGoBack.onclick = function() {
+      wvMain.goBack();
+    }
+
+    // saat tombol Go Forward diklik
+    btnGoForward.onclick = function() {
+      wvMain.goForward();
+    }
+
+    // saat tombol Stop diklik
+    btnStop.onclick = function() {
+      wvMain.stop();
+    }
+
+    // saat tombol Reload diklik
+    btnReload.onclick = function() {
+      wvMain.reload();
+    }
+
+    // saat tombol Open Dev Tools (inspect element) diklik
+    btnOpenDevTools.onclick = function() {
+      wvMain.openDevTools();
+    }
+
+    // saat tombol Inject diklik
+    btnInjectScript.onclick = function() {
+      wvMain.executeJavaScript(txaScript);
+    }
+  &lt;/script&gt;</code></pre>
+<p>Di bagian ini, kita mengambil elemen-elemen kontrol dengan getElementById:</p>
+<pre class="language-javascript line-numbers"><code>    // mengambil element untuk nantinya meng-handle event.
+    const wvMain = document.getElementById("wv-main");
+    const btnLoadUrl = document.getElementById("load-url");
+    const btnGoBack = document.getElementById("go-back");
+    const btnGoForward = document.getElementById("go-forward");
+    const btnStop = document.getElementById("stop");
+    const btnReload = document.getElementById("reload");
+    const btnOpenDevTools = document.getElementById("open-dev-tools");
+    const btnInjectScript = document.getElementById("inject-script");
+    const txaScript = document.getElementById("script").value;</code></pre>
+<p>Event handler-nya ada di sini:</p>
+<pre class="language-javascript line-numbers"><code>    // saat tombol Load URL diklik
+    btnLoadUrl.onclick = function() {
+      const url = document.getElementById("url").value;
+      wvMain.loadURL(url);
+    }
+
+    // saat tombol Go Back diklik
+    btnGoBack.onclick = function() {
+      wvMain.goBack();
+    }
+
+    // saat tombol Go Forward diklik
+    btnGoForward.onclick = function() {
+      wvMain.goForward();
+    }
+
+    // saat tombol Stop diklik
+    btnStop.onclick = function() {
+      wvMain.stop();
+    }
+
+    // saat tombol Reload diklik
+    btnReload.onclick = function() {
+      wvMain.reload();
+    }
+
+    // saat tombol Open Dev Tools (inspect element) diklik
+    btnOpenDevTools.onclick = function() {
+      wvMain.openDevTools();
+    }
+
+    // saat tombol Inject diklik
+    btnInjectScript.onclick = function() {
+      wvMain.executeJavaScript(txaScript);
+    }</code></pre>
+<p>Sepertinya komentar di atas cukup menjelaskan apa yang terjadi.</p>
+<p>Untuk bagian injeksi script, teks script yang akan diinjeksi ada di variabel txaScript yang isinya berasal dari elemen textarea di bagian strukturnya.</p>
+<p>Perhatikan bahwa webview sudah memiliki sebagian besar API yang dibutuhkan.</p>
+<p>Yang artinya, pembuatan aplikasi ini semakin mudah.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda telah memahami apa itu webview tag dan bagaimana cara menggunakannya untuk membuat web browser sederhana.</p>
+<p>Selanjutnya giliran Anda untuk mengembangkannya lebih lanjut.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Mengenal Tray</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-mengenal-tray.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-mengenal-tray.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:43:54+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Tray itu apa? Tray adalah icon interaktif yang berada pada taskbar dari Windows 11 yang biasanya ada di sekitar pojok kanan bawah dari layar komputer. Pada Windows 11, tray dari aplikasi yang belum pernah dijalankan sebelumnya tersembunyi di balik icon panah ke atas yang&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Tray itu apa?</p>
+<p>Tray adalah icon interaktif yang berada pada taskbar dari Windows 11 yang biasanya ada di sekitar pojok kanan bawah dari layar komputer.</p>
+<p>Pada Windows 11, tray dari aplikasi yang belum pernah dijalankan sebelumnya tersembunyi di balik icon panah ke atas yang ada di pojok kanan bawah layar komputer.</p>
+<p>Di setting Windows 11, kita bisa meng-expand tanda panah tersebut sehingga tray tadi tidak tersembunyi lagi.</p>
+<p>Tray berfungsi untuk membuat user sadar bahwa aplikasi yang menggunakan tray masih jalan di background walaupun window-nya sudah tertutup.</p>
+<p>Lalu apa kegunaan BrowserWindow dalam project tutorial ini?</p>
+<p>Penggunaan BrowserWindow kali ini adalah untuk memberi petunjuk lokasi tray tersebut kepada Anda.</p>
+<p>Dengan kata lain file HTML nya hanya berisi panduan saja.</p>
+<p>Ingat bahwa tray yang dipraktekkan di sini hanya telah dicoba di Windows 11.</p>
+<p>Saya tidak menjamin bahwa contoh project ini akan berjalan dengan normal di sistem operasi lainnya.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami Tray dan dapat menggunakannya di aplikasi Electron.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 11. Karena hanya telah teruji di OS tersebut. Saya tidak bisa jamin akan works di OS lain.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah sebuah project Electron dengan nama "project-electron-tray".</p>
+<p>Anda bisa membuatnya dengan cara yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial sebelumnya</a>.</p>
+<p>Jika Anda telah mengikuti tutorial tersebut, pasti ada file bernama "index.js" di dalam folder project Anda.</p>
+<p>Bukalah file "index.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// begin: import modules
+const { app, Menu, Tray, BrowserWindow } = require("electron");
+const { shell } = require("electron");
+// end: import modules
+
+// variabel untuk menyimpan objek BrowserWindow
+let win;
+
+// variabel untuk menyimpan objek Tray
+let tray;
+
+// definisi context menu
+const contextMenuTemplate = [
+    {
+        label: "Open Google",
+        click() {
+            shell.openExternal("https://www.google.com");
+        },
+    },
+    {
+        label: "Open GitHub",
+        click() {
+            shell.openExternal("https://github.com");
+        },
+    },
+];
+
+// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow dan simpan objeknya di variabel win
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+    });
+
+    // buka file index.html
+    win.loadFile("index.html");
+
+    // buat tray dengan icon tray-icon.ico yang sudah disediakan
+    tray = new Tray("./tray-icon.ico");
+
+    // build context menu
+    const contextMenu = Menu.buildFromTemplate(contextMenuTemplate);
+
+    // buat tooltip dari tray dengan teks "Tray Example"
+    tray.setToolTip("Tray Example");
+
+    // assign context menu tadi ke Tray
+    tray.setContextMenu(contextMenu);
+});
+</code></pre>
+<p>Selanjutnya, buat file "index.html" dan isi dengan kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Tray Example&lt;/title&gt;
+
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Perhatikan pojok kanan bawah dari layar monitor Anda.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray belum terlihat, klik tanda panah ke atasnya.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray sudah terlihat, klik kanan pada icon-nya, di sana akan muncul context menu.&lt;/h1&gt;
+  &lt;script&gt;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Langkah selanjutnya adalah, siapkan sebuah file icon berformat .ico, letakkan di dalam folder project ini, kemudian rename menjadi "tray-icon.ico".</p>
+<p>Terakhir, coba jalankan Electron dengan:</p>
+<pre>npm run dev</pre>
+<p>Nanti akan muncul BrowserWindow berisi panduan dan jika Anda perhatikan di pojok kanan bawah layar akan muncul tanda panah ke atas.</p>
+<p>Klik tanda panah tersebut dan nanti akan muncul icon Anda tadi.</p>
+<p>Jika Anda klik kanan pada icon tersebut maka context menu akan muncul.</p>
+<p>Dari situ Anda bisa mengklik menu item-nya.</p>
+<h2>Pembahasan</h2>
+<p>Sekarang, saya akan membahas yang paling mudah dulu, yaitu "index.html":</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Tray Example&lt;/title&gt;
+
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Perhatikan pojok kanan bawah dari layar monitor Anda.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray belum terlihat, klik tanda panah ke atasnya.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray sudah terlihat, klik kanan pada icon-nya, di sana akan muncul context menu.&lt;/h1&gt;
+  &lt;script&gt;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Kode di atas hanya memberi panduan pada Anda untuk menyaksikan tray yang sedang beraksi.</p>
+<p>Sekarang, yang lebih rumit, "index.js".</p>
+<p>Pada bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>// begin: import modules
+const { app, Menu, Tray, BrowserWindow } = require("electron");
+const { shell } = require("electron");
+// end: import modules</code></pre>
+<p>Kita meng-import modul yang dibutuhkan untuk menampilkan tray dan panduannya.</p>
+<p>Perhatikan di sana ada modul "Menu" dan "Tray" serta "BrowserWindow" dan "app".</p>
+<p>Juga ada "shell" yang nantinya akan digunakan dalam context menu.</p>
+<p>Kedua variabel ini untuk menyimpan objek BrowserWindow dan Tray:</p>
+<pre class="language-javascript line-numbers"><code>// variabel untuk menyimpan objek BrowserWindow
+let win;
+
+// variabel untuk menyimpan objek Tray
+let tray;</code></pre>
+<p>Kode di bawah ini adalah definisi dari struktur context menu:</p>
+<pre class="language-javascript line-numbers"><code>// definisi context menu
+const contextMenuTemplate = [
+    {
+        label: "Open Google",
+        click() {
+            shell.openExternal("https://www.google.com");
+        },
+    },
+    {
+        label: "Open GitHub",
+        click() {
+            shell.openExternal("https://github.com");
+        },
+    },
+];</code></pre>
+<p>Perhatikan juga bahwa kita menggunakan shell.openExternal di setiap respon dari context menu item-nya.</p>
+<p>Jika Anda ingin mempelajari shell lebih lanjut, silakan baca <a href="https://os.rakifsul.my.id/cara-sign-out-sambil-disconnect-wifi-di-windows-11.html">tutorial ini</a>.</p>
+<p>Selanjutnya, saat app ready, buat BrowserWindow dengan lebar 800 pixel dan tinggi 600 pixel:</p>
+<pre class="language-javascript line-numbers"><code>// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow dan simpan objeknya di variabel win
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+    });</code></pre>
+<p>Selanjutnya, masukan panduan ke dalam BrowserWindow tersebut:</p>
+<pre class="language-javascript line-numbers"><code>    // buka file index.html
+    win.loadFile("index.html");</code></pre>
+<p>Selanjutnya, buat Tray:</p>
+<pre class="language-javascript line-numbers"><code>    // buat tray dengan icon tray-icon.ico yang sudah disediakan
+    tray = new Tray("./tray-icon.ico");
+
+    // build context menu
+    const contextMenu = Menu.buildFromTemplate(contextMenuTemplate);
+
+    // buat tooltip dari tray dengan teks "Tray Example"
+    tray.setToolTip("Tray Example");
+
+    // assign context menu tadi ke Tray
+    tray.setContextMenu(contextMenu);</code></pre>
+<p>Kode di atas adalah urutan yang mungkin bisa Anda terapkan setiap kali Anda membuat Tray karena elemen-elemen Tray di kode tersebut sudah cukup lengkap.</p>
+<h2>Penutup</h2>
+<p>Sekarang, seharusnya Anda sudah paham tentang Tray di framework Electron.</p>
+<p>Saran saya, kembangkan lagi pengetahuan ini dengan eksperimen Anda sendiri.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Pembahasan Menu dan Shell</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-pembahasan-menu-dan-shell.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-pembahasan-menu-dan-shell.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:44:28+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Menu adalah sesuatu yang sering ditemukan pada aplikasi desktop. Itu adalah sebuah elemen GUI yang bercabang dan biasanya terletak di bagian atas dari window aplikasi desktop. Meskipun menu dapat dibuat via HTML dari Electron, namun menu yang saya maksud kali ini adalah native menunya.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Menu adalah sesuatu yang sering ditemukan pada aplikasi desktop.</p>
+<p>Itu adalah sebuah elemen GUI yang bercabang dan biasanya terletak di bagian atas dari window aplikasi desktop.</p>
+<p>Meskipun menu dapat dibuat via HTML dari Electron, namun menu yang saya maksud kali ini adalah native menunya.</p>
+<p>Yakni menu yang menggunakan native API Electron atau yang ada di main process.</p>
+<p>Contohnya seperti “File”, “Edit”, "View", "Help", dan yang lainnya.</p>
+<p>Selain itu, di artikel ini saya juga membahas penggunaan Shell.</p>
+<p>Saya menggunakan Shell dalam tutorial ini sebagai konsekuensi dipilihnya menu item.</p>
+<p>Shell itu sendiri merupakan modul yang berguna bagi Electron untuk integrasi dengan desktop.</p>
+<p>Maka tidak aneh jika manfaat dari Shell itu sendiri adalah untuk membuka browser ke URL tertentu, membuka explorer ke folder tertentu hingga membunyikan beep.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami konsep menu dan dapat memodifikasi menu bawaan pada Electron.</li>
+<li>Pembaca memahami konsep shell dan dapat menggunakannya.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah sebuah project Electron dengan nama "project-electron-menu-dan-shell".</p>
+<p>Anda bisa membuatnya dengan cara yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial sebelumnya</a>.</p>
+<p>Jika Anda telah mengikuti tutorial tersebut, pasti ada file bernama "index.js" di dalam folder project Anda.</p>
+<p>Bukalah file "index.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const { app, Menu, BrowserWindow } = require("electron");
+const { shell } = require("electron");
+// end: import modules
+
+// definisi menu.
+const mainMenuTemplate = [
+    {
+        label: "File",
+        submenu: [
+            {
+                role: "quit",
+            },
+        ],
+    },
+    {
+        label: "Edit",
+        submenu: [
+            {
+                role: "undo",
+            },
+            {
+                role: "redo",
+            },
+            {
+                type: "separator",
+            },
+            {
+                role: "cut",
+            },
+            {
+                role: "copy",
+            },
+            {
+                role: "paste",
+            },
+            {
+                role: "pasteandmatchstyle",
+            },
+            {
+                role: "delete",
+            },
+            {
+                role: "selectall",
+            },
+        ],
+    },
+    {
+        label: "View",
+        submenu: [
+            {
+                role: "reload",
+            },
+            {
+                role: "forcereload",
+            },
+            {
+                role: "toggledevtools",
+            },
+            {
+                type: "separator",
+            },
+            {
+                role: "togglefullscreen",
+            },
+        ],
+    },
+    {
+        role: "window",
+        submenu: [
+            {
+                role: "minimize",
+            },
+            {
+                role: "close",
+            },
+        ],
+    },
+    {
+        label: "Belajar Electron",
+        submenu: [
+            {
+                label: "Shell Open External",
+                click() {
+                    // buka default web browser ke Google.
+                    shell.openExternal("https://www.google.com");
+                },
+            },
+            {
+                label: "Shell Open Path",
+                click() {
+                    // buka drive C:
+                    shell.openPath("C:\\");
+                },
+            },
+            {
+                label: "Shell Open Path",
+                click() {
+                    // buka file test.txt yang ada di folder project ini.
+                    shell.openPath(".\\test.txt");
+                },
+            },
+            {
+                label: "Shell Show Item in Folder",
+                click() {
+                    // tunjukkan file hosts di explorer
+                    shell.showItemInFolder("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                },
+            },
+            {
+                label: "Shell Beep",
+                click() {
+                    // bunyikan beep
+                    shell.beep();
+                },
+            },
+        ],
+    },
+];
+
+// variabel untuk menyimpan objek BrowserWindow
+let win;
+
+// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow
+    win = new BrowserWindow();
+
+    // buka file index.html
+    win.loadFile("index.html");
+
+    // terapkan menu di atas pada BrowserWindow
+    Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenuTemplate));
+});
+</code></pre>
+<p>Selanjutnya, buat file "index.html", kemudian isi dengan kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Menu &amp; Shell Example&lt;/title&gt;
+
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Klik salah satu item pada menu "Belajar Electron".&lt;/h1&gt;
+  &lt;script&gt;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Kemudian, buat file "test.txt" di dalam folder "project-electron-menu-dan-shell" dan isi dengan teks ini:</p>
+<pre>isi file text.txt yang kemungkinan dibuka via menu Electron.</pre>
+<p>Selanjutnya, jalankan Electron dengan perintah:</p>
+<pre>npm run dev</pre>
+<p>Nanti akan muncul BrowserWindow dengan menu item terkanan yang berjudul "Belajar Electron".</p>
+<p>Di sub-menu-nya ada beberapa pilihan penggunaan Shell.</p>
+<p>Silakan dicoba satu per satu.</p>
+<h2>Pembahasan</h2>
+<p>Sekarang, saya akan membahas yang paling mudah dulu, yakni "index.html".</p>
+<p>Kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Menu &amp; Shell Example&lt;/title&gt;
+
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Klik salah satu item pada menu "Belajar Electron".&lt;/h1&gt;
+  &lt;script&gt;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Hanya berisi pesan saja yang isinya:</p>
+<pre>Klik salah satu item pada menu "Belajar Electron".</pre>
+<p>Sekarang, bagian yang lebih rumit.</p>
+<p>Yakni "index.js".</p>
+<p>Kode bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>// definisi menu.
+const mainMenuTemplate = [
+    {
+        label: "File",
+        submenu: [
+            {
+                role: "quit",
+            },
+        ],
+    },
+    {
+        label: "Edit",
+        submenu: [
+            {
+                role: "undo",
+            },
+            {
+                role: "redo",
+            },
+            {
+                type: "separator",
+            },
+            {
+                role: "cut",
+            },
+            {
+                role: "copy",
+            },
+            {
+                role: "paste",
+            },
+            {
+                role: "pasteandmatchstyle",
+            },
+            {
+                role: "delete",
+            },
+            {
+                role: "selectall",
+            },
+        ],
+    },
+    {
+        label: "View",
+        submenu: [
+            {
+                role: "reload",
+            },
+            {
+                role: "forcereload",
+            },
+            {
+                role: "toggledevtools",
+            },
+            {
+                type: "separator",
+            },
+            {
+                role: "togglefullscreen",
+            },
+        ],
+    },
+    {
+        role: "window",
+        submenu: [
+            {
+                role: "minimize",
+            },
+            {
+                role: "close",
+            },
+        ],
+    },
+    {
+        label: "Belajar Electron",
+        submenu: [
+            {
+                label: "Shell Open External",
+                click() {
+                    // buka default web browser ke Google.
+                    shell.openExternal("https://www.google.com");
+                },
+            },
+            {
+                label: "Shell Open Path",
+                click() {
+                    // buka drive C:
+                    shell.openPath("C:\\");
+                },
+            },
+            {
+                label: "Shell Open Path",
+                click() {
+                    // buka file test.txt yang ada di folder project ini.
+                    shell.openPath(".\\test.txt");
+                },
+            },
+            {
+                label: "Shell Show Item in Folder",
+                click() {
+                    // tunjukkan file hosts di explorer
+                    shell.showItemInFolder("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                },
+            },
+            {
+                label: "Shell Beep",
+                click() {
+                    // bunyikan beep
+                    shell.beep();
+                },
+            },
+        ],
+    },
+];</code></pre>
+<p>Adalah definisi dari struktur menu yang akan diterapkan pada BrowserWindow.</p>
+<p>Struktur tersebut disimpan dalam sebuah konstanta bernama "<span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">mainMenuTemplate".</span></p>
+<p>Nanti di bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>    // terapkan menu di atas pada BrowserWindow
+    Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenuTemplate));</code></pre>
+<p>Kita akan menerapkannya di BrowserWindow.</p>
+<p>Sekarang, kita akan membahas tentang Shell.</p>
+<p>Kode ini:</p>
+<pre class="language-javascript line-numbers"><code>{
+        label: "Belajar Electron",
+        submenu: [
+            {
+                label: "Shell Open External",
+                click() {
+                    // buka default web browser ke Google.
+                    shell.openExternal("https://www.google.com");
+                },
+            },
+            {
+                label: "Shell Open Path",
+                click() {
+                    // buka drive C:
+                    shell.openPath("C:\\");
+                },
+            },
+            {
+                label: "Shell Open Path",
+                click() {
+                    // buka file test.txt yang ada di folder project ini.
+                    shell.openPath(".\\test.txt");
+                },
+            },
+            {
+                label: "Shell Show Item in Folder",
+                click() {
+                    // tunjukkan file hosts di explorer
+                    shell.showItemInFolder("C:\\Windows\\System32\\drivers\\etc\\hosts");
+                },
+            },
+            {
+                label: "Shell Beep",
+                click() {
+                    // bunyikan beep
+                    shell.beep();
+                },
+            },
+        ],
+    },</code></pre>
+<p>Menunjukkan bahwa sub-menu dari menu item "Belajar Electron" menggunakan beragam jenis method Shell.</p>
+<ul>
+<li><span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">shell.openExternal("https://www.google.com"); akan membuka Google.</span></li>
+<li>shell.openPath("C:\\"); akan membuka drive C:</li>
+<li>shell.openPath(".\\test.txt"); akan membuka file test.txt yang ada di folder project ini.</li>
+<li>shell.showItemInFolder("C:\\Windows\\System32\\drivers\\etc\\hosts"); akan membuka Explorer dan menyorot file "hosts".</li>
+<li>shell.beep(); akan membunyikan speaker dengan suara beep.</li>
+</ul>
+<h2>Penutup</h2>
+<p>Sekarang seharusnya Anda telah memahami menu dan shell pada Electron.</p>
+<p>Selanjutnya, Anda bisa mencoba memodifikasi menu dan shell yang saya buat tadi dan melihat hasilnya.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Mengenal Save Dialog</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-mengenal-save-dialog.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-mengenal-save-dialog.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:44:50+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Fitur "save" atau "save as" bukan hal yang baru di aplikasi desktop. Biasanya saat menu untuk fitur tersebut diklik, maka akan tampil dialog yang bisa memilih lokasi penyimpanan file. Itulah Save Dialog. Electron memberi kita fitur Save Dialog melalui method dialog.showSaveDialog. Itu termasuk fitur&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Fitur "save" atau "save as" bukan hal yang baru di aplikasi desktop.</p>
+<p>Biasanya saat menu untuk fitur tersebut diklik, maka akan tampil dialog yang bisa memilih lokasi penyimpanan file.</p>
+<p>Itulah Save Dialog.</p>
+<p>Electron memberi kita fitur Save Dialog melalui method dialog.showSaveDialog.</p>
+<p>Itu termasuk fitur main process dari Electron.</p>
+<p>Bagaimana detailnya? Mari kita pelajari.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami dan mampu menggunakan method dialog.showSaveDialog.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah sebuah project Electron dengan nama "project-electron-save-dialog".</p>
+<p>Anda bisa membuatnya dengan cara yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial sebelumnya</a>.</p>
+<p>Jika Anda telah mengikuti tutorial tersebut, pasti ada file bernama "index.js" di dalam folder project Anda.</p>
+<p>Bukalah file "index.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const { app, dialog, BrowserWindow } = require("electron");
+// end: import modules
+
+// buat variabel win untuk menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow
+    win = new BrowserWindow();
+
+    // buka save dialog
+    // judulnya: Judul Dialog
+    // path default nya: D:
+    // filter untuk jenis file JavaScript
+    const result = await dialog.showSaveDialog(win, {
+        title: "Judul Dialog",
+        defaultPath: "D:\\",
+        filters: [
+            {
+                name: "JavaScript",
+                extensions: ["js"],
+            },
+        ],
+    });
+
+    console.log(result); // perhatikan hasilnya
+});
+</code></pre>
+<p>Sekarang, jalankan Electron dengan perintah:</p>
+<pre>npm run dev</pre>
+<p>Nanti Save Dialog akan muncul bersamaan dengan terbukanya BrowserWindow.</p>
+<p>Setelah lokasi save dipilih, maka akan muncul output berisi path di console dari PowerShell.</p>
+<p>Berbeda dengan Open Dialog yang berupa array.</p>
+<p>Di Save Dialog hanya single value.</p>
+<p>Itu masuk akal karena kita hanya bisa mensave satu file dalam satu waktu jika menggunakan Save Dialog.</p>
+<h2>Pembahasan</h2>
+<p>Aplikasi yang kita buat ini berawal dari mengimpor modul:</p>
+<pre class="language-javascript line-numbers"><code>// begin: import modules
+const { app, dialog, BrowserWindow } = require("electron");
+// end: import modules</code></pre>
+<p>Kemudian dilanjutkan dengan membuat BrowserWindow dan menyimpan referensinya ke variabel bernama win:</p>
+<pre class="language-javascript line-numbers"><code>// buat variabel win untuk menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow
+    win = new BrowserWindow();</code></pre>
+<p>Setelah itu, kita menampilkan Save Dialog dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>    // buka save dialog
+    // judulnya: Judul Dialog
+    // path default nya: D:
+    // filter untuk jenis file JavaScript
+    const result = await dialog.showSaveDialog(win, {
+        title: "Judul Dialog",
+        defaultPath: "D:\\",
+        filters: [
+            {
+                name: "JavaScript",
+                extensions: ["js"],
+            },
+        ],
+    });
+
+    console.log(result); // perhatikan hasilnya</code></pre>
+<p>Judul dari Save Dialog yang kita buat adalah "Judul Dialog".</p>
+<p>Default path-nya adalah "D:\\".</p>
+<p>Selain itu, kita juga memfilter file dengan ekstensi ".js".</p>
+<p>dialog.showSaveDialog akan mengembalikan objek saat selesai digunakan.</p>
+<p>Objek itu terdiri dari 2 property:</p>
+<ul>
+<li>cancelled: apakah user membatalkan pemilihan lokasi file?</li>
+<li>filePath: path di mana user men-save file.</li>
+</ul>
+<h2>Penutup</h2>
+<p>Sekarang Anda telah memahami method dialog.showSaveDialog.</p>
+<p>Silakan kembangkan pengetahuan ini lebih lanjut.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Mengenal Open Dialog</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-mengenal-open-dialog.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-mengenal-open-dialog.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:45:12+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dalam penggunaan aplikasi desktop, tidak jarang kita memerlukan file yang sudah dibuat sebelumnya dan kita ingin membukanya kembali. Jika kita memasukkan path-nya secara manual, maka akan terasa sulit jika kita tidak terbiasa menggunakan command line. Untuk mendapatkan lokasi file-nya dengan lebih mudah diperlukan sebuah&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dalam penggunaan aplikasi desktop, tidak jarang kita memerlukan file yang sudah dibuat sebelumnya dan kita ingin membukanya kembali.</p>
+<p>Jika kita memasukkan path-nya secara manual, maka akan terasa sulit jika kita tidak terbiasa menggunakan command line.</p>
+<p>Untuk mendapatkan lokasi file-nya dengan lebih mudah diperlukan sebuah dialog.</p>
+<p>Dialog tersebut disebut open dialog.</p>
+<p>Dengan open dialog, kita bisa menemukan lokasi file dengan bantuan GUI.</p>
+<p>Tujuannya adalah mendapatkan path dari file tersebut.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami method dialog.showOpenDialog dan beberapa parameternya.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah sebuah project Electron dengan nama "project-electron-open-dialog".</p>
+<p>Anda bisa membuatnya dengan cara yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial sebelumnya</a>.</p>
+<p>Jika Anda telah mengikuti tutorial tersebut, pasti ada file bernama "index.js" di dalam folder project Anda.</p>
+<p>Bukalah file "index.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const { app, dialog, BrowserWindow } = require("electron");
+// end: import modules
+
+// buat variabel win untuk menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on("ready", async () =&gt; {
+    // buat browser window
+    win = new BrowserWindow();
+
+    // dialog untuk membuka file
+    const result1 = await dialog.showOpenDialog(win, {
+        title: "Open Project File",
+        properties: ["openFile"],
+        filters: [
+            {
+                name: "Dokumen",
+                extensions: ["pdf"],
+            },
+        ],
+    });
+    console.log(result1); //perhatikan hasilnya
+
+    //dialog untuk membuka directory
+    const result2 = await dialog.showOpenDialog(win, {
+        title: "Open Project Folder",
+        properties: ["openDirectory"],
+    });
+    console.log(result2); //perhatikan hasilnya
+});
+</code></pre>
+<p>Selanjutnya, jalankan Electron dengan:</p>
+<pre>npm run dev</pre>
+<p>Hasilnya, kedua dialog yang ada di kode tadi akan muncul secara berurutan.</p>
+<p>Dialog pertama untuk memilih file PDF.</p>
+<p>Dialog kedua untuk memilih folder.</p>
+<p>Setelah kedua dialog tadi ditutup, maka sisanya adalah BrowserWindow.</p>
+<h2>Pembahasan</h2>
+<p>Dalam tutorial ini, hanya ada satu file JavaScript, yakni "index.js". Selain dari yang ada di node_modules tentunya.</p>
+<p>Pada bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>    // dialog untuk membuka file
+    const result1 = await dialog.showOpenDialog(win, {
+        title: "Open Project File",
+        properties: ["openFile"],
+        filters: [
+            {
+                name: "Dokumen",
+                extensions: ["pdf"],
+            },
+        ],
+    });
+    console.log(result1); //perhatikan hasilnya</code></pre>
+<p>Kita membuka open dialog untuk memilih file, karena ada parameter </p>
+<div>
+<div>properties: ["openFile"].</div>
+</div>
+<p>File yang dapat dibuka dari open dialog tersebut berjenis PDF saja, karena ada parameter extensions: ["pdf"].</p>
+<p>Extensions itu sendiri adalah akhiran dari nama file setelah titik:</p>
+<ul>
+<li>notes.txt extension-nya adalah txt</li>
+<li>book.pdf extension-nya adalah pdf</li>
+</ul>
+<p>Return value dari method tersebut adalah array berisi file path.</p>
+<p>Pada bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>    //dialog untuk membuka directory
+    const result2 = await dialog.showOpenDialog(win, {
+        title: "Open Project Folder",
+        properties: ["openDirectory"],
+    });
+    console.log(result2); //perhatikan hasilnya</code></pre>
+<p>Kita menggunakan open dialog untuk memilih folder.</p>
+<p>Itu karena ada parameter <span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">properties: ["openDirectory"].</span></p>
+<p>Directory dan folder itu bisa dianggap istilah yang sama.</p>
+<p>Return value dari method tersebut adalah array berisi file path.</p>
+<h2>Penutup</h2>
+<p>Sekarang, Anda telah memahami method dialog.showOpenDialog dan beberapa parameternya.</p>
+<p>Silakan dieksplorasi lebih jauh lagi.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Mengenal Message Box</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-mengenal-message-box.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-mengenal-message-box.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:45:37+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Dalam sebuah aplikasi desktop, terkadang ada pesan yang perlu disampaikan kepada pengguna karena berbagai alasan. Misalnya ada error pada aplikasi, task tertentu telah selesai dilakukan, ada peringatan, dan lain-lain. Untuk menampilkan pesan semacam itu, Message Box bisa digunakan. Electron telah menyediakan API untuk memberi&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Dalam sebuah aplikasi desktop, terkadang ada pesan yang perlu disampaikan kepada pengguna karena berbagai alasan.</p>
+<p>Misalnya ada error pada aplikasi, task tertentu telah selesai dilakukan, ada peringatan, dan lain-lain.</p>
+<p>Untuk menampilkan pesan semacam itu, Message Box bisa digunakan.</p>
+<p>Electron telah menyediakan API untuk memberi pesan melalui Message Box.</p>
+<p>Di sini, saya akan membahas beberapa jenis Message Box yang disediakan Electron.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mengenal beragam jenis Message Box di Electron.</li>
+<li>Pembaca dapat menggunakan Message Box di Electron.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Electron dengan nama "project-electron-message-box".</p>
+<p>Anda bisa membuatnya dengan cara yang telah dijelaskan di <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial yang sebelumnya</a>.</p>
+<p>Selanjutnya, buka file "index.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const { app, dialog, BrowserWindow } = require("electron");
+// end: import modules
+
+// buat variabel win untuk menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow
+    win = new BrowserWindow();
+
+    // message box biasa
+    await dialog.showMessageBox({
+        message: "message box biasa",
+    });
+
+    // message box modal. jadi message box ini menutupi parent window nya.
+    await dialog.showMessageBox(win, {
+        message: "message box modal",
+    });
+
+    // message box error
+    await dialog.showMessageBox({
+        message: "message box error",
+        type: "error",
+    });
+
+    // message box info
+    await dialog.showMessageBox({
+        message: "message box info",
+        type: "info",
+    });
+
+    // return value dari message box
+    const buttonID1 = await dialog.showMessageBox({
+        message: "return value dari message box - lihat console",
+        buttons: ["Ya", "Tidak", "Batalkan"],
+    });
+    console.log(buttonID1);
+
+    // message box dengan checkbox
+    const buttonID2 = await dialog.showMessageBox({
+        message: "message box dengan checkbox - lihat console",
+        buttons: ["Ya", "Tidak", "Batalkan"],
+        checkboxLabel: "Coba Checkbox",
+        checkboxChecked: false,
+    });
+    console.log(buttonID2);
+});
+</code></pre>
+<p>Kemudian, jalankan aplikasi ini dengan:</p>
+<pre>npm run dev</pre>
+<p>Nanti BrowserWindow akan muncul bersama beberapa jenis Message Box yang ditulis di "index.js" tadi.</p>
+<h2>Pembahasan</h2>
+<p>Pada tutorial ini, kita hanya perlu satu file JavaScript untuk main process saja.</p>
+<p>Itu karena Message Box adalah bagian dari main process.</p>
+<p>Message Box itu sendiri merupakan komponen yang dipanggil melalui method showMessageBox yang merupakan method dari modul dialog.</p>
+<p>Kode ini:</p>
+<pre class="language-javascript line-numbers"><code>    // message box biasa
+    await dialog.showMessageBox({
+        message: "message box biasa",
+    });</code></pre>
+<p>Memanggil Message Box biasa.</p>
+<p>Sifatnya juga non-modal, yang artinya kemunculannya tidak menghalangi parent window-nya.</p>
+<p>Adapun kode ini:</p>
+<pre class="language-javascript line-numbers"><code>    // message box modal. jadi message box ini menutupi parent window nya.
+    await dialog.showMessageBox(win, {
+        message: "message box modal",
+    });</code></pre>
+<p>Memanggil Message Box biasa juga.</p>
+<p>Hanya saja, sifatnya modal. Artinya kemunculannya menghalangi parent window-nya.</p>
+<p>Anda bisa lihat sendiri bahwa di kode tersebut saya mem-passing variabel win sebagai parent dari Message Box itu.</p>
+<p>Kode ini:</p>
+<pre class="language-javascript line-numbers"><code>    // message box error
+    await dialog.showMessageBox({
+        message: "message box error",
+        type: "error",
+    });
+
+    // message box info
+    await dialog.showMessageBox({
+        message: "message box info",
+        type: "info",
+    });</code></pre>
+<p>Memanggil Message Box dari jenis error dan info.</p>
+<p>Perbedaannya ada pada icon yang ditampilkan.</p>
+<p>Selain itu, Message Box juga bisa memberikan return value, tergantung dari tombol apa yang diklik dari Message Box tesebut:</p>
+<pre class="language-javascript line-numbers"><code>    // return value dari message box
+    const buttonID1 = await dialog.showMessageBox({
+        message: "return value dari message box - lihat console",
+        buttons: ["Ya", "Tidak", "Batalkan"],
+    });
+    console.log(buttonID1);</code></pre>
+<p>Anda bisa lihat console dari PowerShell untuk mendapatkan index tombol mana yang diklik.</p>
+<p>Index tersebut adalah index dari array teks tombol ini:</p>
+<pre class="language-javascript line-numbers"><code>["Ya", "Tidak", "Batalkan"]</code></pre>
+<p>Message Box juga bisa disertai checkbox:</p>
+<pre class="language-javascript line-numbers"><code>    // message box dengan checkbox
+    const buttonID2 = await dialog.showMessageBox({
+        message: "message box dengan checkbox - lihat console",
+        buttons: ["Ya", "Tidak", "Batalkan"],
+        checkboxLabel: "Coba Checkbox",
+        checkboxChecked: false,
+    });
+    console.log(buttonID2);</code></pre>
+<p>Di kode tadi, label dari checkbox adalah "Coba Checkbox".</p>
+<p>Return valuenya juga bisa didapatkan. Silakan cek console dari PowerShell Anda.</p>
+<h2>Penutup</h2>
+<p>Sekarang Anda telah mengenal beberapa jenis Message Box yang tadi telah saya bahas.</p>
+<p>Dalam prakteknya, saya lebih menyarankan untuk menggunakan Message Box daripada alert().</p>
+<p>Itu karena fitur Message Box lebih lengkap.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Mengenal ipcMain dan ipcRenderer</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-mengenal-ipcmain-dan-ipcrenderer.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-mengenal-ipcmain-dan-ipcrenderer.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:46:33+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Konsep main dan renderer process sangat penting untuk dipahami. Main dan renderer process sangat erat kaitannya dengan modul ipcMain dan ipcRenderer. ipcMain dan ipcRenderer digunakan dalam komunikasi antara main process dengan renderer proces. Itulah yang memberi kita peluang untuk memanggil native API dari HTML&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Konsep main dan renderer process sangat penting untuk dipahami.</p>
+<p>Main dan renderer process sangat erat kaitannya dengan modul ipcMain dan ipcRenderer.</p>
+<p>ipcMain dan ipcRenderer digunakan dalam komunikasi antara main process dengan renderer proces.</p>
+<p>Itulah yang memberi kita peluang untuk memanggil native API dari HTML dan melakukan perubahan pada HTML melalui native API.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami konsep ipcMain.</li>
+<li>Pembaca memahami konsep ipcRenderer.</li>
+<li>Pembaca memahami interaksi antara ipcMain dan ipcRenderer.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+<li>Telah membaca dan memahami cara menggunakan jQuery di Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Electron baru bernama "project-electron-ipc".</p>
+<p>Sebenarnya, namanya bebas, tapi lebih baik ikuti saya.</p>
+<p>Di tutorial <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">cara pembuatan project Electron sebelumnya</a>, Anda telah memiliki file "index.js".</p>
+<p>Kita akan menggunakan file tersebut dan menambah beberapa file tambahan.</p>
+<p>Selain itu, gunakan jQuery dalam aplikasi ini. Caranya sudah dijelaskan <a href="https://os.rakifsul.my.id/belajar-electron-cara-menggunakan-jquery.html">di tutorial sebelumnya</a>.</p>
+<p>Bukalah file "index.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import module
+const {
+    app,
+    BrowserWindow,
+    ipcMain
+} = require('electron');
+// end: import module
+
+// buat variable win untuk menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on('ready', () =&gt; {
+    // buat BrowserWindow dengan webPreferencesnya
+    win = new BrowserWindow({
+        webPreferences: {
+            contextIsolation: false,
+            enableRemoteModule: true,
+            nodeIntegration: true
+        }
+    });
+
+    //load index.html
+    win.loadURL(`file:///${__dirname}/index.html`);
+});
+
+// di sini kita meng-handle event "button-click" yang dikirimkan dari renderer process
+ipcMain.on('button-click', (event, args) =&gt; {
+    console.log("my name is " + args.name + " and my age is: " + args.age);
+
+    // reply ke pemanggil
+    event.reply('button-click-reply', 'reply from main process (button-click)');
+
+    // reply dengan webContents.send
+    win.webContents.send('from-win-webcontents-send', 'reply from win.webContents.send');
+});</code></pre>
+<p>Selanjutnya, buat file "renderer.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: renderer.js
+// dimuat dari index.html
+
+// begin: import modules
+const {
+    ipcRenderer
+} = require('electron');
+// end: import modules
+
+// ketika dokumen html ready
+$(document).ready(function () {
+
+    // ketika button dengan id: btn-send-to-main-process diklik
+    $('#btn-send-to-main-process').click(function () {
+        // kirim event ke main process
+        ipcRenderer.send('button-click', { name: "swlrnshw-200", age: "30an" });
+    })
+
+    // balasan dari main process (dengan event.reply di main process)
+    ipcRenderer.on('button-click-reply', (event, args) =&gt; {
+        alert(args);
+    });
+
+    // balasan dari main process (dengan webContents.send)
+    ipcRenderer.on('from-win-webcontents-send', (event, args) =&gt; {
+        alert(args);
+    });
+});</code></pre>
+<p>Selanjutnya, buat file "index.html", kemudian isi dengan kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;IPCMain dan IPCRenderer&lt;/h1&gt;
+    &lt;button id="btn-send-to-main-process"&gt;Send to Main Process&lt;/button&gt;
+    &lt;script&gt;
+        window.jQuery = require("./jquery.min.js");
+        window.$ = window.jQuery;
+    &lt;/script&gt;
+    &lt;script src="renderer.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Setelah selesai, jalankan Electron dengan:</p>
+<pre>npm run dev</pre>
+<p>Kemudian klik tombol "Send to Main Process".</p>
+<p>Nanti di console PowerShell akan muncul teks:</p>
+<pre>my name is swlrnshw-200 and my age is 30an</pre>
+<p>Di BrowserWindow juga akan memunculkan popup dua kali.</p>
+<h2>Pembahasan</h2>
+<p>Pembahasan akan kita mulai dari "index.html".</p>
+<p>Di "index.html" ada sebuah tombol yang jika diklik maka akan mengirimkan sinyal ke main process.</p>
+<p>Teks tombol tersebut adalah "Send to Main Process":</p>
+<pre class="language-html line-numbers"><code>&lt;button id="btn-send-to-main-process"&gt;Send to Main Process&lt;/button&gt;</code></pre>
+<p>Perhatikan baik-baik id-nya.</p>
+<p>Di situ, id dari tombol tadi adalah "btn-send-to-main-process" yang akan menghandle event click. Bisa dilihat dari script "renderer.js" ini:</p>
+<pre class="language-javascript line-numbers"><code>    // ketika button dengan id: btn-send-to-main-process diklik
+    $('#btn-send-to-main-process').click(function () {
+        // kirim event ke main process
+        ipcRenderer.send('button-click', { name: "swlrnshw-200", age: "30an" });
+    })</code></pre>
+<p>Saat tombol diklik, maka kirim sinyal "button-click" ke main process. </p>
+<p>Data yang dikirim adalah name dan age.</p>
+<p>Sementara itu di main process:</p>
+<pre class="language-javascript line-numbers"><code>// di sini kita meng-handle event "button-click" yang dikirimkan dari renderer process
+ipcMain.on('button-click', (event, args) =&gt; {
+    console.log("my name is " + args.name + " and my age is: " + args.age);
+
+    // reply ke pemanggil
+    event.reply('button-click-reply', 'reply from main process (button-click)');
+
+    // reply dengan webContents.send
+    win.webContents.send('from-win-webcontents-send', 'reply from win.webContents.send');
+});</code></pre>
+<p>Kita menangani "button-click" yang telah dikirimkan tadi.</p>
+<p>Response nya adalah mem-print teks di console PowerShell:</p>
+<pre class="language-javascript line-numbers"><code>console.log("my name is " + args.name + " and my age is: " + args.age);
+</code></pre>
+<p>Dilanjutkan dengan reply kembali ke renderer process:</p>
+<pre class="language-javascript line-numbers"><code>    // reply ke pemanggil
+    event.reply('button-click-reply', 'reply from main process (button-click)');
+
+    // reply dengan webContents.send
+    win.webContents.send('from-win-webcontents-send', 'reply from win.webContents.send');</code></pre>
+<p>Dengan kode di atas, maka renderer process akan meresponnya dengan popup:</p>
+<pre class="language-javascript line-numbers"><code>    // balasan dari main process (dengan event.reply di main process)
+    ipcRenderer.on('button-click-reply', (event, args) =&gt; {
+        alert(args);
+    });
+
+    // balasan dari main process (dengan webContents.send)
+    ipcRenderer.on('from-win-webcontents-send', (event, args) =&gt; {
+        alert(args);
+    });</code></pre>
+<p>Isi args dari popup pertama adalah:</p>
+<pre>reply from main process (button-click)</pre>
+<p>Isi args dari popup kedua adalah:</p>
+<pre>reply from win.webContents.send</pre>
+<p>Jadi ada dua cara untuk melakukan reply.</p>
+<p>Yang pertama dengan menggunakan event.reply dan yang kedua dengan win.webContents.send.</p>
+<h2>Penutup</h2>
+<p>Sekarang Anda telah dijelaskan tentang ipcMain, ipcRenderer dan interaksi di antara keduanya.</p>
+<p>Saran saya, coba eksplorasi method-method lain dari ipcMain dan ipcRenderer dan coba di project Anda sendiri.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Memahami Perilaku console.log</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-memahami-perilaku-consolelog.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-memahami-perilaku-consolelog.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:46:53+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Perilaku console.log berbeda-beda di Electron. Tergantung dari apakah console.log tersebut dijalankan di main process atau renderer process. Pemahaman konsep main process dan renderer process adalah sangat penting dalam menggunakan Electron. Ini adalah cara untuk menyadarkan Anda, bahwa main process adalah process yang berbeda dengan&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Perilaku console.log berbeda-beda di Electron.</p>
+<p>Tergantung dari apakah console.log tersebut dijalankan di main process atau renderer process.</p>
+<p>Pemahaman konsep main process dan renderer process adalah sangat penting dalam menggunakan Electron.</p>
+<p>Ini adalah cara untuk menyadarkan Anda, bahwa main process adalah process yang berbeda dengan renderer process, walaupun masih dalam satu aplikasi Electron.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mampu memahami perilaku console.log di renderer process.</li>
+<li>Pembaca mampu memahami perilaku console.log di main process.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buat project Electron baru bernama "project-electron-console-log".</p>
+<p>Anda bisa gunakan project Electron yang telah Anda buat <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">di bagian ini</a>.</p>
+<p>Sekarang, buka file "index.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+// end: import modules
+
+// variabel yang menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on('ready', () =&gt; {
+    // buat Browser Window
+    win = new BrowserWindow();
+
+    // buka URL dari index.html
+    win.loadURL(`file:///${__dirname}/index.html`);
+
+    // ini dilakukan di main process. akan tampil di command line Anda. jika tanda komentar dihapus.
+    // console.log("console.log di main process");
+})</code></pre>
+<p>Selanjutnya, buat file "renderer.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: renderer.js
+
+// mem-print teks di renderer process.
+console.log("console.log di renderer process")</code></pre>
+<p>Selanjutnya, buat file "index.html" dan isi dengan kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Console Log&lt;/h1&gt;
+
+    &lt;script src="renderer.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Sekarang, jalankan aplikasi ini dengan:</p>
+<pre>npm run dev</pre>
+<p>Nanti, setelah BrowserWindow terbuka, buka dev tools atau inspect elemen melalui menu utama aplikasi Electron Anda di "View" &gt; "Toggle Developer Tools".</p>
+<p>Kemudian pada dev tools, buka tab console.</p>
+<p>Nanti di tab tersebut akan tampil teks:</p>
+<pre>console.log di renderer process</pre>
+<p>Selanjutnya, setelah Anda melihat itu, tutup aplikasi Electron Anda.</p>
+<p>Kemudian uncomment kode di file "index.js" bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>    // ini dilakukan di main process. akan tampil di command line Anda. jika tanda komentar dihapus.
+    // console.log("console.log di main process");</code></pre>
+<p>Sehingga menjadi:</p>
+<pre class="language-javascript line-numbers"><code>    // ini dilakukan di main process. akan tampil di command line Anda. jika tanda komentar dihapus.
+    console.log("console.log di main process");</code></pre>
+<p>Kembali jalankan ini sambil memperhatikan layar PowerShell Anda:</p>
+<pre>npm run dev</pre>
+<p>Nanti di PowerShell akan muncul</p>
+<pre>console.log di main process</pre>
+<p>Kira-kira seperti itu.</p>
+<h2>Pembahasan</h2>
+<p>Kali ini, ada dua file JS yang kita buat: "index.js" dan "renderer.js".</p>
+<p>File "index.js" berperan sebagai script untuk main process.</p>
+<p>Adapun file "renderer.js" berperan sebagai script untuk renderer process.</p>
+<p>Oleh karena itulah, "renderer.js" harus diimpor via script tag di "index.html":</p>
+<pre class="language-html line-numbers"><code>&lt;body&gt;
+    &lt;h1&gt;Console Log&lt;/h1&gt;
+
+    &lt;script src="renderer.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<p>Apakah nama script-nya harus "renderer.js"?</p>
+<p>Tentu tidak.</p>
+<p>Anda bisa menamainya "kelinci.js" asalkan nanti di tag script di "index.html" nama script-nya disesuaikan.</p>
+<p>console.log yang dilakukan di renderer process outputnya akan keluar di dev tools.</p>
+<p>Adapun console.log yang dilakukan di main process output-nya akan keluar di terminal, console, PowerShell atau aplikasi command line apapun yang menjalankan aplikasi ini.</p>
+<h2>Penutup</h2>
+<p>Sekarang, Anda telah memahami perilaku console.log di main process dan renderer process.</p>
+<p>Ini adalah awal untuk memahami main process dan renderer process lebih lanjut.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Cara Menggunakan jQuery</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-cara-menggunakan-jquery.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-cara-menggunakan-jquery.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:47:16+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan jQuery adalah library JavaScript yang memudahkan kita untuk menangani DOM. Penggunaan jQuery di website atau aplikasi web normal adalah sangat mudah. Lalu bagaimana dengan penggunaannya di Electron? Ternyata memerlukan sedikit trik. Tujuan dari tutorial ini adalah: Prasyarat dari tutorial ini adalah: Pertama, buatlah project&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>jQuery adalah library JavaScript yang memudahkan kita untuk menangani DOM.</p>
+<p>Penggunaan jQuery di website atau aplikasi web normal adalah sangat mudah.</p>
+<p>Lalu bagaimana dengan penggunaannya di Electron?</p>
+<p>Ternyata memerlukan sedikit trik.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca mampu menggunakan jQuery pada renderer process Electron.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Electron bernama "project-electron-jquery" berdasarkan <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial ini</a>.</p>
+<p>Sampai di sini, kita sudah punya file "index.js". Buka file tersebut kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+
+let win;
+
+app.on('ready', () =&gt; {
+    // gunakan webPreferences ini.
+    // jika versi electronnya beda, mungkin beda caranya juga.
+    // jadi, jika gagal silakan cek di dokumentasinya.
+    win = new BrowserWindow({
+        webPreferences: {
+            contextIsolation: false,
+            enableRemoteModule: true,
+            nodeIntegration: true
+        }
+    });
+
+    win.loadURL(`file:///${__dirname}/index.html`);
+});</code></pre>
+<p>Selanjutnya, buat file "renderer.js" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>$(document).ready(function () {
+    alert("Hello World!")
+});</code></pre>
+<p>Kemudian, buat file "index.html" dan isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;!-- file: index.html --&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Import JQuery&lt;/h1&gt;
+    &lt;script&gt;
+        // cara mengimpor jQuery di Electron
+        window.jQuery = require("./jquery.min.js"); // require
+        window.$ = window.jQuery; // assign
+    &lt;/script&gt;
+    &lt;script src="renderer.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Selanjutnya, download jQuery yang sudah di-minified <a href="https://code.jquery.com/jquery-3.7.1.min.js" target="_blank" rel="nofollow noopener noreferrer">dari website resminya</a>.</p>
+<p>Setelah selesai di-download masukkan file script jQuery tadi ke dalam folder project ini dan rename menjadi "jquery.min.js" jika namanya belum seperti itu.</p>
+<p>Sekarang, jalankan Electron dengan:</p>
+<pre>npm run dev</pre>
+<p>Nanti, akan muncul popup bertuliskan "Hello World".</p>
+<p>Itu tandanya bahwa Anda berhasil menggunakan jQuery di Electron.</p>
+<h2>Pembahasan</h2>
+<p>Sebenarnya, jika dibahas semuanya, maka tutorial ini akan melebar.</p>
+<p>Karena menyangkut BrowserWindow, loadURL dan lain-lain yang akan dijelaskan pada tutorial-tutorial selanjutnya.</p>
+<p>Jadi, di sini saya hanya membahas ini:</p>
+<pre class="language-html line-numbers"><code>    &lt;script&gt;
+        // cara mengimpor jQuery di Electron
+        window.jQuery = require("./jquery.min.js"); // require
+        window.$ = window.jQuery; // assign
+    &lt;/script&gt;</code></pre>
+<p>Dan ini:</p>
+<pre class="language-javascript line-numbers"><code>    win = new BrowserWindow({
+        webPreferences: {
+            contextIsolation: false,
+            enableRemoteModule: true,
+            nodeIntegration: true
+        }
+    });</code></pre>
+<p>Bahwa itulah dua blok kode yang digunakan saat Anda ingin menggunakan jQuery di Electron.</p>
+<p>Sementara telan saja dulu cara tersebut. </p>
+<p>Mungkin setelah Anda membaca tutorial-tutorial selanjutnya, Anda akan lebih paham.</p>
+<h2>Penutup</h2>
+<p>Sekarang, Anda telah tahu cara menggunakan jQuery di Electron.</p>
+<p>Harap ingat baik-baik cara ini karena kemungkinan tutorial ke depannya akan banyak menggunakan jQuery.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Pembahasan tentang loadURL</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-loadurl.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-loadurl.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:47:38+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Method BrowserWindow yang bernama loadURL ini memiliki fungsi ganda. Pertama, ia bisa me-load alamat web secara remote. Kedua, ia bisa me-load file HTML lokal. Penggunaan loadURL adalah sangat sering saat kita menggunakan framework Electron, karena tampilan dari aplikasi Electron dibuka melalui method tersebut. Walaupun&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Method BrowserWindow yang bernama loadURL ini memiliki fungsi ganda.</p>
+<p>Pertama, ia bisa me-load alamat web secara remote.</p>
+<p>Kedua, ia bisa me-load file HTML lokal.</p>
+<p>Penggunaan loadURL adalah sangat sering saat kita menggunakan framework Electron, karena tampilan dari aplikasi Electron dibuka melalui method tersebut.</p>
+<p>Walaupun demikian, ada method BrowserWindow yang bernama loadFile yang bisa menggantikan loadURL untuk membuka file HTML lokal.</p>
+<p>Tapi itu untuk versi Electron yang agak baru.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Pembaca memahami fungsi loadURL pada BrowserWindow.</li>
+<li>Pembaca memahami fungsi loadFile pada BrowserWindow.</li>
+<li>Pembaca dapat membuka file HTML lokal dengan loadURL.</li>
+<li>Pembaca dapat membuka HTML secara remote via URL yang diberikan.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Pertama, buatlah project Electron baru bernama "project-electron-loadurl".</p>
+<p>Sebenarnya, namanya bebas, tapi lebih baik ikuti saya.</p>
+<p>Di tutorial <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">cara pembuatan project Electron sebelumnya</a>, Anda telah memiliki file "index.js", bukan?</p>
+<p>Nah. Kita akan menggunakan itu.</p>
+<p>Sekarang, buka file "index.js", kemudian isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// file: index.js
+
+// begin: import modules
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+// end: import modules
+
+// buat variabel win untuk menyimpan objek BrowserWindow
+let win;
+
+// ketika app ready
+app.on('ready', () =&gt; {
+    // buat BrowserWindow
+    win = new BrowserWindow();
+
+    // load dengan input URL di web
+    // win.loadURL("https://duckduckgo.com");
+
+    // load dengan input URL di file lokal
+    win.loadURL(`file:///${__dirname}/index.html`);
+})</code></pre>
+<p>Selanjutnya, buat file baru bernama "index.html" dan isi dengan kode ini:</p>
+<pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Load URL dari file HTML&lt;/h1&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>Sekarang, jalankan aplikasi tersebut dengan:</p>
+<pre>npm run dev</pre>
+<p>Nanti di BrowserWindow akan tampil:</p>
+<pre>Load URL dari file HTML</pre>
+<p>Itu adalah file HTML yang kita buat tadi.</p>
+<p>Jika Anda uncomment dan comment bagian ini (kebalikan yang sebelumnya):</p>
+<pre class="language-javascript line-numbers"><code>    // load dengan input URL di web
+    win.loadURL("https://duckduckgo.com");
+
+    // load dengan input URL di file lokal
+    // win.loadURL(`file:///${__dirname}/index.html`);</code></pre>
+<p>Maka saat aplikasi tersebut di-restart (close dulu, kemudian):</p>
+<pre>npm run dev</pre>
+<p>Yang tampil adalah halaman homepage dari duckduckgo.</p>
+<h2>Pembahasan</h2>
+<p>Pada file index.html, kita membuat halaman web sederhana dengan teks "Load URL dari file HTML".</p>
+<p>File itu ada di komputer lokal, tepatnya di dalam folder "project-electron-loadurl".</p>
+<p>File itu di-load dengan fungsi BrowserWindow loadURL dengan menyertakan protokol file:</p>
+<pre class="language-javascript line-numbers"><code>    // load dengan input URL di file lokal
+    win.loadURL(`file:///${__dirname}/index.html`);</code></pre>
+<p>Penggunaan file:/// dalam URL sama dengan membuka file lokal.</p>
+<p>__dirname itu sendiri adalah nama folder di mana script "index.js" berada, yakni di dalam folder "project-electron-loadurl".</p>
+<p>Karena file "index.html" juga ada di dalam folder "project-electron-loadurl" maka input tersebut valid dan isi "index.html" akan di-render ke aplikasi Electron kita.</p>
+<p>Sebagai catatan, di Electron versi terbaru ada sebuah fungsi baru yang bernama loadFile.</p>
+<p>Fungsinya sama dengan yang tadi, tapi penggunaannya lebih sederhana.</p>
+<p>Cukup lakukan:</p>
+<pre class="language-javascript line-numbers"><code>win.loadFile("index.html");</code></pre>
+<p>Karena cukup sederhana, saya sertakan saja pembahasannya di sini.</p>
+<p>Sekarang, saya akan membahas file "index.js".</p>
+<p>Di bagian ini, kita meng-import modul yang dibutuhkan:</p>
+<pre class="language-javascript line-numbers"><code>// begin: import modules
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+// end: import modules</code></pre>
+<p>Hanya app dan BrowserWindow saja yang dibutuhkan, karena loadURL adalah salah satu method dari BrowserWindow.</p>
+<p>Di bagian ini, kita menggunakan variabel bernama win untuk menyimpan objek BrowserWindow:</p>
+<pre class="language-javascript line-numbers"><code>// buat variabel win untuk menyimpan objek BrowserWindow
+let win;</code></pre>
+<p>Dan saat app ready:</p>
+<pre class="language-javascript line-numbers"><code>// ketika app ready
+app.on('ready', () =&gt; {
+    // buat BrowserWindow
+    win = new BrowserWindow();</code></pre>
+<p>Buat BrowserWindow, kemudian assign ke variabel bernama win tadi.</p>
+<p>Selanjutnya:</p>
+<pre class="language-javascript line-numbers"><code>    // load dengan input URL di web
+    // win.loadURL("https://duckduckgo.com");
+
+    // load dengan input URL di file lokal
+    win.loadURL(`file:///${__dirname}/index.html`);</code></pre>
+<p>Buka file "index.html".</p>
+<p>Catat bahwa duckduckgo tidak akan dibuka karena kodenya di-comment.</p>
+<p>Untuk membuka duckduckgo, uncomment dulu bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>    // load dengan input URL di web
+    // win.loadURL("https://duckduckgo.com");</code></pre>
+<p>Dan comment bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>    // load dengan input URL di file lokal
+    win.loadURL(`file:///${__dirname}/index.html`);</code></pre>
+<p>Sehingga hasilnya jadi terbalik:</p>
+<pre class="language-javascript line-numbers"><code>    // load dengan input URL di web
+    win.loadURL("https://duckduckgo.com");
+
+    // load dengan input URL di file lokal
+    // win.loadURL(`file:///${__dirname}/index.html`);</code></pre>
+<p>Menurut dokumentasinya, ada beberapa parameter yang bisa diberikan pada method loadURL:</p>
+<ul>
+<li>url: string berisi path dari halaman web. bisa berupa file lokal maupun remote dengan protokol http atau https seperti yang telah dijelaskan sebelumnya</li>
+<li>options yang berupa objek ber-property:
+<ul>
+<li>httpReferrer: referrer dari pembuka halaman.</li>
+<li>userAgent: user agent dari pembuka halaman.</li>
+<li>extraHeaders: http header tambahan saat halaman web dibuka</li>
+<li>postData: untuk membuka url dengan method POST.</li>
+<li>baseURLForDataURL: base URL untuk file yang akan di-load oleh data URL.</li>
+</ul>
+</li>
+</ul>
+<h2>Penutup</h2>
+<p>Sekarang, Anda sudah tahu tentang loadURL.</p>
+<p>Bahwa loadURL bisa digunakan untuk membuka URL remote maupun file lokal.</p>
+<p>Bahwa loadFile bisa menggantikan loadURL untuk membuka file lokal.</p>
+<p>Saran saya, jika Anda menggunakan versi Electron terbaru, gunakan loadFile saja untuk membuka HTML karena lebih rapi.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Pembahasan tentang BrowserWindow</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-browserwindow.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-browserwindow.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:48:04+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Di Electron, BrowserWindow adalah komponen utama. Dengan BrowserWindow, kita bisa membuka file HTML berisi HTML tag, CSS, dan JavaScript untuk membentuk sebuah tampilan GUI yang kaya. File HTML, CSS, dan JavaScript yang dibuka bisa bersumber dari file lokal maupun remote via URL. Artinya, secara&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Di Electron, BrowserWindow adalah komponen utama.</p>
+<p>Dengan BrowserWindow, kita bisa membuka file HTML berisi HTML tag, CSS, dan JavaScript untuk membentuk sebuah tampilan GUI yang kaya.</p>
+<p>File HTML, CSS, dan JavaScript yang dibuka bisa bersumber dari file lokal maupun remote via URL.</p>
+<p>Artinya, secara teoritis, dengan BrowserWindow kita bisa membuka situs WhatsApp web, kemudian memodifikasinya di Electron.</p>
+<p>Entah itu dengan melakukan injeksi JavaScript tambahan atau yang lainnya.</p>
+<p>Hal tersebut sangat menguntungkan pengguna Electron, karena mereka memiliki peluang untuk membuat bot dengan lebih mudah.</p>
+<p>BrowserWindow juga memiliki parameter yang disebut web preferences saat objek BrowserWindow dibuat.</p>
+<p>Dengan web preferences tadi, kita bisa menentukan apakah modul dari Node.js yang ada di dalam Electron bisa digunakan di dalam JavaScript-nya HTML yang dimuat.</p>
+<h2>Tujuan</h2>
+<p>Tujuan dari tutorial ini adalah:</p>
+<ul>
+<li>Membuat BrowserWindow kosong.</li>
+<li>Membahas BrowserWindow lebih dalam lagi.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Prasyarat dari tutorial ini adalah:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li>
+<li>Telah membaca dan memahami cara pembuatan project Electron.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Untuk membuat BrowserWindow di tutorial ini, caranya sama dengan <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">yang ini</a>.</p>
+<p>Di sini lebih dominan ke pembahasan BrowserWindow.</p>
+<p>Kode yang digunakan dalam tutorial ini sama dengan tutorial tersebut dengan beberapa tambahan.</p>
+<h2>Pembahasan</h2>
+<p>Terakhir kali kita membuat project Electron, kita telah memiliki kode ini, bukan?</p>
+<pre class="language-javascript line-numbers"><code>// mulai: meng-import module
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+// selesai: meng-import module
+
+// buat variabel untuk menyimpan BrowserWindow, namanya adalah "win".
+let win;
+
+// saat app ready...
+app.on('ready', () =&gt; {
+    // buat objek BrowserWindow, dengan begini window kosong akan tampil.
+    win = new BrowserWindow();
+});</code></pre>
+<p>Pada bagian ini:</p>
+<pre class="language-javascript line-numbers"><code>// mulai: meng-import module
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+// selesai: meng-import module</code></pre>
+<p>Kita meng-import modul-modul yang dibutuhkan untuk menjalankan BrowserWindow.</p>
+<p>Baik app dan BrowserWindow sebenarnya diimport dari package bernama electron yang telah kita npm install sebelumnya.</p>
+<p>Package tersebut diinstall dengan parameter --save-dev agar saat release tidak disertakan.</p>
+<p>Tapi anehnya, jika saat release package electron tidak disertakan, bagaimana aplikasinya bisa berjalan?</p>
+<p>Hal itu disebabkan karena saat melakukan build aplikasi electron dari kode ke paket siap release, kita akan meng-embed script buatan kita dalam package electron tersebut.</p>
+<p>Jadi, saat melakukan build, mindset-nya adalah bukan script yang meng-include electron, tapi electron-lah yang meng-include script custom kita.</p>
+<p>Beda dengan saat development.</p>
+<p>Saat development, kita tidak ter-include dalam electron, karena kita hanya menggunakan NPM.</p>
+<p>Dengan NPM kita meminjam paket electron yang ada di dalam node_modules untuk menjalankan script kita yang custom itu.</p>
+<p>Sekarang jelaslah kenapa kita menggunakan parameter --save-dev saat melakukan npm install electron.</p>
+<p>Sekarang, perhatikan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// saat app ready...
+app.on('ready', () =&gt; {
+    // buat objek BrowserWindow, dengan begini window kosong akan tampil.
+    win = new BrowserWindow();
+});</code></pre>
+<p>Di kode tadi, kita membuat BrowserWindow dengan parameter default.</p>
+<p>Sebenarnya itu bisa diisi dengan yang lain.</p>
+<p>Seperti ini misalnya:</p>
+<pre class="language-javascript line-numbers"><code>new BrowserWindow({
+            parent: null,
+            modal: false,
+            title: "Aplikasi Saya",
+            titleBarStyle: "default",
+            frame: true,
+            show: false,
+            width: 800,
+            height: 600,
+            minWidth: 800,
+            minHeight: 600,
+            webPreferences: {
+                webviewTag: true,
+                enableRemoteModule: true,
+                nodeIntegration: true,
+                contextIsolation: false
+            }
+        });</code></pre>
+<p>Menurut dokumentasinya, beberapa parameter ada pada constructornya.</p>
+<p>Berikut ini adalah sebagian penjelasannya berdasarkan dokumentasi Electron:</p>
+<ul>
+<li>parent: apakah browser window ini memiliki parent. ini sangat berpengaruh saat kita menjadikan browser window sebagai modal window. jika parent tidak null maka child akan menghalangi parent saat window child tampil.</li>
+<li>modal: apakah browser window ini modal. modal artinya, saat parent dari modal tidak null, maka saat child tampil, ia akan menghalangi akses ke parent-nya.</li>
+<li>title: judul yang ada pada title bar window</li>
+<li>titleBarStyle: style dari title bar</li>
+<li>frame: apakah memiliki frame atau frameless. jika true maka memiliki frame.</li>
+<li>show: apakah window ditampilkan saat dibuat.</li>
+<li>width: lebar window dalam pixel.</li>
+<li>height: tinggi window dalam pixel.</li>
+<li>minWidth: lebar minimum window dalam pixel. minHeight tinggi minimum window dalam pixel.</li>
+<li>webPreferences: setting untuk fitur dari web page yang di-load. ini berupa objek.</li>
+<li>webPreferences.webviewTag: apakah tag di-enable.</li>
+<li>webPreferences.enableRemoteModule: apakah remote module di-enable. sudah kadaluwarsa di versi 14.</li>
+<li>webPreferences.nodeIntegration: apakah node integration di-enable.</li>
+<li>webPreferences.contextIsolation: apakah context isolation di-enable. jadi, apakah preload script dan Electron internal logic dijalankan dalam context terpisah.</li>
+</ul>
+<p>Perlu diingat bahwa parameter-parameter tersebut dapat berubah seiring adanya update pada framework Electron. Jadi, sering-seringlah mengecek dokumentasinya.</p>
+<p>Selain itu, perlu diingat juga bahwa BrowserWindow hanya bisa digunakan setelah app mengirimkan event ready.</p>
+<h2>Penutup</h2>
+<p>Sekarang, Anda telah dijelaskan mengapa saat meng-install package electron parameter --save-dev diberikan.</p>
+<p>Selain itu, Anda juga sudah dijelaskan bahwa BrowserWindow dapat menerima beberapa parameter seperti web preferences dan lain-lain.</p>
+<p>Saran saya, cobalah bereksperimen dengan menerapkan parameter-parameter tadi di project Anda dan lihat hasilnya.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Belajar Electron - Cara Membuat Project</title>
+        <author>
+            <name>RAKIFSUL</name>
+        </author>
+        <link href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html"/>
+        <id>https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html</id>
+            <category term="Blog"/>
+            <category term="Belajar Coding Electron"/>
+
+        <updated>2023-12-27T01:48:11+07:00</updated>
+            <summary>
+                <![CDATA[
+                    Pendahuluan Electron atau Electron js adalah sebuah framework aplikasi desktop yang menggunakan bahasa JavaScript. Electron dapat digunakan untuk membuat aplikasi Windows, Mac OS dan Linux dengan tampilan yang dirancang dengan teknologi HTML, CSS, dan JavaScript. Walaupun aplikasi yang dihasilkan oleh framework itu memiliki ukuran yang&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2>Pendahuluan</h2>
+<p>Electron atau Electron js adalah sebuah framework aplikasi desktop yang menggunakan bahasa JavaScript.</p>
+<p>Electron dapat digunakan untuk membuat aplikasi Windows, Mac OS dan Linux dengan tampilan yang dirancang dengan teknologi HTML, CSS, dan JavaScript.</p>
+<p>Walaupun aplikasi yang dihasilkan oleh framework itu memiliki ukuran yang cukup besar, framework itu sebenarnya sangat memudahkan kita untuk membuat aplikasi bot.</p>
+<p>Hal itu disebabkan bahwa Electron sebenarnya adalah web browser, tapi dapat dijadikan aplikasi standalone.</p>
+<p>Pada tutorial kali ini, saya akan membahas cara membuat project Electron dari nol.</p>
+<h2>Tujuan</h2>
+<p>Berikut ini adalah tujuan tutorial ini:</p>
+<ul>
+<li>Mampu membuat project Electron.</li>
+<li>Mampu memunculkan BrowserWindow kosong.</li>
+</ul>
+<h2>Prasyarat</h2>
+<p>Untuk memulai, sebelumnya Anda harus:</p>
+<ul>
+<li>Menggunakan sistem operasi Windows 10 ke atas.</li>
+<li>Men-download dan meng-install Node.js dan NPM.</li>
+<li>Bisa meng-akses Node.js dan NPM dari PowerShell di folder manapun.</li>
+</ul>
+<h2>Langkah-Langkah</h2>
+<p>Setelah semua prasyarat terpenuhi, sekarang saatnya untuk memulai.</p>
+<h3>1. Melakukan NPM Init (Sebagai Inisialisasi)</h3>
+<p>Pertama, buatlah sebuah folder di manapun dengan nama "project-electron-create".</p>
+<p>Namanya sebenarnya bebas, tapi di tutorial ini saya sarankan untuk mengikuti saya agar tidak bingung.</p>
+<p>Selanjutnya masuklah ke dalam folder tersebut dengan PowerShell:</p>
+<pre>cd project-electron-create</pre>
+<p>Sekarang, Anda sudah berada di dalam folder "project-electron-create".</p>
+<p>Lanjut, jalankan perintah ini:</p>
+<pre>npm init -y</pre>
+<p>Setelah menjalankan perintah tadi, akan muncul file "package.json" di folder "project-electron-create":</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "project-electron-create",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<h3>2. Mengubah File "package.json"</h3>
+<p>Sekarang, ubah "package.json" menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "project-electron-create",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}</code></pre>
+<h3>3. Meng-install Package Electron</h3>
+<p>Sekarang, kembali buka PowerShell jika belum terbuka di folder "project-electron-create".</p>
+<p>Kemudian, jalankan perintah ini:</p>
+<pre>npm install electron --save-dev</pre>
+<p>Perintah tadi akan men-download package electron dan menyimpannya di dalam folder "node_modules".</p>
+<p>Parameter --save-dev menunjukkan bahwa dependency tersebut hanya digunakan selama development.</p>
+<p>Artinya, jika Anda telah men-deploy aplikasi ini, electron tidak akan disertakan dalam folder "node_modules".</p>
+<p>Setelah itu dilakukan, sekarang "package.json" akan menjadi seperti ini:</p>
+<pre class="language-json line-numbers"><code>{
+  "name": "project-electron-create",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.1.0"
+  }
+}</code></pre>
+<p>Lihat property "devDependencies". </p>
+<p>Di sana ada entry bernama electron.</p>
+<p>Jika tadi Anda tidak menggunakan parameter --save-dev pada npm install-nya, maka dia akan ada di property "dependencies".</p>
+<h3>4. Membuat File "index.js" dan Mengisinya dengan Kode</h3>
+<p>Sekarang, buatlah file baru bernama "index.js" di dalam folder "project-electron-create".</p>
+<p>Setelah dibuat, isi dengan kode ini:</p>
+<pre class="language-javascript line-numbers"><code>// mulai: meng-import module
+const {
+    app,
+    BrowserWindow
+} = require('electron');
+// selesai: meng-import module
+
+// buat variabel untuk menyimpan BrowserWindow, namanya adalah "win".
+let win;
+
+// saat app ready...
+app.on('ready', () =&gt; {
+    // buat objek BrowserWindow, dengan begini window kosong akan tampil.
+    win = new BrowserWindow();
+});</code></pre>
+<p>Perhatikan baik-baik komentar kode yang saya tulis, karena menurut saya itu cara terbaik untuk menjelaskan kode.</p>
+<h3>5. Menjalankan Aplikasi Electron</h3>
+<p>Sekarang kita siap untuk mencoba aplikasi ini.</p>
+<p>Pastikan Anda telah membuka PowerShell dan berada di dalam folder "project-electron-create".</p>
+<p>Sekarang, jalankan:</p>
+<pre>npm run dev</pre>
+<p>Nanti akan muncul sebuah Window kosong.</p>
+<p>Window tersebut dinamakan BrowserWindow.</p>
+<p>Itu adalah bagian paling mendasar dalam GUI Electron.</p>
+<p>Di dalam window tersebut, kita akan bisa mengisinya dengan HTML, CSS, dan JavaScript untuk membentuk tampilan yang bagus dan modern.</p>
+<h2>Penutup</h2>
+<p>Sekarang, Anda sudah tahu cara membuat project Electron.</p>
+<p>Aplikasi yang saya buat tadi adalah salah satu contoh aplikasi Electron yang paling sederhana.</p>
+<p>Intinya, Anda harus membuat BrowserWindow.</p>
+<p>Nanti, BrowserWindow tersebut bisa membuka file HTML baik secara lokal maupun dari remote address yang artinya tampilannya akan muncul.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Contoh Project Python 3 - Aplikasi Password Generator</title>
         <author>
@@ -319,8 +2598,8 @@
         </author>
         <link href="https://os.rakifsul.my.id/cara-membuat-terms-and-conditions-dengan-terms-and-conditions-generator.html"/>
         <id>https://os.rakifsul.my.id/cara-membuat-terms-and-conditions-dengan-terms-and-conditions-generator.html</id>
-            <category term="Web"/>
             <category term="Blog"/>
+            <category term="Belajar Web"/>
 
         <updated>2023-12-23T01:17:24+07:00</updated>
             <summary>
@@ -365,8 +2644,8 @@
         </author>
         <link href="https://os.rakifsul.my.id/cara-membuat-privacy-policy-dengan-privacy-policy-generator.html"/>
         <id>https://os.rakifsul.my.id/cara-membuat-privacy-policy-dengan-privacy-policy-generator.html</id>
-            <category term="Web"/>
             <category term="Blog"/>
+            <category term="Belajar Web"/>
 
         <updated>2023-12-23T01:16:52+07:00</updated>
             <summary>
@@ -410,8 +2689,8 @@
         </author>
         <link href="https://os.rakifsul.my.id/cara-menguji-speaker-secara-online-dengan-aplikasi-web.html"/>
         <id>https://os.rakifsul.my.id/cara-menguji-speaker-secara-online-dengan-aplikasi-web.html</id>
-            <category term="Web"/>
             <category term="Blog"/>
+            <category term="Belajar Web"/>
 
         <updated>2023-12-23T01:16:21+07:00</updated>
             <summary>
@@ -453,8 +2732,8 @@
         </author>
         <link href="https://os.rakifsul.my.id/cara-menjalankan-kode-php-di-post-dan-page-wordpress.html"/>
         <id>https://os.rakifsul.my.id/cara-menjalankan-kode-php-di-post-dan-page-wordpress.html</id>
-            <category term="Web"/>
             <category term="Blog"/>
+            <category term="Belajar Web"/>
 
         <updated>2023-12-23T01:15:45+07:00</updated>
             <summary>
@@ -557,8 +2836,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-menjalankan-script-php-pada-widget-di-wordpress.html"/>
         <id>https://os.rakifsul.my.id/cara-menjalankan-script-php-pada-widget-di-wordpress.html</id>
-            <category term="Web"/>
             <category term="Blog"/>
+            <category term="Belajar Web"/>
 
         <updated>2023-12-23T01:11:37+07:00</updated>
             <summary>
@@ -621,8 +2900,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-install-code-server-di-ubuntu-server-virtualbox.html"/>
         <id>https://os.rakifsul.my.id/cara-install-code-server-di-ubuntu-server-virtualbox.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:08:22+07:00</updated>
             <summary>
@@ -702,8 +2981,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/mengenal-xampp-dan-cara-meng-install-nya-di-ubuntu.html"/>
         <id>https://os.rakifsul.my.id/mengenal-xampp-dan-cara-meng-install-nya-di-ubuntu.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:06:20+07:00</updated>
             <summary>
@@ -780,8 +3059,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/mengenal-yt-dlp-dan-cara-meng-install-nya-di-ubuntu.html"/>
         <id>https://os.rakifsul.my.id/mengenal-yt-dlp-dan-cara-meng-install-nya-di-ubuntu.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:04:37+07:00</updated>
             <summary>
@@ -848,8 +3127,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-reboot-ubuntu-dengan-command-line.html"/>
         <id>https://os.rakifsul.my.id/cara-reboot-ubuntu-dengan-command-line.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:04:04+07:00</updated>
             <summary>
@@ -906,8 +3185,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-mencari-file-di-ubuntu-dengan-command-line.html"/>
         <id>https://os.rakifsul.my.id/cara-mencari-file-di-ubuntu-dengan-command-line.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:03:36+07:00</updated>
             <summary>
@@ -968,8 +3247,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-menambah-directory-ke-path-di-ubuntu.html"/>
         <id>https://os.rakifsul.my.id/cara-menambah-directory-ke-path-di-ubuntu.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:03:04+07:00</updated>
             <summary>
@@ -1059,8 +3338,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-sign-out-sambil-disconnect-wifi-di-windows-11.html"/>
         <id>https://os.rakifsul.my.id/cara-sign-out-sambil-disconnect-wifi-di-windows-11.html</id>
-            <category term="Windows"/>
             <category term="Blog"/>
+            <category term="Belajar Windows"/>
 
         <updated>2023-12-23T01:00:14+07:00</updated>
             <summary>
@@ -1092,8 +3371,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-download-video-youtube-dengan-command-line-di-windows-11.html"/>
         <id>https://os.rakifsul.my.id/cara-download-video-youtube-dengan-command-line-di-windows-11.html</id>
-            <category term="Windows"/>
             <category term="Blog"/>
+            <category term="Belajar Windows"/>
 
         <updated>2023-12-23T00:59:30+07:00</updated>
             <summary>
@@ -1185,8 +3464,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-menggunakan-kiwix-dan-mengakses-konten-wikipedia-secara-offline.html"/>
         <id>https://os.rakifsul.my.id/cara-menggunakan-kiwix-dan-mengakses-konten-wikipedia-secara-offline.html</id>
-            <category term="Windows"/>
             <category term="Blog"/>
+            <category term="Belajar Windows"/>
 
         <updated>2023-12-23T00:57:34+07:00</updated>
             <summary>
@@ -1260,9 +3539,9 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-transfer-file-via-ftp-dari-android-ke-windows.html"/>
         <id>https://os.rakifsul.my.id/cara-transfer-file-via-ftp-dari-android-ke-windows.html</id>
-            <category term="Windows"/>
             <category term="Blog"/>
-            <category term="Android"/>
+            <category term="Belajar Windows"/>
+            <category term="Belajar Android"/>
 
         <updated>2023-12-23T01:00:55+07:00</updated>
             <summary>
@@ -1322,9 +3601,9 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-koneksi-ke-ip-address-android-bluestacks-dari-windows.html"/>
         <id>https://os.rakifsul.my.id/cara-koneksi-ke-ip-address-android-bluestacks-dari-windows.html</id>
-            <category term="Windows"/>
             <category term="Blog"/>
-            <category term="Android"/>
+            <category term="Belajar Windows"/>
+            <category term="Belajar Android"/>
 
         <updated>2023-12-23T01:01:03+07:00</updated>
             <summary>
@@ -1379,9 +3658,9 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/mengenal-publii-dan-cara-menggunakannya-untuk-blog-gratis.html"/>
         <id>https://os.rakifsul.my.id/mengenal-publii-dan-cara-menggunakannya-untuk-blog-gratis.html</id>
-            <category term="Windows"/>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Windows"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-23T01:02:01+07:00</updated>
             <summary>
@@ -1565,8 +3844,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-build-wxwidgets-dari-source-code-di-windows.html"/>
         <id>https://os.rakifsul.my.id/cara-build-wxwidgets-dari-source-code-di-windows.html</id>
-            <category term="Build"/>
             <category term="Blog"/>
+            <category term="Belajar Build"/>
 
         <updated>2023-12-23T00:42:14+07:00</updated>
             <summary>
@@ -1651,8 +3930,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-build-godot-engine-352-dari-source-code-di-windows-11.html"/>
         <id>https://os.rakifsul.my.id/cara-build-godot-engine-352-dari-source-code-di-windows-11.html</id>
-            <category term="Build"/>
             <category term="Blog"/>
+            <category term="Belajar Build"/>
 
         <updated>2023-12-23T00:38:29+07:00</updated>
             <summary>
@@ -1734,8 +4013,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-build-blender-360-aplikasi-3d-editor-open-source.html"/>
         <id>https://os.rakifsul.my.id/cara-build-blender-360-aplikasi-3d-editor-open-source.html</id>
-            <category term="Build"/>
             <category term="Blog"/>
+            <category term="Belajar Build"/>
 
         <updated>2023-12-11T04:37:23+07:00</updated>
             <summary>
@@ -1836,8 +4115,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-membuat-disclaimer-dengan-disclaimer-generator.html"/>
         <id>https://os.rakifsul.my.id/cara-membuat-disclaimer-dengan-disclaimer-generator.html</id>
-            <category term="Web"/>
             <category term="Blog"/>
+            <category term="Belajar Web"/>
 
         <updated>2023-12-11T04:38:19+07:00</updated>
             <summary>
@@ -1882,7 +4161,7 @@ echo "Hello World";
         <link href="https://os.rakifsul.my.id/cara-menggunakan-macrodroid-di-android.html"/>
         <id>https://os.rakifsul.my.id/cara-menggunakan-macrodroid-di-android.html</id>
             <category term="Blog"/>
-            <category term="Android"/>
+            <category term="Belajar Android"/>
 
         <updated>2023-12-11T04:48:24+07:00</updated>
             <summary>
@@ -1945,8 +4224,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/cara-menginstall-dan-menggunakan-nvm-di-ubuntu-server.html"/>
         <id>https://os.rakifsul.my.id/cara-menginstall-dan-menggunakan-nvm-di-ubuntu-server.html</id>
-            <category term="Linux"/>
             <category term="Blog"/>
+            <category term="Belajar Linux"/>
 
         <updated>2023-12-11T04:53:58+07:00</updated>
             <summary>
@@ -2014,8 +4293,8 @@ echo "Hello World";
         </author>
         <link href="https://os.rakifsul.my.id/mengenal-nvm-windows-dan-cara-menggunakannya.html"/>
         <id>https://os.rakifsul.my.id/mengenal-nvm-windows-dan-cara-menggunakannya.html</id>
-            <category term="Windows"/>
             <category term="Blog"/>
+            <category term="Belajar Windows"/>
 
         <updated>2023-12-11T04:55:59+07:00</updated>
             <summary>

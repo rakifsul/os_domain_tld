@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Belajar Electron - Mengenal Tray - RAKIFSUL OS</title><meta name="description" content="Belajar Electron - Mengenal Tray"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="stylesheet" href="https://os.rakifsul.my.id/media/plugins/syntaxHighlighter/prism-black.css"><link rel="canonical" href="https://os.rakifsul.my.id/belajar-electron-mengenal-tray.html"><link rel="alternate" type="application/atom+xml" href="https://os.rakifsul.my.id/feed.xml"><link rel="alternate" type="application/json" href="https://os.rakifsul.my.id/feed.json"><meta property="og:title" content="Belajar Electron - Mengenal Tray"><meta property="og:site_name" content="RAKIFSUL OS - Blog tentang OS"><meta property="og:description" content="Belajar Electron - Mengenal Tray"><meta property="og:url" content="https://os.rakifsul.my.id/belajar-electron-mengenal-tray.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://os.rakifsul.my.id/media/website/kopi-done-favicon.png" type="image/png"><link rel="stylesheet" href="https://os.rakifsul.my.id/assets/css/style.css?v=5e0699e9daf9fe88f49157cae56e7c07"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://os.rakifsul.my.id/belajar-electron-mengenal-tray.html"},"headline":"Belajar Electron - Mengenal Tray","datePublished":"2023-12-27T01:33","dateModified":"2023-12-27T01:43","description":"Belajar Electron - Mengenal Tray","author":{"@type":"Person","name":"RAKIFSUL","url":"https://os.rakifsul.my.id/authors/rakifsul/"},"publisher":{"@type":"Organization","name":"RAKIFSUL"}}</script><noscript><style>img[loading] {
+					opacity: 1;
+				}</style></noscript></head><body><header class="topbar" id="js-header"><div class="topbar__inner"><a class="logo" href="https://os.rakifsul.my.id/">RAKIFSUL OS</a><nav class="navbar"><button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://os.rakifsul.my.id/" target="_self">Home</a></li><li class="has-submenu"><a href="javascript:void(0);" target="_self" aria-haspopup="true">Belajar Sistem</a><ul class="navbar__submenu level-2" aria-hidden="true"><li><a href="https://os.rakifsul.my.id/tags/belajar-windows/" target="_self">Belajar Windows</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-linux/" target="_self">Belajar Linux</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-android/" target="_self">Belajar Android</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-web/" target="_self">Belajar Web</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-build/" target="_self">Belajar Build</a></li></ul></li><li class="has-submenu"><a href="javascript:void(0);" target="_self" aria-haspopup="true">Belajar Coding</a><ul class="navbar__submenu level-2" aria-hidden="true"><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-nodejs/" target="_self">Belajar Coding Node.js</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-electron/" target="_self">Belajar Coding Electron</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-react/" target="_self">Belajar Coding React</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-jquery/" target="_self">Belajar Coding jQuery</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-godot/" target="_self">Belajar Coding Godot</a></li><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-python/" target="_self">Belajar Coding Python</a></li></ul></li><li><a href="https://os.rakifsul.my.id/tags/premium/" target="_self">Premium</a></li><li><a href="https://os.rakifsul.my.id/tags/blog/" target="_self">Blog</a></li><li><a href="https://karyakarsa.com/rakifsul/info" target="_blank" rel="nofollow">Dukung</a></li></ul></nav></div></header><div class="content"><div class="infobar"><div class="infobar__update">Last Updated: <time datetime="2023-12-27T01:48">December 27, 2023</time></div><div class="infobar__search"><form action="https://os.rakifsul.my.id/search.html" class="search__form"><input class="search__input" type="search" name="q" placeholder="search..." aria-label="search..." autofocus> <button type="submit" class="search__button"><span>Submit</span></button></form></div></div><main class="main"><article class="post"><header class="u-header post__header"><h1>Belajar Electron - Mengenal Tray</h1><div class="u-header__meta u-small"><img src="https://os.rakifsul.my.id/media/website/kopi-done.png" loading="eager" class="u-header__avatar" alt="RAKIFSUL" height="512" width="512"><div><a href="https://os.rakifsul.my.id/authors/rakifsul/" title="RAKIFSUL">RAKIFSUL</a> <time datetime="2023-12-27T01:33">December 27, 2023 </time><a href="https://os.rakifsul.my.id/tags/belajar-coding-electron/" class="u-tag u-tag--1">Belajar Coding Electron</a></div></div></header><div class="post__entry u-inner"><h2>Pendahuluan</h2><p>Tray itu apa?</p><p>Tray adalah icon interaktif yang berada pada taskbar dari Windows 11 yang biasanya ada di sekitar pojok kanan bawah dari layar komputer.</p><p>Pada Windows 11, tray dari aplikasi yang belum pernah dijalankan sebelumnya tersembunyi di balik icon panah ke atas yang ada di pojok kanan bawah layar komputer.</p><p>Di setting Windows 11, kita bisa meng-expand tanda panah tersebut sehingga tray tadi tidak tersembunyi lagi.</p><p>Tray berfungsi untuk membuat user sadar bahwa aplikasi yang menggunakan tray masih jalan di background walaupun window-nya sudah tertutup.</p><p>Lalu apa kegunaan BrowserWindow dalam project tutorial ini?</p><p>Penggunaan BrowserWindow kali ini adalah untuk memberi petunjuk lokasi tray tersebut kepada Anda.</p><p>Dengan kata lain file HTML nya hanya berisi panduan saja.</p><p>Ingat bahwa tray yang dipraktekkan di sini hanya telah dicoba di Windows 11.</p><p>Saya tidak menjamin bahwa contoh project ini akan berjalan dengan normal di sistem operasi lainnya.</p><h2>Tujuan</h2><p>Tujuan dari tutorial ini adalah:</p><ul><li>Pembaca memahami Tray dan dapat menggunakannya di aplikasi Electron.</li></ul><h2>Prasyarat</h2><p>Prasyarat dari tutorial ini adalah:</p><ul><li>Menggunakan sistem operasi Windows 11. Karena hanya telah teruji di OS tersebut. Saya tidak bisa jamin akan works di OS lain.</li><li>Telah meng-install Node.js dan NPM dan mampu menjalankannya dari folder manapun.</li><li>Telah membaca dan memahami cara pembuatan project Electron.</li></ul><h2>Langkah-Langkah</h2><p>Pertama, buatlah sebuah project Electron dengan nama "project-electron-tray".</p><p>Anda bisa membuatnya dengan cara yang dijelaskan pada <a href="https://os.rakifsul.my.id/belajar-electron-cara-membuat-project.html">tutorial sebelumnya</a>.</p><p>Jika Anda telah mengikuti tutorial tersebut, pasti ada file bernama "index.js" di dalam folder project Anda.</p><p>Bukalah file "index.js" dan isi dengan kode ini:</p><pre class="language-javascript line-numbers"><code>// begin: import modules
+const { app, Menu, Tray, BrowserWindow } = require("electron");
+const { shell } = require("electron");
+// end: import modules
+
+// variabel untuk menyimpan objek BrowserWindow
+let win;
+
+// variabel untuk menyimpan objek Tray
+let tray;
+
+// definisi context menu
+const contextMenuTemplate = [
+    {
+        label: "Open Google",
+        click() {
+            shell.openExternal("https://www.google.com");
+        },
+    },
+    {
+        label: "Open GitHub",
+        click() {
+            shell.openExternal("https://github.com");
+        },
+    },
+];
+
+// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow dan simpan objeknya di variabel win
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+    });
+
+    // buka file index.html
+    win.loadFile("index.html");
+
+    // buat tray dengan icon tray-icon.ico yang sudah disediakan
+    tray = new Tray("./tray-icon.ico");
+
+    // build context menu
+    const contextMenu = Menu.buildFromTemplate(contextMenuTemplate);
+
+    // buat tooltip dari tray dengan teks "Tray Example"
+    tray.setToolTip("Tray Example");
+
+    // assign context menu tadi ke Tray
+    tray.setContextMenu(contextMenu);
+});
+</code></pre><p>Selanjutnya, buat file "index.html" dan isi dengan kode ini:</p><pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Tray Example&lt;/title&gt;
+
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Perhatikan pojok kanan bawah dari layar monitor Anda.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray belum terlihat, klik tanda panah ke atasnya.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray sudah terlihat, klik kanan pada icon-nya, di sana akan muncul context menu.&lt;/h1&gt;
+  &lt;script&gt;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><p>Langkah selanjutnya adalah, siapkan sebuah file icon berformat .ico, letakkan di dalam folder project ini, kemudian rename menjadi "tray-icon.ico".</p><p>Terakhir, coba jalankan Electron dengan:</p><pre>npm run dev</pre><p>Nanti akan muncul BrowserWindow berisi panduan dan jika Anda perhatikan di pojok kanan bawah layar akan muncul tanda panah ke atas.</p><p>Klik tanda panah tersebut dan nanti akan muncul icon Anda tadi.</p><p>Jika Anda klik kanan pada icon tersebut maka context menu akan muncul.</p><p>Dari situ Anda bisa mengklik menu item-nya.</p><h2>Pembahasan</h2><p>Sekarang, saya akan membahas yang paling mudah dulu, yaitu "index.html":</p><pre class="language-html line-numbers"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Tray Example&lt;/title&gt;
+
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Perhatikan pojok kanan bawah dari layar monitor Anda.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray belum terlihat, klik tanda panah ke atasnya.&lt;/h1&gt;
+  &lt;h1&gt;Jika icon tray sudah terlihat, klik kanan pada icon-nya, di sana akan muncul context menu.&lt;/h1&gt;
+  &lt;script&gt;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><p>Kode di atas hanya memberi panduan pada Anda untuk menyaksikan tray yang sedang beraksi.</p><p>Sekarang, yang lebih rumit, "index.js".</p><p>Pada bagian ini:</p><pre class="language-javascript line-numbers"><code>// begin: import modules
+const { app, Menu, Tray, BrowserWindow } = require("electron");
+const { shell } = require("electron");
+// end: import modules</code></pre><p>Kita meng-import modul yang dibutuhkan untuk menampilkan tray dan panduannya.</p><p>Perhatikan di sana ada modul "Menu" dan "Tray" serta "BrowserWindow" dan "app".</p><p>Juga ada "shell" yang nantinya akan digunakan dalam context menu.</p><p>Kedua variabel ini untuk menyimpan objek BrowserWindow dan Tray:</p><pre class="language-javascript line-numbers"><code>// variabel untuk menyimpan objek BrowserWindow
+let win;
+
+// variabel untuk menyimpan objek Tray
+let tray;</code></pre><p>Kode di bawah ini adalah definisi dari struktur context menu:</p><pre class="language-javascript line-numbers"><code>// definisi context menu
+const contextMenuTemplate = [
+    {
+        label: "Open Google",
+        click() {
+            shell.openExternal("https://www.google.com");
+        },
+    },
+    {
+        label: "Open GitHub",
+        click() {
+            shell.openExternal("https://github.com");
+        },
+    },
+];</code></pre><p>Perhatikan juga bahwa kita menggunakan shell.openExternal di setiap respon dari context menu item-nya.</p><p>Jika Anda ingin mempelajari shell lebih lanjut, silakan baca <a href="https://os.rakifsul.my.id/cara-sign-out-sambil-disconnect-wifi-di-windows-11.html">tutorial ini</a>.</p><p>Selanjutnya, saat app ready, buat BrowserWindow dengan lebar 800 pixel dan tinggi 600 pixel:</p><pre class="language-javascript line-numbers"><code>// saat app ready
+app.on("ready", async () =&gt; {
+    // buat BrowserWindow dan simpan objeknya di variabel win
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+    });</code></pre><p>Selanjutnya, masukan panduan ke dalam BrowserWindow tersebut:</p><pre class="language-javascript line-numbers"><code>    // buka file index.html
+    win.loadFile("index.html");</code></pre><p>Selanjutnya, buat Tray:</p><pre class="language-javascript line-numbers"><code>    // buat tray dengan icon tray-icon.ico yang sudah disediakan
+    tray = new Tray("./tray-icon.ico");
+
+    // build context menu
+    const contextMenu = Menu.buildFromTemplate(contextMenuTemplate);
+
+    // buat tooltip dari tray dengan teks "Tray Example"
+    tray.setToolTip("Tray Example");
+
+    // assign context menu tadi ke Tray
+    tray.setContextMenu(contextMenu);</code></pre><p>Kode di atas adalah urutan yang mungkin bisa Anda terapkan setiap kali Anda membuat Tray karena elemen-elemen Tray di kode tersebut sudah cukup lengkap.</p><h2>Penutup</h2><p>Sekarang, seharusnya Anda sudah paham tentang Tray di framework Electron.</p><p>Saran saya, kembangkan lagi pengetahuan ini dengan eksperimen Anda sendiri.</p></div><aside class="post__aside"><div class="post__last-updated u-small">This article was updated on December 27, 2023</div><div class="post__share"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fos.rakifsul.my.id%2Fbelajar-electron-mengenal-tray.html" class="js-share facebook" title="Share with Facebook" rel="nofollow noopener noreferrer" aria-label="Share with Facebook"><svg class="u-icon"><use xlink:href="https://os.rakifsul.my.id/assets/svg/svg-map.svg#facebook"/></svg> </a><a href="https://twitter.com/share?url=https%3A%2F%2Fos.rakifsul.my.id%2Fbelajar-electron-mengenal-tray.html&amp;via=RAKIFSUL%20OS&amp;text=Belajar%20Electron%20-%20Mengenal%20Tray" class="js-share twitter" title="Share with Twitter" rel="nofollow noopener noreferrer" aria-label="Share with Twitter"><svg class="u-icon"><use xlink:href="https://os.rakifsul.my.id/assets/svg/svg-map.svg#twitter"/></svg> </a><a href="https://wa.me/?text=Belajar%20Electron%20-%20Mengenal%20Tray https%3A%2F%2Fos.rakifsul.my.id%2Fbelajar-electron-mengenal-tray.html" class="js-share whatsapp" rel="nofollow noopener noreferrer" title="Share with WhatsApp" aria-label="Share with WhatsApp"><svg class="u-icon"><use xlink:href="https://os.rakifsul.my.id/assets/svg/svg-map.svg#whatsapp"/></svg></a></div></aside><footer class="post__footer"><div class="post__bio box"><img class="u-author__avatar" src="https://os.rakifsul.my.id/media/website/kopi-done.png" loading="lazy" alt="RAKIFSUL" height="512" width="512"><div><h4 class="h6"><a href="https://os.rakifsul.my.id/authors/rakifsul/" title="RAKIFSUL">RAKIFSUL</a></h4></div></div><nav class="post__nav box"><div class="post__nav__prev"><a href="https://os.rakifsul.my.id/belajar-electron-pembahasan-menu-dan-shell.html" class="post__nav__link" rel="prev"><div class="u-small">Previous Post<h5>Belajar Electron - Pembahasan Menu dan Shell</h5></div></a></div><div class="post__nav__next"><a href="https://os.rakifsul.my.id/belajar-electron-pembahasan-tentang-webview-tag.html" class="post__nav__link" rel="next"><div class="u-small">Next Post<h5>Belajar Electron - Pembahasan tentang webview Tag</h5></div></a></div></nav></footer></article></main><div class="sidebar"><section class="box"><h3 class="box__title">Follow us</h3><div class="follow"><a href="https://www.youtube.com/@rakifsul" class="youtube" aria-label="Youtube"><svg class="u-icon"><use xlink:href="https://os.rakifsul.my.id/assets/svg/svg-map.svg#youtube"/></svg> Youtube</a></div></section><section class="box authors"><h3 class="box__title">Authors</h3><ul class="authors__cotainer"><li class="authors__item"><a href="https://os.rakifsul.my.id/authors/rakifsul/" class="authors__image-link"><img src="https://os.rakifsul.my.id/media/website/kopi-done.png" loading="lazy" alt="RAKIFSUL" height="512" width="512"></a><div><a href="https://os.rakifsul.my.id/authors/rakifsul/" class="authors__title">RAKIFSUL</a> <span class="u-small">Post: 43</span></div></li></ul></section><section class="box"><h3 class="box__title">Tags</h3><ul class="tags"><li><a href="https://os.rakifsul.my.id/tags/belajar-android/">Belajar Android</a> <span class="u-small">(3)</span></li><li><a href="https://os.rakifsul.my.id/tags/belajar-build/">Belajar Build</a> <span class="u-small">(3)</span></li><li><a href="https://os.rakifsul.my.id/tags/belajar-coding-electron/">Belajar Coding Electron</a> <span class="u-small">(12)</span></li><li><a href="https://os.rakifsul.my.id/tags/belajar-linux/">Belajar Linux</a> <span class="u-small">(8)</span></li><li><a href="https://os.rakifsul.my.id/tags/belajar-web/">Belajar Web</a> <span class="u-small">(6)</span></li><li><a href="https://os.rakifsul.my.id/tags/belajar-windows/">Belajar Windows</a> <span class="u-small">(7)</span></li><li><a href="https://os.rakifsul.my.id/tags/blog/">Blog</a> <span class="u-small">(36)</span></li><li><a href="https://os.rakifsul.my.id/tags/premium/">Premium</a> <span class="u-small">(7)</span></li></ul></section></div><footer class="footer"><a class="footer__logo" href="https://os.rakifsul.my.id/">RAKIFSUL OS</a><nav><ul class="footer__nav"><li class="footer__nav-item"><a href="https://www.rakifsul.my.id" target="_self" rel="nofollow">Utama</a></li><li class="footer__nav-item"><a href="https://www.histats.com/viewstats/?act&#x3D;2&amp;sid&#x3D;4832053" target="_blank" rel="nofollow">Analytics</a></li></ul></nav><div class="footer__copyright"><p>Powered by Publii</p></div></footer></div><script>window.publiiThemeMenuConfig = {    
+        mobileMenuMode: 'sidebar',
+        animationSpeed: 300,
+        submenuWidth: 'auto',
+        doubleClickTime: 500,
+        mobileMenuExpandableSubmenus: true, 
+        relatedContainerForOverlayMenuSelector: '.navbar',
+   };</script><script defer="defer" src="https://os.rakifsul.my.id/assets/js/scripts.min.js?v=ef33954c8f912e6c18ee116825aadc90"></script><script>var images = document.querySelectorAll('img[loading]');
+
+      for (var i = 0; i < images.length; i++) {
+         if (images[i].complete) {
+               images[i].classList.add('is-loaded');
+         } else {
+               images[i].addEventListener('load', function () {
+                  this.classList.add('is-loaded');
+               }, false);
+         }
+      }</script><script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4832053,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script><noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4832053&101" alt="unique visitors counter" border="0"></a></noscript><script defer="defer" src="https://os.rakifsul.my.id/media/plugins/syntaxHighlighter/prism.js"></script><script defer="defer" src="https://os.rakifsul.my.id/media/plugins/syntaxHighlighter/prism-line-numbers.min.js"></script><script defer="defer" src="https://os.rakifsul.my.id/media/plugins/syntaxHighlighter/clipboard.min.js"></script><script defer="defer" src="https://os.rakifsul.my.id/media/plugins/syntaxHighlighter/prism-copy-to-clipboard.min.js"></script></body></html>
